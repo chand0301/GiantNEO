@@ -1,4 +1,4 @@
-# GAINT_TI_instaspin
+# GAINT_TI_instaspin GETTING START!
 A modified instaspin project for indoor smart bike trainer.
 
 
@@ -11,11 +11,11 @@ https://hackmd.io/Ez8wGv0RTmCtK8G1QkHDAw
 ## 智能訓練台
 :dart: GARMIN訓練台
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qmBaQdZJ56g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Watch the video](https://img.youtube.com/vi/watch?v=qmBaQdZJ56g/maxresdefault.jpg)](https://www.youtube.com/watch?v=qmBaQdZJ56g)
 
 :dart: CYCLPLUS訓練台
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WzjZdxJNWx8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/T-D1KVIuvjA)
 
 ## Motor drive/control
 

@@ -10,7 +10,10 @@ https://hackmd.io/Ez8wGv0RTmCtK8G1QkHDAw
 
 ## 智能訓練台
 :dart: GARMIN訓練台 :dart: CYCLPLUS訓練台
-[![image](https://user-images.githubusercontent.com/30099017/219264768-52521575-7365-4b58-af8c-bb9f213b6199.png =50%x)](https://www.youtube.com/watch?v=qmBaQdZJ56g)[![image](https://user-images.githubusercontent.com/30099017/219264962-c13a0ed1-9a14-4c6f-b794-b37195171536.png =50%x)](https://www.youtube.com/watch?v=WzjZdxJNWx8)
+
+[![image](https://user-images.githubusercontent.com/30099017/219264768-52521575-7365-4b58-af8c-bb9f213b6199.png =50%x)](https://www.youtube.com/watch?v=qmBaQdZJ56g)
+
+[![image](https://user-images.githubusercontent.com/30099017/219264962-c13a0ed1-9a14-4c6f-b794-b37195171536.png =50%x)](https://www.youtube.com/watch?v=WzjZdxJNWx8)
 
 ## Motor drive/control
 

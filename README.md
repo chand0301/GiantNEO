@@ -3,25 +3,29 @@
 
 A modified instaspin project for indoor smart bike trainer.
 
-checkout the TI motorware 
+:dart:checkout the TI motorware 
 https://www.ti.com/tool/MOTORWARE
-The GIANT application guide
+
+:dart:The GIANT application guide
 https://hackmd.io/Ez8wGv0RTmCtK8G1QkHDAw
 
 ## 智能訓練台
-:dart: GARMIN訓練台 :dart: CYCLPLUS訓練台
+:dart: GARMIN訓練台 
+![image](https://user-images.githubusercontent.com/30099017/219287973-60b6d82a-7daf-403f-9a7c-79b03d0f9bd1.png)
+:dart: CYCLPLUS訓練台
+![image](https://user-images.githubusercontent.com/30099017/219287991-83730310-1db1-4fb7-9d81-ce48732f6eb1.png)
 
-[![image](https://user-images.githubusercontent.com/30099017/219264768-52521575-7365-4b58-af8c-bb9f213b6199.png =50%x)](https://www.youtube.com/watch?v=qmBaQdZJ56g)
-
-[![image](https://user-images.githubusercontent.com/30099017/219264962-c13a0ed1-9a14-4c6f-b794-b37195171536.png =50%x)](https://www.youtube.com/watch?v=WzjZdxJNWx8)
 
 ## Motor drive/control
 
-Drive board DRV8300DRGE-EVM
-Control board LAUNCHXL-F28069M
-Extra board The 7th switch to control the energy flow.
+* Drive board DRV8300DRGE-EVM
+* Control board LAUNCHXL-F28069M
+* Extra board The 7th switch to control the energy flow.
+![image](https://user-images.githubusercontent.com/30099017/219288029-c035ebc6-3dff-4d8d-b0a2-345f4327a11b.png)
+![image](https://user-images.githubusercontent.com/30099017/219288043-a1ce35f7-855f-4f04-a56c-13ac7297104a.png)
+![image](https://user-images.githubusercontent.com/30099017/219288062-cadade4f-91ee-4911-9bcd-47e9c5f845ad.png)
 
-[![image](https://user-images.githubusercontent.com/30099017/219265046-0ea621f8-4884-48d4-b172-8b7cf959adfe.png =30%x)](https://www.ti.com/tool/DRV8300DRGE-EVM)[![image](https://i.imgur.com/ljvcOhr.png =30%x)](https://www.ti.com/tool/LAUNCHXL-F28069M?utm_source=google&utm_medium=cpc&utm_campaign=epd-c2x-null-prodfolderdynamic-cpc-pf-google-tw_int&utm_content=prodfolddynamic&ds_k=DYNAMIC+SEARCH+ADS&DCM=yes&gclid=Cj0KCQiAorKfBhC0ARIsAHDzsltP5U8pk7zFmkAq8NvSezvETKny7nJv-V8M8QxeurywL-TJLHM1CLYaAiK2EALw_wcB&gclsrc=aw.ds)![](https://i.imgur.com/3pGWcrz.jpg =30%x)
+
 
 ## sensorless motor deive
 
@@ -34,7 +38,8 @@ Extra board The 7th switch to control the energy flow.
 
 ## impedance/Admittance control
 
-[![image](https://user-images.githubusercontent.com/30099017/219265302-f4ee7bec-16c0-41d1-a405-43fc34320942.png)](https://www.youtube.com/watch?v=KJ8s1BUHoks)
+![image](https://user-images.githubusercontent.com/30099017/219288293-35ed0948-1ed2-4ba3-b10d-2e4f6a9cb8cb.png))
+
 
 
 
@@ -58,8 +63,8 @@ Extra board The 7th switch to control the energy flow.
 ## SPEED CONTROL
 
 ## ADVANCED
-LAB 9 field weakening(弱磁控制)
-LAB 10-a over-modulation
-LAB 10-b Flying start
-LAB 10-d dual motor control 
+1. LAB 9 field weakening(弱磁控制)
+2. LAB 10-a over-modulation
+3. LAB 10-b Flying start
+4. LAB 10-d dual motor control 
 ## TO DO ...

@@ -3,13 +3,17 @@
 A modified instaspin project for indoor smart bike trainer.
 
 **FIRST**
+
 :dart:checkout the TI motorware 
+
 https://www.ti.com/tool/MOTORWARE
 
 :dart:The GIANT application guide
+
 https://hackmd.io/Ez8wGv0RTmCtK8G1QkHDAw
 
 :pushpin: 我的開發環境
+
 * 開發板 TI F28069M
 附帶st-link v2電路 使用SWD介面對stm32燒錄
 

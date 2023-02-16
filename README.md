@@ -11,19 +11,27 @@ https://hackmd.io/Ez8wGv0RTmCtK8G1QkHDAw
 ## 智能訓練台
 :dart: GARMIN訓練台
 
-[![Watch the video](https://img.youtube.com/vi/watch?v=qmBaQdZJ56g/maxresdefault.jpg)](https://www.youtube.com/watch?v=qmBaQdZJ56g)
+[![image](https://user-images.githubusercontent.com/30099017/219264768-52521575-7365-4b58-af8c-bb9f213b6199.png)](https://www.youtube.com/watch?v=qmBaQdZJ56g)
 
 :dart: CYCLPLUS訓練台
 
-[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/T-D1KVIuvjA)
+[![image](https://user-images.githubusercontent.com/30099017/219264962-c13a0ed1-9a14-4c6f-b794-b37195171536.png)](https://www.youtube.com/watch?v=WzjZdxJNWx8)
+
 
 ## Motor drive/control
+[![image](https://user-images.githubusercontent.com/30099017/219265046-0ea621f8-4884-48d4-b172-8b7cf959adfe.png)](https://www.ti.com/tool/DRV8300DRGE-EVM)
+
+
 
 ## sensorless motor deive
 
 
 
 ## impedance/Admittance control
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KJ8s1BUHoks" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+[![image](https://user-images.githubusercontent.com/30099017/219265302-f4ee7bec-16c0-41d1-a405-43fc34320942.png)](https://www.youtube.com/watch?v=KJ8s1BUHoks)
+
 
 ## Luenberger torque observer
+
+

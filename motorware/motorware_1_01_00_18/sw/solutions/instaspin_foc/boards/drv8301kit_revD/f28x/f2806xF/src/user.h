@@ -88,8 +88,9 @@ extern "C" {
 //#define overmodulation
 //!!!!Please Remain open to protect dc bus from motor BEMF.!!!!
 #define DCBUS_REGULATE
-#define UART
-#define ADCINT1_HIGHEST_PRTORITY
+/*only for LAB11 and LAB21, remain comment when doing ohther labs*/
+//#define UART
+//#define ADCINT1_HIGHEST_PRTORITY
 
 
 /*motor*/

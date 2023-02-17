@@ -69,12 +69,10 @@
 // **************************************************************************
 // the globals
 /*define by Tom*/
-int count = 0;
 _iq xPotentiometer = _IQ(0.0);
 _iq yPotentiometer = _IQ(0.0);
 _iq torque_head = _IQ(0.0);
 _iq pre_torque_head = _IQ(0.0);
-//_iq torque_head_comm = _IQ(0.0);
 _iq refspeed = _IQ(0.0);
 _iq VDCSET = _IQ(0.048);
 _iq Iq_Amp = _IQ(0.0);

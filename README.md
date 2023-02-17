@@ -149,7 +149,7 @@ id電流命令可進行flux weaking控制
     LAB 10-d dual motor control
     
     
-## Something Special for this project
+## Something Special for this project IN LAB21!
 
 **1. impedance/Admittance control**
 

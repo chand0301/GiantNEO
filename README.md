@@ -1,4 +1,4 @@
-# GETTING START GAINT_TI_instaspin
+# GETTING START WITH GAINT_TI_instaspin
 
 A modified instaspin project for indoor smart bike trainer.
 
@@ -15,9 +15,10 @@ https://hackmd.io/Ez8wGv0RTmCtK8G1QkHDAw
 :pushpin: 我的開發環境
 
 * 開發板 TI F28069M
-附帶st-link v2電路 使用SWD介面對stm32燒錄
+附帶XDS100 v2電路 使用JTAG介面對TI F28069M燒錄
+![](https://i.imgur.com/4cxDn9s.png)
 
-* 開發環境 Windows + [CCCSTUDIO](https://www.ti.com/tool/CCSTUDIO?keyMatch=&tisearch=search-everything&usecase=software)
+* 開發環境 Windows + CCSTUDIO + git bash
 
 * Compiler TI C2000
 
@@ -25,13 +26,26 @@ https://hackmd.io/Ez8wGv0RTmCtK8G1QkHDAw
 
 **A QUICK START**
 
-1. 下載並安裝 TI CCSSTUDIO
+1. 下載並安裝 TI [CCSTUDIO](https://www.ti.com/tool/CCSTUDIO?keyMatch=&tisearch=search-everything&usecase=software) and [GIT for windows](https://gitforwindows.org/)
 
-2. Select the “ccs” folder at the appropriate MotorWare revision, board and MCU target combination to import all projects for these labs.: Ex: C:\ti\motorware\motorware_1_01_00_18\sw\solutions\instaspin_foc\boards\drv8301kit_revD\f28x\f2806xF\projects\ccs
+2. 打開git bash
+
+![](https://i.imgur.com/5cG1NO9.png)
+
+```
+mkdir GIANT #想存放的目錄
+cd GIANT
+git clone git@github.com:TomT0329/GAINT_TI_instaspin.git
+cd GAINT_TI_instaspin/
+```
+
+
+3. 打開Code Composer Studio->project->import CCS projects 
+Select the “ccs” folder at the appropriate MotorWare revision, board and MCU target combination to import all projects for these labs.: Ex: C:\ti\motorware\motorware_1_01_00_18\sw\solutions\instaspin_foc\boards\drv8301kit_revD\f28x\f2806xF\projects\ccs
 **Do NOT select Copy the projects into the workspace work out of the parent ti\motorware\motorware_#_##_##_## directory**
 ![](https://i.imgur.com/K4H6hMP.png)
 
-3. Make sure all the signals a functional
+4. Make sure all the signals a functional
     * SVPWM 6pins
     * ADC include current volatge total 6pins
     * two Potentialmeter check DC source and two signals pins
@@ -40,20 +54,37 @@ https://hackmd.io/Ez8wGv0RTmCtK8G1QkHDAw
     * Energy resistor
     * DCBUS(48V)
     * UART tx rx 2 pins
-4. Check the defines in the use.h
+    * The USB port to your computer
+5. Navigate to proj_lab21.c and user.h and Check the defines in the use.h
 
-![](https://i.imgur.com/4q4n7Cu.png)
+it should be look like this at first.
 
-5. Build and debug the program under CCS
+![](https://i.imgur.com/DTbsHsh.png)
 
-6. Open Scripting console and load proj_lab21.js
+6. Build, debug and reset the program under CCS
+
+7. Open Scripting console and load proj_lab21.js
 
 ![](https://i.imgur.com/M9kzaAA.png)
 
-7. Set gMotorVars.Flag_enableSys = 1 gMotorVars.Flag_Run_Identify =1
+8. Set gMotorVars.Flag_enableSys = 1 gMotorVars.Flag_Run_Identify =1
 
-8. U r ready to go.
+9. U r ready to go. you can also use scope to check dcbus voltage, motor phase current and the 7th switch control signal.
 
+![](https://i.imgur.com/9AQQhAP.png)
+
+
+10. Any update of the projects, EX: new comment message, new function ...etc. `git commit -a` in the git bash and write your commit. :pushpin: [How to write the commits](https://cbea.ms/git-commit/)
+
+![](https://i.imgur.com/aQv1UTT.png)![](https://i.imgur.com/eVHdPYw.png)
+
+11. `git push` push ur code to the github.
+
+![](https://i.imgur.com/sx1Romz.png)
+
+U can `git log` to check the commit message
+
+![](https://i.imgur.com/S0FGeB6.png)
 
 ## 智能訓練台
 
@@ -89,7 +120,8 @@ LAB 5C Physic parameter ID can ID Inertia(J) and Friction(B)
 
 **3. Inverter Verifercation**
 LAB 1a CPU and INVERTER setup
-
+LAB 1b Open loop control for hardware integrity verification
+LAB 1C Closed current loop for signal chain verification
 **4. Auto ADC offset calibration**
 LAB3 ADC offset calibration
 It is important to calibrate the ADC offset of current and voltage sensors.
@@ -108,20 +140,20 @@ id電流命令可進行flux weaking控制
 
 **8. Advance feature**
 
-    * LAB 9 field weakening(弱磁控制)
+    LAB 9 field weakening(弱磁控制)
     
-    * LAB 10-a over-modulation
+    LAB 10-a over-modulation
     
-    * LAB 10-b Flying start
+    LAB 10-b Flying start
     
-    * LAB 10-d dual motor control
+    LAB 10-d dual motor control
     
     
-## Something Special for this project
+## Something Special for this project IN LAB21!
 
 **1. impedance/Admittance control**
 
-![image](https://user-images.githubusercontent.com/30099017/219288293-35ed0948-1ed2-4ba3-b10d-2e4f6a9cb8cb.png)
+[![image](https://user-images.githubusercontent.com/30099017/219288293-35ed0948-1ed2-4ba3-b10d-2e4f6a9cb8cb.png)](https://www.youtube.com/watch?v=KJ8s1BUHoks)
 
 實現訓練台核心演算法，IMPEDANCE CONTROL。
 

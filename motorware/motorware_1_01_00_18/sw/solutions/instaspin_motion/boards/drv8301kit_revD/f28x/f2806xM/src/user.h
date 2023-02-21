@@ -40,7 +40,7 @@
 
 // **************************************************************************
 // the includes
-
+#define drv8301kit_revD
 // modules
 #include "sw/modules/types/src/types.h"
 #include "sw/modules/motor/src/32b/motor.h"
@@ -76,7 +76,7 @@ extern "C" {
 //! \brief All frequencies are converted into (pu) based on the ratio to this value
 //! \brief this value MUST be larger than the maximum speed that you are expecting from the motor 
 #ifndef QEP
-#define USER_IQ_FULL_SCALE_FREQ_Hz        (800.0)   // 800 Example with buffer for 8-pole 6 KRPM motor to be run to 10 KRPM with field weakening; Hz =(RPM * Poles) / 120
+#define USER_IQ_FULL_SCALE_FREQ_Hz        (100.0)   // 800 Example with buffer for 8-pole 6 KRPM motor to be run to 10 KRPM with field weakening; Hz =(RPM * Poles) / 120
 #else
 #define USER_IQ_FULL_SCALE_FREQ_Hz        (USER_MOTOR_NUM_POLE_PAIRS/0.008)   // (4/0.008) = 500 Example with buffer for 8-pole 6 KRPM motor to be run to 6 KRPM; Hz = (RPM * Poles) / 120
 #endif
@@ -89,7 +89,7 @@ extern "C" {
 //! \brief WARNING: if you know the value of your Bemf constant, and you know you are operating at a multiple speed due to field weakening, be sure to set this value higher than the expected Bemf voltage
 //! \brief It is recommended to start with a value ~3x greater than the USER_ADC_FULL_SCALE_VOLTAGE_V and increase to 4-5x if scenarios where a Bemf calculation may exceed these limits
 //! \brief This value is also used to calculate the minimum flux value: USER_IQ_FULL_SCALE_VOLTAGE_V/USER_EST_FREQ_Hz/0.7
-#define USER_IQ_FULL_SCALE_VOLTAGE_V      (24.0)   // 24.0 Example for drv8301_revd typical usage and the Anaheim motor
+#define USER_IQ_FULL_SCALE_VOLTAGE_V      (48.0)   // 24.0 Example for drv8301_revd typical usage and the Anaheim motor
 
 //! \brief Defines the maximum voltage at the input to the AD converter
 //! \brief The value that will be represented by the maximum ADC input (3.3V) and conversion (0FFFh)
@@ -299,7 +299,7 @@ extern "C" {
 //! \brief Defines the R/L estimation frequency, Hz
 //! \brief User higher values for low inductance motors and lower values for higher inductance
 //! \brief motors.  The values can range from 100 to 300 Hz.
-#define USER_R_OVER_L_EST_FREQ_Hz (300)               // 300 Default
+#define USER_R_OVER_L_EST_FREQ_Hz (100)               // 300 Default
 
 
 //! \brief POLES
@@ -365,7 +365,7 @@ extern "C" {
 //! \brief Once your ideal settings and parameters are identified update the motor section here so it is available in the binary code
 //#define USER_MOTOR Estun_EMJ_04APB22
 //#define USER_MOTOR Anaheim_BLY172S
-#define USER_MOTOR Teknic_M2310PLN04K
+#define USER_MOTOR TACXNEO
 //#define USER_MOTOR Belt_Drive_Washer_IPM
 //#define USER_MOTOR Marathon_5K33GN2A
 
@@ -406,23 +406,25 @@ extern "C" {
 #define USER_SYSTEM_INERTIA             (0.02)
 #define USER_SYSTEM_FRICTION            (0.01)
 
-#elif (USER_MOTOR == Teknic_M2310PLN04K)
+
+#elif (USER_MOTOR == TACXNEO)
 #define USER_MOTOR_TYPE                 MOTOR_Type_Pm
-#define USER_MOTOR_NUM_POLE_PAIRS       (4)
+#define USER_MOTOR_NUM_POLE_PAIRS       (16)
 #define USER_MOTOR_Rr                   (NULL)
-#define USER_MOTOR_Rs                   (0.3918252)
-#define USER_MOTOR_Ls_d                 (0.00023495)
-#define USER_MOTOR_Ls_q                 (0.00023495)
-#define USER_MOTOR_RATED_FLUX           (0.03955824)
+#define USER_MOTOR_Rs                   (0.0534)//(0.135258242)
+#define USER_MOTOR_Ls_d                 (0.0000512)//(0.000802517345)
+#define USER_MOTOR_Ls_q                 (0.0000512)
+#define USER_MOTOR_RATED_FLUX           (0.237)
 #define USER_MOTOR_MAGNETIZING_CURRENT  (NULL)
-#define USER_MOTOR_RES_EST_CURRENT      (1.0)
-#define USER_MOTOR_IND_EST_CURRENT      (-0.5)
-#define USER_MOTOR_MAX_CURRENT          (7.0)
-#define USER_MOTOR_FLUX_EST_FREQ_Hz     (20.0)
-#define USER_MOTOR_ENCODER_LINES        (1000.0)
-#define USER_MOTOR_MAX_SPEED_KRPM       (4.0)
-#define USER_SYSTEM_INERTIA             (0.02)
-#define USER_SYSTEM_FRICTION            (0.01)
+#define USER_MOTOR_RES_EST_CURRENT      (5.0)
+#define USER_MOTOR_IND_EST_CURRENT      (-5.0)
+#define USER_MOTOR_MAX_CURRENT          (20.0)//40MAX
+#define USER_MOTOR_FLUX_EST_FREQ_Hz     (40.0)
+#define USER_MOTOR_ENCODER_LINES        (1.0)
+#define USER_MOTOR_MAX_SPEED_KRPM       (0.27)
+#define USER_SYSTEM_INERTIA             (3.318309188)
+#define USER_SYSTEM_FRICTION            (5.66986084)
+#define USER_SYSTEM_BANDWIDTH_SCALE     (1.0)
 
 #elif (USER_MOTOR == Belt_Drive_Washer_IPM)
 #define USER_MOTOR_TYPE                 MOTOR_Type_Pm

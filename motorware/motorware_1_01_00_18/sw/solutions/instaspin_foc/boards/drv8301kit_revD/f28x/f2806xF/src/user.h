@@ -74,14 +74,14 @@ extern "C" {
 
 /*If define drv8301. there is No UART No DCBUS_REGULATE,
  * can only do the speed control*/
-//#define drv8301kit_revD
-#define DRV8300DIPW_EVM
+#define drv8301kit_revD
+//#define DRV8300DIPW_EVM
 
 /*control mode*/
 
 /* !!choose one of them!!*/
-//#define SPEEDLOOP //Project original speed control mode
-#define CURRENTLOOP //Impedance control without referencemodel
+#define SPEEDLOOP //Project original speed control mode
+//#define CURRENTLOOP //Impedance control without referencemodel
 //#define REFERENCEMODEL //Impedance control
 
 /*Extra fun*/
@@ -118,7 +118,7 @@ extern "C" {
 #endif
 
 #ifdef drv8301kit_revD
-#define USER_IQ_FULL_SCALE_FREQ_Hz        (300.0)
+#define USER_IQ_FULL_SCALE_FREQ_Hz        (100.0)
 #define USER_IQ_FULL_SCALE_VOLTAGE_V      (48.0)
 #define USER_ADC_FULL_SCALE_VOLTAGE_V       (66.32)
 #define USER_IQ_FULL_SCALE_CURRENT_A          (41.25)

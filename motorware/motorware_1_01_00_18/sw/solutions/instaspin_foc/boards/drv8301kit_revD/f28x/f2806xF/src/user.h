@@ -74,8 +74,8 @@ extern "C" {
 
 /*If define drv8301. there is No UART No DCBUS_REGULATE,
  * can only do the speed control*/
-#define drv8301kit_revD
-//#define DRV8300DIPW_EVM
+//#define drv8301kit_revD
+#define DRV8300DIPW_EVM
 
 /*control mode*/
 

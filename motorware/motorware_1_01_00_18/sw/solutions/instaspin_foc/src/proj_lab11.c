@@ -426,7 +426,7 @@ void main(void)
 #ifdef CURRENTLOOP
         // The following instructions load the parameters for the torque
         // observer.
-        PID_setGains(pidHandle[3],_IQ(27.5),_IQ(34.8),_IQ(0.0));
+        PID_setGains(pidHandle[3],_IQ(66.3662),_IQ(113.3972),_IQ(0.0));
         PID_setMinMax(pidHandle[3],_IQ(-20.0),_IQ(20.0));
         PID_setUi(pidHandle[3],_IQ(0.0));
 #endif

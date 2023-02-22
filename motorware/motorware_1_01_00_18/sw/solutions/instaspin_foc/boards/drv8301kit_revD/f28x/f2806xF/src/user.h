@@ -80,8 +80,8 @@ extern "C" {
 /*control mode*/
 
 /* !!choose one of them!!*/
-#define SPEEDLOOP //Project original speed control mode
-//#define CURRENTLOOP //Impedance control without referencemodel
+//#define SPEEDLOOP //Project original speed control mode
+#define CURRENTLOOP //Impedance control without referencemodel
 //#define REFERENCEMODEL //Impedance control
 
 /*Extra fun*/

@@ -239,7 +239,7 @@ void main(void)
 
   // The following instructions load the parameters for the torque
   // observer.
-  PID_setGains(pidHandle_Tob,_IQ(113),_IQ(66),_IQ(0.0));
+  PID_setGains(pidHandle_Tob,_IQ(66.3692),_IQ(113.3972),_IQ(0.0));
   PID_setMinMax(pidHandle_Tob,_IQ(-20.0),_IQ(20.0));
   PID_setUi(pidHandle_Tob,_IQ(0.0));
 

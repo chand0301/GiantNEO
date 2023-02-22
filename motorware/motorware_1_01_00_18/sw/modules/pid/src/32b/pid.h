@@ -296,16 +296,17 @@ static inline void PID_run_torque_ob(PID_Handle handle,const _iq refValue_speed,
 
   _iq Error;
   _iq Up,Ui;
-  _iq invKt_a = _IQ(0.9) , invKt_b = _IQ(0.0);                                                        // 1 - Polynomial fitting COFF Y(A) = invKt_a * X (NM) + invKt_b
-  _iq J = _IQ(2.75);                                                                                  // A/kRPM
+  // 1 - Polynomial fitting COFF Y(A) = invKt_a * X (NM) + invKt_b
+  _iq invKt_a = _IQ(1.0) , invKt_b = _IQ(0.0);
+  _iq J = _IQ(3.318309118);// A/kRPM
   /*B (A/kRPM) is not important in the torque observer,
    * it won't be much different if we ignore it. */
-  // _iq B = _IQ(3.48);
+  // _iq B = _IQ(5.66986084);
   _iq Acc;
   _iq speed_fback;
   _iq Torque_sum;
-
-  if(_IQabs(refValue_speed) < _IQ(0.035) )  //Therhold 35 RPM ~= 3km/hr
+  //Therhold 35 RPM ~= 3km/hr
+  if(_IQabs(refValue_speed) < _IQ(0.035) )
   {
       Ui = _IQ(0.0);
       Acc = _IQ(0.0);
@@ -323,7 +324,7 @@ static inline void PID_run_torque_ob(PID_Handle handle,const _iq refValue_speed,
       speed_fback = obj->fbackValue;                                                                        // load the previous integral output
       Ui = obj->Ui;                                                                                         // load the previous integral output
 
-      speed_fback = speed_fback + _IQmpy(Acc , _IQ(0.0001));                                                  //Acc * 0.1 || Acc * 0.01 || Acc * 0.001
+      speed_fback = speed_fback + _IQmpy(Acc , _IQ(0.0001));
       Error = refValue_speed - speed_fback;
 
       Up = _IQmpy(obj->Kp,Error);                                                                           // Compute the proportional output

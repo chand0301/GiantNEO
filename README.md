@@ -140,7 +140,7 @@ LAB 05d e f  SpinTAC Speed Controller
 ## Something Special for this project IN LAB21!
 
 **1. impedance/Admittance control**
-實現訓練台核心演算法[IMPEDANCE CONTROL](https://www.youtube.com/watch?v=KJ8s1BUHoks)。:dart: [阻抗控制簡介]([/uuxLZHLURaqnxXp2EU0oYg](https://hackmd.io/uuxLZHLURaqnxXp2EU0oYg))
+實現訓練台核心演算法[IMPEDANCE CONTROL](https://www.youtube.com/watch?v=KJ8s1BUHoks)。:dart: [阻抗控制簡介](https://hackmd.io/uuxLZHLURaqnxXp2EU0oYg)
 
 **2. Customized USER.H**
 對原本的user.h進行修正，可方便使用者任意更換驅動版與馬達。

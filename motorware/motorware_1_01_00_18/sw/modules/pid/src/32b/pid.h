@@ -296,12 +296,11 @@ static inline void PID_run_torque_ob(PID_Handle handle,const _iq refValue_speed,
 
   _iq Error;
   _iq Up,Ui;
-  // 1 - Polynomial fitting COFF Y(A) = invKt_a * X (NM) + invKt_b
-  _iq invKt_a = _IQ(1.0) , invKt_b = _IQ(0.0);
+  _iq invKt_a = _IQ(1.0);
   _iq J = _IQ(3.318309118);// A/kRPM
   /*B (A/kRPM) is not important in the torque observer,
    * it won't be much different if we ignore it. */
-  // _iq B = _IQ(5.66986084);
+   //_iq B = _IQ(5.66986084);
   _iq Acc;
   _iq speed_fback;
   _iq Torque_sum;
@@ -328,8 +327,8 @@ static inline void PID_run_torque_ob(PID_Handle handle,const _iq refValue_speed,
 
       Up = _IQmpy( _IQmpy(obj->Kp,Error), _IQ(1.0));                                                                           // Compute the proportional output
       Ui = _IQsat( Ui + _IQmpy( _IQmpy(obj->Ki,Error), _IQ(1.0)) , obj->outMax, obj->outMin );                                 // Compute the integral output
-      *pOutValue = _IQsat(_IQmpy( (Up + Ui) , invKt_a ) + invKt_b , obj->outMax, obj->outMin );             // Saturate the PID output
-      Torque_sum = (Up + Ui) - _IQmpy(_IQ(0.0),speed_fback) + _IQdiv( (fback_Iq - invKt_b) , invKt_a);
+      *pOutValue = _IQsat(_IQmpy( (Up + Ui) , invKt_a ), obj->outMax, obj->outMin );             // Saturate the PID output
+      Torque_sum = (Up + Ui) - _IQmpy( _IQ(0.0),speed_fback) + _IQdiv( fback_Iq , invKt_a);
       Acc = _IQdiv( Torque_sum , J );
 
       obj->Ui = Ui;                                                                                         // store the intetral output

@@ -98,7 +98,12 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
     ![image](https://user-images.githubusercontent.com/30099017/219288062-cadade4f-91ee-4911-9bcd-47e9c5f845ad.png)
 
 * DRIVE BOARD FROM EMTRC
-待續
+
+待續 預計規格
+1. 發電機模式 DCBUS 80V
+2. 功率電阻5歐姆
+3. 最大功率1.28kW
+4. DC 16A
 
 ## TI InstaSPIN-FOC base feature
 **1. Sensorless motor drive**

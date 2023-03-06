@@ -1386,18 +1386,29 @@ static inline bool VdcBus_regualte(HAL_Handle halHandle,_iq VDCset,_iq VdcBus_kV
 
 }// end of VdcBus_regualte() function
 
-//! \brief Reads the Potentiometer
+//! \brief Reads the Potentiometerx
 //! \param[in] handle The hardware abstraction layer (HAL) handle
 //! \return The potentiometer value from _IQ(0.0) to _IQ(1.0)
-static inline _iq HAL_readPotentiometerData(HAL_Handle handle)
+static inline _iq HAL_readPotentiometerDatax(HAL_Handle handle)
 {
 HAL_Obj *obj = (HAL_Obj *)handle;
 _iq value;
 // convert potentiometer from IQ12 to IQ24.
 value = _IQ12toIQ((_iq)ADC_readResult(obj->adcHandle,ADC_ResultNumber_9));
 return(value);
-} // end of HAL_readPotentiometerData() function
+} // end of HAL_readPotentiometerDatax() function
 
+//! \brief Reads the Potentiometerf
+//! \param[in] handle The hardware abstraction layer (HAL) handle
+//! \return The potentiometer value from _IQ(0.0) to _IQ(1.0)
+static inline _iq HAL_readPotentiometerDataf(HAL_Handle handle)
+{
+HAL_Obj *obj = (HAL_Obj *)handle;
+_iq value;
+// convert potentiometer from IQ12 to IQ24.
+value = _IQ12toIQ((_iq)ADC_readResult(obj->adcHandle,ADC_ResultNumber_8));
+return(value);
+} // end of HAL_readPotentiometerDataf() function
 
 #ifdef QEP
 //! \brief     Returns the current position count from QEP

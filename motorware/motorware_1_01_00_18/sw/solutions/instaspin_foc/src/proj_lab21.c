@@ -71,6 +71,8 @@
 /*define by Tom*/
 _iq xPotentiometer = _IQ(0.0);
 _iq yPotentiometer = _IQ(0.0);
+_iq fPotentiometer = _IQ(0.0);
+_iq gPotentiometer = _IQ(0.0);
 _iq torque_head = _IQ(0.0);
 _iq pre_torque_head = _IQ(0.0);
 _iq refspeed = _IQ(0.0);
@@ -82,8 +84,6 @@ uint16_t dataTx_speed=0,dataTx_torque=0,dataTx_current=0,dataRx=999;
 _iq pu_to_khz_sf = _IQ(USER_IQ_FULL_SCALE_FREQ_Hz/1000.0);
 _iq khz_to_krpm_sf = _IQ(60.0/USER_MOTOR_NUM_POLE_PAIRS);
 
-ST_Obj st_obj;
-ST_Handle stHandle;
 
 PID_Obj         pid_Tob;
 
@@ -689,9 +689,10 @@ void main(void)
       }
 #endif
 
-      //Get the yPotentiometer from IQ(-0.95) to IQ(-1.0) at ADCINB6
-      xPotentiometer = HAL_readPotentiometerData(halHandle);
-      yPotentiometer = _IQmpy(xPotentiometer,_IQ(-0.05)) - _IQ(0.95);
+      //Get the yPotentiometer from IQ(0.0) to IQ(1.0) at ADCINB6
+      xPotentiometer = HAL_readPotentiometerDatax(halHandle);
+      fPotentiometer = HAL_readPotentiometerDataf(halHandle);
+
 
       // calculate the throttle position and output as a torque command
       {
@@ -924,6 +925,10 @@ interrupt void mainISR(void)
 
       PID_run_torque_ob(pidHandle_Tob,Speed_kRPM,Iq_Amp,
                                     &(torque_head));
+
+      //from IQ(-0.95) to IQ(-1.0) at ADCINB6
+      yPotentiometer = _IQmpy(xPotentiometer,_IQ(-0.05)) - _IQ(0.95);
+
       ctrlHandle->torque_head_comm = _IQmpy( torque_head, yPotentiometer) + _IQ(0.0);
 #endif
       /*run the torque observer and reference model if REFERENCEMODEL is defined*/
@@ -938,7 +943,13 @@ interrupt void mainISR(void)
       PID_run_torque_ob(pidHandle_Tob,Speed_kRPM,Iq_Amp,
                                     &(torque_head));
 
-      Refmodel(pidHandle_Refmodel,_IQ(33.18309118),_IQ(56.6986084),
+      //yPotentiometer use to control B from IQ(2.0) to IQ(20.0)
+      yPotentiometer = _IQmpy(xPotentiometer,_IQ(18.0)) + _IQ(2.0);
+
+      //gPotentiometer use to control J from IQ(2.0) to IQ(40.0)
+      gPotentiometer = _IQmpy(fPotentiometer,_IQ(38.0)) + _IQ(2.0);
+
+      Refmodel(pidHandle_Refmodel,gPotentiometer,yPotentiometer,
                torque_head,&(refspeed)); //NM -> KRPM
 
       ctrlHandle->speed_ref_pu = _IQmpy(refspeed,gSpeed_krpm_to_pu_sf);

@@ -482,15 +482,14 @@ void HAL_enableAdcInts(HAL_Handle handle)
     // enable the cpu interrupt for ADC interrupts
     CPU_enableInt(obj->cpuHandle, CPU_IntNumber_1);
 #else
-  // enable the PIE interrupts associated with the ADC interrupts
-  PIE_enableAdcInt(obj->pieHandle,ADC_IntNumber_1);
+    // enable the PIE interrupts associated with the ADC interrupts
+    PIE_enableAdcInt(obj->pieHandle, ADC_IntNumber_1);
 
-  // enable the ADC interrupts
-  ADC_enableInt(obj->adcHandle,ADC_IntNumber_1);
+    // enable the ADC interrupts
+    ADC_enableInt(obj->adcHandle, ADC_IntNumber_1);
 
-
-  // enable the cpu interrupt for ADC interrupts
-  CPU_enableInt(obj->cpuHandle,CPU_IntNumber_10);
+    // enable the cpu interrupt for ADC interrupts
+    CPU_enableInt(obj->cpuHandle, CPU_IntNumber_10);
 #endif
     return;
 } // end of HAL_enableAdcInts() function

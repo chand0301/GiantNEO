@@ -37,7 +37,6 @@
 //!
 //! (C) Copyright 2012, Texas Instruments, Inc.
 
-
 // **************************************************************************
 // the includes
 //control PARA
@@ -53,7 +52,6 @@
 #include "sw/modules/est/src/est_Rs_states.h"
 #include "sw/modules/ctrl/src/32b/ctrl_obj.h"
 
-
 // platforms
 #include "sw/modules/fast/src/32b/userParams.h"
 
@@ -62,7 +60,6 @@
 //! \defgroup USER USER
 //!
 //@{
-
 
 #ifdef __cplusplus
 extern "C" {
@@ -91,7 +88,6 @@ extern "C" {
 /*only for LAB11 and LAB21, remain comment when doing ohther labs*/
 //#define UART
 //#define ADCINT1_HIGHEST_PRTORITY
-
 
 /*motor*/
 //#define USER_MOTOR BL90M //
@@ -241,7 +237,6 @@ extern "C" {
 //!
 #define USER_ISR_PERIOD_usec       (USER_PWM_PERIOD_usec * (float_t)USER_NUM_PWM_TICKS_PER_ISR_TICK)
 
-
 //! \brief DECIMATION
 // **************************************************************************
 //! \brief Defines the number of pwm clock ticks per isr clock tick
@@ -294,7 +289,6 @@ extern "C" {
 //! \brief Defines the controller execution period, sec
 //! \brief Compile time calculation
 #define USER_CTRL_PERIOD_sec       ((float_t)USER_CTRL_PERIOD_usec/(float_t)1000000.0)
-
 
 //! \brief LIMITS
 // **************************************************************************
@@ -358,7 +352,6 @@ extern "C" {
 //! \brief motors.  The values can range from 100 to 300 Hz.
 #define USER_R_OVER_L_EST_FREQ_Hz (100)               // 300 Default
 
-
 //! \brief POLES
 // **************************************************************************
 //! \brief Defines the analog voltage filter pole location, Hz
@@ -393,7 +386,6 @@ extern "C" {
 // **************************************************************************
 // end the defines
 
-
 //! \brief USER MOTOR & ID SETTINGS
 // **************************************************************************
 
@@ -409,16 +401,11 @@ extern "C" {
 // else treat as SPM with user or identified average Ls
 #define ebike_48v_large_dia_afsel_hfi   201
 
-
-
 //! \brief Uncomment the motor which should be included at compile
 //! \brief These motor ID settings and motor parameters are then available to be used by the control system
 //! \brief Once your ideal settings and parameters are identified update the motor section here so it is available in the binary code
 
-
-
 //#define USER_MOTOR ebike_48v_large_dia_afsel_hfi //
-
 
 #if (USER_MOTOR == BL90M)
 #define USER_MOTOR_TYPE                 MOTOR_Type_Pm
@@ -579,62 +566,51 @@ extern "C" {
 #error The flux estimation frequency is not defined in user.h
 #endif
 
-
 // **************************************************************************
 // the functions
-
 
 //! \brief      Sets the user parameter values
 //! \param[in]  pUserParams  The pointer to the user param structure
 extern void USER_setParams(USER_Params *pUserParams);
 
-
 //! \brief      Checks for errors in the user parameter values
 //! \param[in]  pUserParams  The pointer to the user param structure
 extern void USER_checkForErrors(USER_Params *pUserParams);
-
 
 //! \brief      Gets the error code in the user parameters
 //! \param[in]  pUserParams  The pointer to the user param structure
 //! \return     The error code
 extern USER_ErrorCode_e USER_getErrorCode(USER_Params *pUserParams);
 
-
 //! \brief      Sets the error code in the user parameters
 //! \param[in]  pUserParams  The pointer to the user param structure
 //! \param[in]  errorCode    The error code
-extern void USER_setErrorCode(USER_Params *pUserParams,const USER_ErrorCode_e errorCode);
-
+extern void USER_setErrorCode(USER_Params *pUserParams,
+                              const USER_ErrorCode_e errorCode);
 
 //! \brief      Recalculates Inductances with the correct Q Format
 //! \param[in]  handle       The controller (CTRL) handle
 extern void USER_softwareUpdate1p6(CTRL_Handle handle);
 
-
 //! \brief      Updates Id and Iq PI gains
 //! \param[in]  handle       The controller (CTRL) handle
 extern void USER_calcPIgains(CTRL_Handle handle);
-
 
 //! \brief      Computes the scale factor needed to convert from torque created by Ld, Lq, Id and Iq, from per unit to Nm
 //! \return     The scale factor to convert torque from (Ld - Lq) * Id * Iq from per unit to Nm, in IQ24 format
 extern _iq USER_computeTorque_Ls_Id_Iq_pu_to_Nm_sf(void);
 
-
 //! \brief      Computes the scale factor needed to convert from torque created by flux and Iq, from per unit to Nm
 //! \return     The scale factor to convert torque from Flux * Iq from per unit to Nm, in IQ24 format
 extern _iq USER_computeTorque_Flux_Iq_pu_to_Nm_sf(void);
-
 
 //! \brief      Computes the scale factor needed to convert from per unit to Wb
 //! \return     The scale factor to convert from flux per unit to flux in Wb, in IQ24 format
 extern _iq USER_computeFlux_pu_to_Wb_sf(void);
 
-
 //! \brief      Computes the scale factor needed to convert from per unit to V/Hz
 //! \return     The scale factor to convert from flux per unit to flux in V/Hz, in IQ24 format
 extern _iq USER_computeFlux_pu_to_VpHz_sf(void);
-
 
 //! \brief      Computes Flux in Wb or V/Hz depending on the scale factor sent as parameter
 //! \param[in]  handle       The controller (CTRL) handle
@@ -642,22 +618,21 @@ extern _iq USER_computeFlux_pu_to_VpHz_sf(void);
 //! \return     The flux in Wb or V/Hz depending on the scale factor sent as parameter, in IQ24 format
 extern _iq USER_computeFlux(CTRL_Handle handle, const _iq sf);
 
-
 //! \brief      Computes Torque in Nm
 //! \param[in]  handle          The controller (CTRL) handle
 //! \param[in]  torque_Flux_sf  The scale factor to convert torque from (Ld - Lq) * Id * Iq from per unit to Nm
 //! \param[in]  torque_Ls_sf    The scale factor to convert torque from Flux * Iq from per unit to Nm
 //! \return     The torque in Nm, in IQ24 format
-extern _iq USER_computeTorque_Nm(CTRL_Handle handle, const _iq torque_Flux_sf, const _iq torque_Ls_sf);
-
+extern _iq USER_computeTorque_Nm(CTRL_Handle handle, const _iq torque_Flux_sf,
+                                 const _iq torque_Ls_sf);
 
 //! \brief      Computes Torque in lbin
 //! \param[in]  handle          The controller (CTRL) handle
 //! \param[in]  torque_Flux_sf  The scale factor to convert torque from (Ld - Lq) * Id * Iq from per unit to lbin
 //! \param[in]  torque_Ls_sf    The scale factor to convert torque from Flux * Iq from per unit to lbin
 //! \return     The torque in lbin, in IQ24 format
-extern _iq USER_computeTorque_lbin(CTRL_Handle handle, const _iq torque_Flux_sf, const _iq torque_Ls_sf);
-
+extern _iq USER_computeTorque_lbin(CTRL_Handle handle, const _iq torque_Flux_sf,
+                                   const _iq torque_Ls_sf);
 
 #ifdef __cplusplus
 }
@@ -665,6 +640,4 @@ extern _iq USER_computeTorque_lbin(CTRL_Handle handle, const _iq torque_Flux_sf,
 
 //@} // ingroup
 #endif // end of _USER_H_ definition
-
-
 

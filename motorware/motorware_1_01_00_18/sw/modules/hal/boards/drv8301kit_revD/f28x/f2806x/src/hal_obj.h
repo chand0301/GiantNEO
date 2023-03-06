@@ -37,7 +37,6 @@
 //!
 //! (C) Copyright 2012, Texas Instruments, Inc.
 
-
 // drivers
 #include "sw/drivers/adc/src/32b/f28x/f2806x/adc.h"
 #include "sw/drivers/clk/src/32b/f28x/f2806x/clk.h"
@@ -56,7 +55,6 @@
 #include "sw/drivers/wdog/src/32b/f28x/f2806x/wdog.h"
 #include "sw/drivers/drvic/drv8301/src/32b/f28x/f2806x/drv8301.h"
 
-
 #ifdef QEP
 #include "sw/drivers/qep/src/32b/f28x/f2806x/qep.h"
 #endif
@@ -66,17 +64,14 @@
 #include "sw/modules/types/src/types.h"
 #include "sw/modules/usDelay/src/32b/usDelay.h"
 
-
 // platforms
 #include "user.h"
-
 
 //!
 //!
 //! \defgroup HAL_OBJ HAL_OBJ
 //!
 //@{
-
 
 #ifdef __cplusplus
 extern "C" {
@@ -88,14 +83,13 @@ extern "C" {
 //!
 typedef struct _HAL_AdcData_t_
 {
-  MATH_vec3 I;          //!< the current values
+    MATH_vec3 I;          //!< the current values
 
-  MATH_vec3 V;          //!< the voltage values
+    MATH_vec3 V;          //!< the voltage values
 
-  _iq       dcBus;      //!< the dcBus value
+    _iq dcBus;      //!< the dcBus value
 
 } HAL_AdcData_t;
-
 
 //! \brief      Defines the DAC data
 //! \details    This data structure contains the pwm values that are used for the DAC output
@@ -103,14 +97,13 @@ typedef struct _HAL_AdcData_t_
 //!
 typedef struct _HAL_DacData_t_
 {
-  uint16_t	PeriodMax;		//!<
-  int32_t  *ptrData[4];     //!< Input: First input pointer
-  _iq  		value[4];       //!< the DAC data
-  _iq  		offset[4];      //!< the DAC data
-  _iq  		gain[4];        //!< the DAC data
+    uint16_t PeriodMax;		//!<
+    int32_t *ptrData[4];     //!< Input: First input pointer
+    _iq value[4];       //!< the DAC data
+    _iq offset[4];      //!< the DAC data
+    _iq gain[4];        //!< the DAC data
 
 } HAL_DacData_t;
-
 
 //! \brief      Defines the PWM data
 //! \details    This structure contains the pwm voltage values for the three phases.  A
@@ -120,10 +113,9 @@ typedef struct _HAL_DacData_t_
 //!
 typedef struct _HAL_PwmData_t_
 {
-  MATH_vec3  Tabc;      //!< the PWM time-durations for each motor phase
+    MATH_vec3 Tabc;      //!< the PWM time-durations for each motor phase
 
 } HAL_PwmData_t;
-
 
 //! \brief      Defines the hardware abstraction layer (HAL) data
 //! \details    The HAL object contains all handles to peripherals.  When accessing a
@@ -132,52 +124,52 @@ typedef struct _HAL_PwmData_t_
 //!
 typedef struct _HAL_Obj_
 {
-  ADC_Handle    adcHandle;        //!< the ADC handle
+    ADC_Handle adcHandle;        //!< the ADC handle
 
-  CLK_Handle    clkHandle;        //!< the clock handle
- 
-  CPU_Handle    cpuHandle;        //!< the CPU handle
+    CLK_Handle clkHandle;        //!< the clock handle
 
-  FLASH_Handle  flashHandle;      //!< the flash handle
+    CPU_Handle cpuHandle;        //!< the CPU handle
 
-  GPIO_Handle   gpioHandle;       //!< the GPIO handle
+    FLASH_Handle flashHandle;      //!< the flash handle
 
-  OFFSET_Handle offsetHandle_I[3];  //!< the handles for the current offset estimators
-  OFFSET_Obj    offset_I[3];        //!< the current offset objects
+    GPIO_Handle gpioHandle;       //!< the GPIO handle
 
-  OFFSET_Handle offsetHandle_V[3];  //!< the handles for the voltage offset estimators
-  OFFSET_Obj    offset_V[3];        //!< the voltage offset objects
+    OFFSET_Handle offsetHandle_I[3]; //!< the handles for the current offset estimators
+    OFFSET_Obj offset_I[3];        //!< the current offset objects
 
-  OSC_Handle    oscHandle;        //!< the oscillator handle
+    OFFSET_Handle offsetHandle_V[3]; //!< the handles for the voltage offset estimators
+    OFFSET_Obj offset_V[3];        //!< the voltage offset objects
 
-  PIE_Handle    pieHandle;        //<! the PIE handle
+    OSC_Handle oscHandle;        //!< the oscillator handle
 
-  PLL_Handle    pllHandle;        //!< the PLL handle
+    PIE_Handle pieHandle;        //<! the PIE handle
 
-  PWM_Handle    pwmHandle[3];     //<! the PWM handles
+    PLL_Handle pllHandle;        //!< the PLL handle
 
-  PWMDAC_Handle pwmDacHandle[3];  //<! the PWMDAC handles
+    PWM_Handle pwmHandle[3];     //<! the PWM handles
 
-  PWR_Handle    pwrHandle;        //<! the power handle
+    PWMDAC_Handle pwmDacHandle[3];  //<! the PWMDAC handles
 
-  TIMER_Handle  timerHandle[3];   //<! the timer handles
+    PWR_Handle pwrHandle;        //<! the power handle
 
-  WDOG_Handle   wdogHandle;       //!< the watchdog handle
+    TIMER_Handle timerHandle[3];   //<! the timer handles
 
-  HAL_AdcData_t adcBias;          //!< the ADC bias
+    WDOG_Handle wdogHandle;       //!< the watchdog handle
 
-  _iq           current_sf;       //!< the current scale factor, amps_pu/cnt
+    HAL_AdcData_t adcBias;          //!< the ADC bias
 
-  _iq           voltage_sf;       //!< the voltage scale factor, volts_pu/cnt
+    _iq current_sf;       //!< the current scale factor, amps_pu/cnt
 
-  uint_least8_t numCurrentSensors; //!< the number of current sensors
-  uint_least8_t numVoltageSensors; //!< the number of voltage sensors
+    _iq voltage_sf;       //!< the voltage scale factor, volts_pu/cnt
 
-  SPI_Handle    spiAHandle;       //!< the SPI handle
-  SPI_Handle    spiBHandle;       //!< the SPI handle
+    uint_least8_t numCurrentSensors; //!< the number of current sensors
+    uint_least8_t numVoltageSensors; //!< the number of voltage sensors
 
-  DRV8301_Handle drv8301Handle;   //!< the drv8301 interface handle
-  DRV8301_Obj    drv8301;         //!< the drv8301 interface object
+    SPI_Handle spiAHandle;       //!< the SPI handle
+    SPI_Handle spiBHandle;       //!< the SPI handle
+
+    DRV8301_Handle drv8301Handle;   //!< the drv8301 interface handle
+    DRV8301_Obj drv8301;         //!< the drv8301 interface object
 
 #ifdef QEP
   QEP_Handle    qepHandle[1];      //!< the QEP handle
@@ -189,7 +181,6 @@ typedef struct _HAL_Obj_
 #endif
 } HAL_Obj;
 
-
 //! \brief      Defines the HAL handle
 //! \details    The HAL handle is a pointer to a HAL object.  In all HAL functions
 //!             the HAL handle is passed so that the function knows what peripherals
@@ -197,39 +188,34 @@ typedef struct _HAL_Obj_
 //!
 typedef struct _HAL_Obj_ *HAL_Handle;
 
-
 //! \brief      Defines the HAL object
 //!
 extern HAL_Obj hal;
-
 
 //! \brief      Runs offset estimation
 //! \details    Offsets of the voltage and current feedbacks are required for good low
 //!             speed performance of the motor drive.
 //! \param[in]  handle    The hardware abstraction layer (HAL) handle
 //! \param[in]  pAdcData  The pointer to the ADC data
-inline void HAL_runOffsetEst(HAL_Handle handle,const HAL_AdcData_t *pAdcData)
+inline void HAL_runOffsetEst(HAL_Handle handle, const HAL_AdcData_t *pAdcData)
 {
-  uint_least8_t cnt;
-  HAL_Obj *obj = (HAL_Obj *)handle;
+    uint_least8_t cnt;
+    HAL_Obj *obj = (HAL_Obj*) handle;
 
-
-  // estimate the current offsets
-  for(cnt=0;cnt<obj->numCurrentSensors;cnt++)
+    // estimate the current offsets
+    for (cnt = 0; cnt < obj->numCurrentSensors; cnt++)
     {
-      OFFSET_run(obj->offsetHandle_I[cnt],pAdcData->I.value[cnt]);
+        OFFSET_run(obj->offsetHandle_I[cnt], pAdcData->I.value[cnt]);
     }
 
-
-  // estimate the voltage offsets
-  for(cnt=0;cnt<obj->numVoltageSensors;cnt++)
+    // estimate the voltage offsets
+    for (cnt = 0; cnt < obj->numVoltageSensors; cnt++)
     {
-      OFFSET_run(obj->offsetHandle_V[cnt],pAdcData->V.value[cnt]);
+        OFFSET_run(obj->offsetHandle_V[cnt], pAdcData->V.value[cnt]);
     }
 
-  return;
+    return;
 } // end of HAL_runOffsetEst() function
-
 
 #ifdef __cplusplus
 }

@@ -318,24 +318,31 @@ static inline void PID_run_torque_ob(PID_Handle handle,const _iq refValue_speed,
   }
   else
   {
-      Acc = obj->Kd;                                                                                       // load the previous integral output
-      speed_fback = obj->fbackValue;                                                                        // load the previous integral output
-      Ui = obj->Ui;                                                                                         // load the previous integral output
+      Acc = obj->Kd;                   // load the previous integral output
+      speed_fback = obj->fbackValue;   // load the previous integral output
+      Ui = obj->Ui;                    // load the previous integral output
 
       speed_fback = speed_fback + _IQmpy(Acc , _IQ(0.0001));
       Error = refValue_speed - speed_fback;
 
-      Up = _IQmpy( _IQmpy(obj->Kp,Error), _IQ(1.0));                                                                           // Compute the proportional output
-      Ui = _IQsat( Ui + _IQmpy( _IQmpy(obj->Ki,Error), _IQ(1.0)) , obj->outMax, obj->outMin );                                 // Compute the integral output
-      *pOutValue = _IQsat(_IQmpy( (Up + Ui) , invKt_a ), obj->outMax, obj->outMin );             // Saturate the PID output
+      // Compute the proportional output
+      Up = _IQmpy( _IQmpy(obj->Kp,Error), _IQ(1.0));
+
+      // Compute the integral output
+      Ui = _IQsat( Ui + _IQmpy( _IQmpy(obj->Ki,Error), _IQ(1.0)) ,
+                   obj->outMax, obj->outMin );
+
+      // Saturate the PID output
+      *pOutValue = _IQsat(_IQmpy( (Up + Ui) , invKt_a ),
+                          obj->outMax, obj->outMin );
+
       Torque_sum = (Up + Ui) - _IQmpy( _IQ(0.0),speed_fback) + _IQdiv( fback_Iq , invKt_a);
       Acc = _IQdiv( Torque_sum , J );
 
-      obj->Ui = Ui;                                                                                         // store the intetral output
-      obj->Kd = Acc;                                                                                       // store the intetral output
+      obj->Ui = Ui;                     // store the intetral output
+      obj->Kd = Acc;                    // store the Acc output
       obj->fbackValue = speed_fback;
       obj->refValue = refValue_speed;
-      //obj->Error = Error;
   }
   return;
 } // end of PID_run_torque_ob() function

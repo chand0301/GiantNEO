@@ -432,12 +432,6 @@ void main(void)
   // disable the PWM
   HAL_disablePwm(halHandle);
 
-  // initialize the SpinTAC Components
-//  stHandle = ST_init(&st_obj, sizeof(st_obj));
-
-  // setup the SpinTAC Components
-//  ST_setupVelCtl(stHandle);
-
 #ifdef DRV8301_SPI
   // turn on the DRV8301 if present
   HAL_enableDrv(halHandle);
@@ -691,6 +685,7 @@ void main(void)
 
       //Get the yPotentiometer from IQ(0.0) to IQ(1.0) at ADCINB6
       xPotentiometer = HAL_readPotentiometerDatax(halHandle);
+      //Get the yPotentiometer from IQ(0.0) to IQ(1.0) at ADCINA6
       fPotentiometer = HAL_readPotentiometerDataf(halHandle);
 
 
@@ -926,7 +921,7 @@ interrupt void mainISR(void)
       PID_run_torque_ob(pidHandle_Tob,Speed_kRPM,Iq_Amp,
                                     &(torque_head));
 
-      //from IQ(-0.95) to IQ(-1.0) at ADCINB6
+      //from IQ(-0.95) to IQ(-1.0)
       yPotentiometer = _IQmpy(xPotentiometer,_IQ(-0.05)) - _IQ(0.95);
 
       ctrlHandle->torque_head_comm = _IQmpy( torque_head, yPotentiometer) + _IQ(0.0);

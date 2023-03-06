@@ -340,37 +340,43 @@ static inline void PID_run_torque_ob(PID_Handle handle,const _iq refValue_speed,
   return;
 } // end of PID_run_torque_ob() function
 
-static inline void Refmodel(PID_Handle handle,const _iq torque,_iq *pOutValue)
+//! \brief     Runs the PID controller for Reference model
+//! \param[in] handle      The PID controller handle
+//! \param[in] J,B    The controlable J, B input
+//! \param[in] e_n  The input value for the controller
+//! \param[in] d_n   The pointer to the controller output value(kRPM)
+static inline void Refmodel(PID_Handle handle,const _iq J,const _iq B,
+                            const _iq e_n,_iq *d_n)
 {
     PID_Obj *obj = (PID_Obj *)handle;
 
-      _iq J = _IQ(60.0); // A/kRPM
-      _iq B = _IQ(80.0); // // A/kRPM
-      _iq Acc;
-      _iq refspeed;
-
-      if(!torque) //Therhold
-      {
-          Acc = _IQ(0.0);
-          refspeed = _IQ(0.0);                                                   // store the intetral output
-          obj->Kd = Acc;
-          obj->refValue = refspeed;
-          *pOutValue = _IQ(0.0);
-      }
-      else
-      {
-
-          Acc = obj->Kd;                                                   // load the previous integral output
-          refspeed = obj->refValue;
-
-          refspeed = refspeed + _IQmpy(Acc , _IQ(0.001));
-          *pOutValue = refspeed;
-          Acc = _IQdiv( torque - _IQmpy(B,refspeed) , J );
-
-          obj->Kd = Acc;
-          obj->refValue = refspeed;
-
-      }
+    //Sampling rate = 1e-4.
+    _iq T = _IQ(0.0001);
+    //Time constant where J,B is in IQ unit.
+    _iq t = _IQdiv(B,J);
+    _iq k = _IQexp(_IQmpy(-t,T));
+    _iq e_n_1;
+    _iq d_n_1;
+    _iq a0 = k;
+    _iq b0 = _IQdiv( (_IQ(1.0) - k), _IQmpy( _IQ(2.0) , B ));
+    _iq b1 = _IQdiv( (_IQ(1.0) - k), _IQmpy( _IQ(2.0) , B ));
+  if(!e_n)
+  {
+      e_n_1 = _IQ(0.0);
+      d_n_1 = _IQ(0.0);
+      *d_n = _IQ(0.0);
+      obj->Ui = e_n_1;
+      obj->Kd = d_n_1;
+  }
+  else
+  {
+      e_n_1 = obj->Ui; // load the previous input
+      d_n_1 = obj->Kd; //load the previous output
+      /*The difference equation*/
+      *d_n = _IQsat(_IQmpy(e_n, b0) + _IQmpy(e_n_1, b1) + _IQmpy(d_n_1, a0), obj->outMax, obj->outMin );
+      obj->Ui = e_n;  //store current input
+      obj->Kd = *d_n; //store current output
+  }
       return;
 }
 

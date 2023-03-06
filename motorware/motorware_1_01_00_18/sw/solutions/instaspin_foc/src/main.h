@@ -61,6 +61,8 @@
 #include "hal.h"
 #include "user.h"
 
+// SpinTAC
+#include "spintac_velocity.h"
 
 // **************************************************************************
 // the defines

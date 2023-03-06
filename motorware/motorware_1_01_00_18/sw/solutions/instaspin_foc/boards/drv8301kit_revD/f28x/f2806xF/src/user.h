@@ -81,8 +81,8 @@ extern "C" {
 
 /* !!choose one of them!!*/
 //#define SPEEDLOOP //Project original speed control mode
-#define CURRENTLOOP //Impedance control without referencemodel
-//#define REFERENCEMODEL //Impedance control
+//#define CURRENTLOOP //Impedance control without referencemodel
+#define REFERENCEMODEL //Impedance control
 
 /*Extra fun*/
 //#define overmodulation
@@ -115,6 +115,8 @@ extern "C" {
 #define   V_C_offset    (0.4874520898)
 #define USER_MAX_VS_MAG_PU        (0.5)
 #define USER_VOLTAGE_FILTER_POLE_Hz  (545.0608)
+#define ST_SPEED_SAMPLE_TIME (0.001)
+#define USER_SYSTEM_BANDWIDTH      (90.0)
 #endif
 
 #ifdef drv8301kit_revD
@@ -266,7 +268,7 @@ extern "C" {
 
 //! \brief Defines the number of controller clock ticks per speed controller clock tick
 //! \brief Relationship of controller clock rate to speed loop rate
-#define USER_NUM_CTRL_TICKS_PER_SPEED_TICK  (15)   // 15 Typical to match PWM, ex: 15KHz PWM, controller, and current loop, 1KHz speed loop
+#define USER_NUM_CTRL_TICKS_PER_SPEED_TICK  (10)   // 15 Typical to match PWM, ex: 15KHz PWM, controller, and current loop, 1KHz speed loop
 
 //! \brief Defines the number of controller clock ticks per trajectory clock tick
 //! \brief Relationship of controller clock rate to trajectory loop rate
@@ -495,6 +497,11 @@ extern "C" {
 #define USER_MOTOR_IND_EST_CURRENT      (-5.0)
 #define USER_MOTOR_MAX_CURRENT          (20.0)//40MAX
 #define USER_MOTOR_FLUX_EST_FREQ_Hz     (40.0)
+#define USER_MOTOR_ENCODER_LINES        (1.0)
+#define USER_MOTOR_MAX_SPEED_KRPM       (0.27)
+#define USER_SYSTEM_INERTIA             (3.318309188)
+#define USER_SYSTEM_FRICTION            (5.66986084)
+#define USER_SYSTEM_BANDWIDTH_SCALE     (1.0)
 #define IPD_HFI_EXC_FREQ_HZ             (500)//937.5       // excitation frequency, Hz
 #define IPD_HFI_LP_SPD_FILT_HZ          (35.0)        // lowpass filter cutoff frequency, Hz
 #define IPD_HFI_HP_IQ_FILT_HZ           (100.0)        // highpass filter cutoff frequency, Hz

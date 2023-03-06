@@ -82,6 +82,9 @@ uint16_t dataTx_speed=0,dataTx_torque=0,dataTx_current=0,dataRx=999;
 _iq pu_to_khz_sf = _IQ(USER_IQ_FULL_SCALE_FREQ_Hz/1000.0);
 _iq khz_to_krpm_sf = _IQ(60.0/USER_MOTOR_NUM_POLE_PAIRS);
 
+ST_Obj st_obj;
+ST_Handle stHandle;
+
 PID_Obj         pid_Tob;
 
 PID_Handle      pidHandle_Tob;
@@ -178,6 +181,7 @@ DRV_SPI_8301_Vars_t gDrvSpi8301Vars;
 // Watch window interface to the 8305 SPI
 DRV_SPI_8305_Vars_t gDrvSpi8305Vars;
 #endif
+
 
 _iq gFlux_pu_to_Wb_sf;
 
@@ -428,6 +432,11 @@ void main(void)
   // disable the PWM
   HAL_disablePwm(halHandle);
 
+  // initialize the SpinTAC Components
+//  stHandle = ST_init(&st_obj, sizeof(st_obj));
+
+  // setup the SpinTAC Components
+//  ST_setupVelCtl(stHandle);
 
 #ifdef DRV8301_SPI
   // turn on the DRV8301 if present
@@ -929,7 +938,8 @@ interrupt void mainISR(void)
       PID_run_torque_ob(pidHandle_Tob,Speed_kRPM,Iq_Amp,
                                     &(torque_head));
 
-      Refmodel(pidHandle_Refmodel,torque_head,&(refspeed)); //NM -> KRPM
+      Refmodel(pidHandle_Refmodel,_IQ(33.18309118),_IQ(56.6986084),
+               torque_head,&(refspeed)); //NM -> KRPM
 
       ctrlHandle->speed_ref_pu = _IQmpy(refspeed,gSpeed_krpm_to_pu_sf);
 #endif

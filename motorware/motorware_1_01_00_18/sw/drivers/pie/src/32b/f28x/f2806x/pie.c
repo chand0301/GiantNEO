@@ -34,43 +34,35 @@
 //!         expansion (PIE) object
 //!
 //! (C) Copyright 2015, Texas Instruments, Inc.
-
 // **************************************************************************
 // the includes
-
 #include "sw/drivers/pie/src/32b/f28x/f2806x/pie.h"
-
 
 // **************************************************************************
 // the defines
 
-
 // **************************************************************************
 // the globals
-
 
 // **************************************************************************
 // the functions
 
 void PIE_clearAllFlags(PIE_Handle pieHandle)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
     uint_least8_t groupCnt;
 
-
-    for(groupCnt=0;groupCnt<12;groupCnt++)
+    for (groupCnt = 0; groupCnt < 12; groupCnt++)
     {
-      pie->PIEIER_PIEIFR[groupCnt].IFR = 0;
+        pie->PIEIER_PIEIFR[groupCnt].IFR = 0;
     }
 
     return;
 } // end of PIE_clearAllFlags() function
 
-
 void PIE_clearAllInts(PIE_Handle pieHandle)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
-
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
 
     // set the bits
     pie->PIEACK |= 0xFFFF;
@@ -78,11 +70,9 @@ void PIE_clearAllInts(PIE_Handle pieHandle)
     return;
 } // end of PIE_clearAllInts() function
 
-
 void PIE_disable(PIE_Handle pieHandle)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
-
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
 
     // clear the bits
     pie->PIECTRL &= (~PIE_PIECTRL_ENPIE_BITS);
@@ -92,7 +82,7 @@ void PIE_disable(PIE_Handle pieHandle)
 
 void PIE_disableCaptureInt(PIE_Handle pieHandle)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
 
     // set the value
     pie->PIEIER_PIEIFR[3].IER &= ~PIE_IERx_INTx1_BITS;
@@ -100,11 +90,9 @@ void PIE_disableCaptureInt(PIE_Handle pieHandle)
     return;
 } // end of PIE_disableCaptureInt() function
 
-
 void PIE_disableExtInt(PIE_Handle pieHandle, const CPU_ExtIntNumber_e intNumber)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
-
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
 
     // clear the bits
     pie->XINTnCR[intNumber] &= (~PIE_XINTnCR_ENABLE_BITS);
@@ -112,35 +100,33 @@ void PIE_disableExtInt(PIE_Handle pieHandle, const CPU_ExtIntNumber_e intNumber)
     return;
 } // end of PIE_disableExtInt() function
 
-
 void PIE_disableAllInts(PIE_Handle pieHandle)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
 
     uint_least8_t groupCnt;
 
-    for(groupCnt=0;groupCnt<12;groupCnt++)
+    for (groupCnt = 0; groupCnt < 12; groupCnt++)
     {
-      pie->PIEIER_PIEIFR[groupCnt].IER = 0;
+        pie->PIEIER_PIEIFR[groupCnt].IER = 0;
     }
 
     return;
 } // end of PIE_disableAllInts() function
 
-void PIE_disableInt(PIE_Handle pieHandle, const PIE_GroupNumber_e group, const PIE_InterruptSource_e intSource)
+void PIE_disableInt(PIE_Handle pieHandle, const PIE_GroupNumber_e group,
+                    const PIE_InterruptSource_e intSource)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
-    
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
+
     pie->PIEIER_PIEIFR[group].IER &= ~intSource;
-    
+
     return;
 }
 
-
 void PIE_enable(PIE_Handle pieHandle)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
-
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
 
     // set the bits
     pie->PIECTRL |= PIE_PIECTRL_ENPIE_BITS;
@@ -148,28 +134,26 @@ void PIE_enable(PIE_Handle pieHandle)
     return;
 } // end of PIE_enable() function
 
-
 void PIE_enableAdcInt(PIE_Handle pieHandle, const ADC_IntNumber_e intNumber)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
     uint16_t index;
     uint16_t setValue;
 
-
-    if(intNumber < ADC_IntNumber_9)
+    if (intNumber < ADC_IntNumber_9)
     {
-      index = 9;
-      setValue = 1 << intNumber;
+        index = 9;
+        setValue = 1 << intNumber;
     }
-    else if(intNumber == ADC_IntNumber_9)
+    else if (intNumber == ADC_IntNumber_9)
     {
-      index = 0;
-      setValue = 1 << 5;
+        index = 0;
+        setValue = 1 << 5;
     }
     else
     {
-      index = 0;
-      setValue = 1 << ((intNumber & 0x07) - 1) ;
+        index = 0;
+        setValue = 1 << ((intNumber & 0x07) - 1);
     }
 
     // set the value
@@ -180,7 +164,7 @@ void PIE_enableAdcInt(PIE_Handle pieHandle, const ADC_IntNumber_e intNumber)
 
 void PIE_enableCaptureInt(PIE_Handle pieHandle)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
 
     // set the value
     pie->PIEIER_PIEIFR[3].IER |= PIE_IERx_INTx1_BITS;
@@ -188,29 +172,25 @@ void PIE_enableCaptureInt(PIE_Handle pieHandle)
     return;
 } // end of PIE_enableCaptureInt() function
 
-
 void PIE_enableExtInt(PIE_Handle pieHandle, const CPU_ExtIntNumber_e intNumber)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
     uint16_t index;
     uint16_t setValue;
 
-    
-    if(intNumber < CPU_ExtIntNumber_3)
+    if (intNumber < CPU_ExtIntNumber_3)
     {
-      index = 0;
-      setValue = 1 << (intNumber + 3);
+        index = 0;
+        setValue = 1 << (intNumber + 3);
     }
     else
     {
-      index = 10;
-      setValue = 1 << 0;
+        index = 10;
+        setValue = 1 << 0;
     }
-
 
     // set the value
     pie->PIEIER_PIEIFR[index].IER |= setValue;
-
 
     // set the bits
     pie->XINTnCR[intNumber] |= PIE_XINTnCR_ENABLE_BITS;
@@ -218,22 +198,21 @@ void PIE_enableExtInt(PIE_Handle pieHandle, const CPU_ExtIntNumber_e intNumber)
     return;
 } // end of PIE_enableExtInt() function
 
-void PIE_enableInt(PIE_Handle pieHandle, const PIE_GroupNumber_e group, const PIE_InterruptSource_e intSource)
+void PIE_enableInt(PIE_Handle pieHandle, const PIE_GroupNumber_e group,
+                   const PIE_InterruptSource_e intSource)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
-    
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
+
     pie->PIEIER_PIEIFR[group].IER |= intSource;
-    
+
     return;
 }
 
-
 void PIE_enablePwmInt(PIE_Handle pieHandle, const PWM_Number_e pwmNumber)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
     uint16_t index = 2;
     uint16_t setValue = (1 << pwmNumber);
-
 
     // set the value
     pie->PIEIER_PIEIFR[index].IER |= setValue;
@@ -243,10 +222,9 @@ void PIE_enablePwmInt(PIE_Handle pieHandle, const PWM_Number_e pwmNumber)
 
 void PIE_enablePwmTzInt(PIE_Handle pieHandle, const PWM_Number_e pwmNumber)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
     uint16_t index = 1;
     uint16_t setValue = (1 << pwmNumber);
-
 
     // set the value
     pie->PIEIER_PIEIFR[index].IER |= setValue;
@@ -256,7 +234,7 @@ void PIE_enablePwmTzInt(PIE_Handle pieHandle, const PWM_Number_e pwmNumber)
 
 void PIE_enableTimer0Int(PIE_Handle pieHandle)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
 
     // set the value
     pie->PIEIER_PIEIFR[0].IER |= PIE_IERx_INTx7_BITS;
@@ -264,44 +242,40 @@ void PIE_enableTimer0Int(PIE_Handle pieHandle)
     return;
 } // end of PIE_enableTimer0Int() function
 
-
-void PIE_forceInt(PIE_Handle pieHandle, const PIE_GroupNumber_e group, const PIE_InterruptSource_e intSource)
+void PIE_forceInt(PIE_Handle pieHandle, const PIE_GroupNumber_e group,
+                  const PIE_InterruptSource_e intSource)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
-    
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
+
     pie->PIEIER_PIEIFR[group].IFR |= intSource;
-    
+
     return;
 }
 
-
-uint16_t PIE_getExtIntCount(PIE_Handle pieHandle, const CPU_ExtIntNumber_e intNumber)
+uint16_t PIE_getExtIntCount(PIE_Handle pieHandle,
+                            const CPU_ExtIntNumber_e intNumber)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
-
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
 
     // get the count value
     uint16_t count = pie->XINTnCTR[intNumber];
 
-    return(count);
+    return (count);
 } // end of PIE_getExtIntCount() function
-
 
 uint16_t PIE_getIntEnables(PIE_Handle pieHandle, const PIE_GroupNumber_e group)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
-    
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
+
     return (pie->PIEIER_PIEIFR[group].IER);
 } // end of PIE_getIntEnables() function
 
-
 uint16_t PIE_getIntFlags(PIE_Handle pieHandle, const PIE_GroupNumber_e group)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
-    
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
+
     return (pie->PIEIER_PIEIFR[group].IFR);
 } // end of PIE_getIntFlags() function
-
 
 interrupt void PIE_illegalIsr(void)
 {
@@ -310,39 +284,36 @@ interrupt void PIE_illegalIsr(void)
     asm(" ESTOP0");
 
     // endless hold loop
-    for(;;);
+    for (;;)
+        ;
 
 } // end of PIE_illegalIsr() function
-
 
 PIE_Handle PIE_init(void *pMemory, const size_t numBytes)
 {
     PIE_Handle pieHandle;
 
-
-    if(numBytes < sizeof(PIE_Obj))
-    return((PIE_Handle)NULL);
+    if (numBytes < sizeof(PIE_Obj))
+        return ((PIE_Handle) NULL);
 
     // assign the handle
-    pieHandle = (PIE_Handle)pMemory;
+    pieHandle = (PIE_Handle) pMemory;
 
-    return(pieHandle);
+    return (pieHandle);
 } // end of PIE_init() function
 
-
-
-void PIE_registerPieIntHandler(PIE_Handle pieHandle, 
-                           const PIE_GroupNumber_e groupNumber, 
-                           const PIE_SubGroupNumber_e subGroupNumber, 
-                           const PIE_IntVec_t vector)
+void PIE_registerPieIntHandler(PIE_Handle pieHandle,
+                               const PIE_GroupNumber_e groupNumber,
+                               const PIE_SubGroupNumber_e subGroupNumber,
+                               const PIE_IntVec_t vector)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
     PIE_IntVec_t *intPointer;
-    
+
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
-    
+
     // Point to the beginning of the PIE table
-    intPointer = (PIE_IntVec_t *)&(pie->ADCINT1_HP);
+    intPointer = (PIE_IntVec_t*) &(pie->ADCINT1_HP);
 
     // Increment pointer to the correct group
     intPointer += groupNumber * 8;
@@ -354,61 +325,57 @@ void PIE_registerPieIntHandler(PIE_Handle pieHandle,
     *intPointer = vector;
 
     DISABLE_PROTECTED_REGISTER_WRITE_MODE;
-    
+
     return;
 } // end of PIE_registerIntHandler() function
 
-
-void PIE_registerSystemIntHandler(PIE_Handle pieHandle, 
-                           const PIE_SystemInterrupts_e systemInt, 
-                           const PIE_IntVec_t vector)
+void PIE_registerSystemIntHandler(PIE_Handle pieHandle,
+                                  const PIE_SystemInterrupts_e systemInt,
+                                  const PIE_IntVec_t vector)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
     PIE_IntVec_t *intPointer;
-    
+
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
-    
+
     // Point to the beginning of the system interrupt table
-    intPointer = (PIE_IntVec_t *)&(pie->Reset);
+    intPointer = (PIE_IntVec_t*) &(pie->Reset);
 
     // Increment point to the correct interrupt
     intPointer += systemInt;
 
     // Set the vector
     *intPointer = vector;
-    
+
     DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
     return;
 } // end of PIE_registerIntHandler() function
 
-
 void PIE_setDefaultIntVectorTable(PIE_Handle pieHandle)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
-    PIE_IntVec_t *addr = (PIE_IntVec_t *)&(pie->INT1);
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
+    PIE_IntVec_t *addr = (PIE_IntVec_t*) &(pie->INT1);
     uint16_t regCnt;
-    
+
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
     // initialize the table to PIE_illegalIsr() address
-    for(regCnt=0;regCnt<120;regCnt++)
+    for (regCnt = 0; regCnt < 120; regCnt++)
     {
-      *addr++ = &PIE_illegalIsr;
+        *addr++ = &PIE_illegalIsr;
     }
-    
+
     DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
     return;
 } // end of PIE_setDefaultIntVectorTable() function
 
-
-void PIE_setExtIntPolarity(PIE_Handle pieHandle, 
-                           const CPU_ExtIntNumber_e intNumber, 
+void PIE_setExtIntPolarity(PIE_Handle pieHandle,
+                           const CPU_ExtIntNumber_e intNumber,
                            const PIE_ExtIntPolarity_e polarity)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
-
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
 
     // clear the bits
     pie->XINTnCR[intNumber] &= (~PIE_XINTnCR_POLARITY_BITS);
@@ -419,18 +386,17 @@ void PIE_setExtIntPolarity(PIE_Handle pieHandle,
     return;
 } // end of PIE_setExtIntPolarity() function
 
-
-void PIE_unregisterPieIntHandler(PIE_Handle pieHandle, 
-                           const PIE_GroupNumber_e groupNumber, 
-                           const PIE_SubGroupNumber_e subGroupNumber)
+void PIE_unregisterPieIntHandler(PIE_Handle pieHandle,
+                                 const PIE_GroupNumber_e groupNumber,
+                                 const PIE_SubGroupNumber_e subGroupNumber)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
     PIE_IntVec_t *intPointer;
-    
+
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
-    
+
     // Point to the beginning of the PIE table
-    intPointer = (PIE_IntVec_t *)&(pie->ADCINT1_HP);
+    intPointer = (PIE_IntVec_t*) &(pie->ADCINT1_HP);
 
     // Increment pointer to the correct group
     intPointer += groupNumber * 8;
@@ -440,30 +406,29 @@ void PIE_unregisterPieIntHandler(PIE_Handle pieHandle,
 
     // Set the vector
     *intPointer = PIE_illegalIsr;
-    
+
     DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
     return;
 } // end of PIE_unregisterPieIntHandler() function
 
-
-void PIE_unregisterSystemIntHandler(PIE_Handle pieHandle, 
-                           const PIE_SystemInterrupts_e systemInt)
+void PIE_unregisterSystemIntHandler(PIE_Handle pieHandle,
+                                    const PIE_SystemInterrupts_e systemInt)
 {
-    PIE_Obj *pie = (PIE_Obj *)pieHandle;
+    PIE_Obj *pie = (PIE_Obj*) pieHandle;
     PIE_IntVec_t *intPointer;
-    
+
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
-    
+
     // Point to the beginning of the system interrupt table
-    intPointer = (PIE_IntVec_t *)&(pie->Reset);
+    intPointer = (PIE_IntVec_t*) &(pie->Reset);
 
     // Increment point to the correct interrupt
     intPointer += systemInt;
 
     // Set the vector
     *intPointer = PIE_illegalIsr;
-    
+
     DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
     return;

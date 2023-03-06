@@ -36,28 +36,22 @@
 //!
 //! (C) Copyright 2015, Texas Instruments, Inc.
 
-
 // **************************************************************************
 // the includes
-
 #include "sw/drivers/pll/src/32b/f28x/f2806x/pll.h"
-
 
 // **************************************************************************
 // the defines
 
-
 // **************************************************************************
 // the globals
-
 
 // **************************************************************************
 // the functions
 
 void PLL_disable(PLL_Handle pllHandle)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
@@ -69,27 +63,23 @@ void PLL_disable(PLL_Handle pllHandle)
     return;
 } // end of PLL_disable() function
 
-
 void PLL_disableClkDetect(PLL_Handle pllHandle)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
     // set the bits
     pll->PLLSTS |= PLL_PLLSTS_MCLKOFF_BITS;
- 
+
     DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
     return;
 } // end of PLL_disableClkDetect() function
 
-
 void PLL_disableNormRdy(PLL_Handle pllHandle)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
@@ -101,11 +91,9 @@ void PLL_disableNormRdy(PLL_Handle pllHandle)
     return;
 } // end of PLL_disableNormRdy() function
 
-
 void PLL_disableOsc(PLL_Handle pllHandle)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
@@ -117,11 +105,9 @@ void PLL_disableOsc(PLL_Handle pllHandle)
     return;
 } // end of PLL_disableOsc() function
 
-
 void PLL_enable(PLL_Handle pllHandle)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
@@ -133,11 +119,9 @@ void PLL_enable(PLL_Handle pllHandle)
     return;
 } // end of PLL_enable() function
 
-
 void PLL_enableClkDetect(PLL_Handle pllHandle)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
@@ -149,27 +133,23 @@ void PLL_enableClkDetect(PLL_Handle pllHandle)
     return;
 } // end of PLL_enableClkDetect() function
 
-
 void PLL_enableNormRdy(PLL_Handle pllHandle)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
     // set the bits
-    pll->PLLSTS |= (uint16_t)PLL_PLLSTS_NORMRDYE_BITS;
+    pll->PLLSTS |= (uint16_t) PLL_PLLSTS_NORMRDYE_BITS;
 
     DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
     return;
 } // end of PLL_enableNormRdy() function
 
-
 void PLL_enableOsc(PLL_Handle pllHandle)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
@@ -181,72 +161,65 @@ void PLL_enableOsc(PLL_Handle pllHandle)
     return;
 } // end of PLL_enableOsc() function
 
-
 PLL_ClkFreq_e PLL_getClkFreq(PLL_Handle pllHandle)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     // get the clock rate
-  PLL_ClkFreq_e clkFreq = (PLL_ClkFreq_e)(pll->PLLCR & PLL_PLLCR_DIV_BITS);
+    PLL_ClkFreq_e clkFreq = (PLL_ClkFreq_e) (pll->PLLCR & PLL_PLLCR_DIV_BITS);
 
-  return(clkFreq);
+    return (clkFreq);
 } // end of PLL_getClkFreq() function
-
 
 PLL_ClkStatus_e PLL_getClkStatus(PLL_Handle pllHandle)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     // mask the bits
-    PLL_ClkStatus_e status = (PLL_ClkStatus_e)(pll->PLLSTS & PLL_PLLSTS_MCLKSTS_BITS);
+    PLL_ClkStatus_e status = (PLL_ClkStatus_e) (pll->PLLSTS
+            & PLL_PLLSTS_MCLKSTS_BITS);
 
-    return(status);
+    return (status);
 } // end of PLL_getClkStatus() function
-
 
 PLL_DivideSelect_e PLL_getDivideSelect(PLL_Handle pllHandle)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     // mask the bits
-    PLL_DivideSelect_e divSelect = (PLL_DivideSelect_e)(pll->PLLSTS & PLL_PLLSTS_DIVSEL_BITS);
+    PLL_DivideSelect_e divSelect = (PLL_DivideSelect_e) (pll->PLLSTS
+            & PLL_PLLSTS_DIVSEL_BITS);
 
-    return(divSelect);
+    return (divSelect);
 } // end of PLL_getDivideSelect() function
-
 
 PLL_LockStatus_e PLL_getLockStatus(PLL_Handle pllHandle)
 {
-    volatile PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    volatile PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     // mask the bits
-    PLL_LockStatus_e status = (PLL_LockStatus_e)(pll->PLLSTS & PLL_PLLSTS_PLLLOCKS_BITS);
+    PLL_LockStatus_e status = (PLL_LockStatus_e) (pll->PLLSTS
+            & PLL_PLLSTS_PLLLOCKS_BITS);
 
-    return(status);
+    return (status);
 } // end of PLL_getLockStatus() function
-
 
 PLL_Handle PLL_init(void *pMemory, const size_t numBytes)
 {
     PLL_Handle pllHandle;
 
-
-    if(numBytes < sizeof(PLL_Obj))
-    return((PLL_Handle)NULL);
+    if (numBytes < sizeof(PLL_Obj))
+        return ((PLL_Handle) NULL);
 
     // assign the handle
-    pllHandle = (PLL_Handle)pMemory;
+    pllHandle = (PLL_Handle) pMemory;
 
-    return(pllHandle);
+    return (pllHandle);
 } // end of PLL_init() function
-
 
 void PLL_resetClkDetect(PLL_Handle pllHandle)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
@@ -258,27 +231,24 @@ void PLL_resetClkDetect(PLL_Handle pllHandle)
     return;
 } // end of PLL_resetClkDetect() function
 
-
-void PLL_setClkFreq(PLL_Handle pllHandle,const PLL_ClkFreq_e clkFreq)
+void PLL_setClkFreq(PLL_Handle pllHandle, const PLL_ClkFreq_e clkFreq)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
     // set the bits
-  pll->PLLCR = clkFreq;
+    pll->PLLCR = clkFreq;
 
     DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
     return;
 } // end of PLL_setClkFreq() function
 
-
-void PLL_setDivideSelect(PLL_Handle pllHandle,const PLL_DivideSelect_e divSelect)
+void PLL_setDivideSelect(PLL_Handle pllHandle,
+                         const PLL_DivideSelect_e divSelect)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
@@ -293,11 +263,9 @@ void PLL_setDivideSelect(PLL_Handle pllHandle,const PLL_DivideSelect_e divSelect
     return;
 } // end of PLL_setDivideSelect() function
 
-
 void PLL_setLockPeriod(PLL_Handle pllHandle, const uint16_t lockPeriod)
 {
-    PLL_Obj *pll = (PLL_Obj *)pllHandle;
-
+    PLL_Obj *pll = (PLL_Obj*) pllHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
@@ -308,6 +276,5 @@ void PLL_setLockPeriod(PLL_Handle pllHandle, const uint16_t lockPeriod)
 
     return;
 } // end of PLL_setLockPeriod() function
-
 
 // end of file

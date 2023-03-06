@@ -35,125 +35,111 @@
 //!
 //! (C) Copyright 2015, Texas Instruments, Inc.
 
-
 // **************************************************************************
 // the includes
-
 #include "sw/drivers/osc/src/32b/f28x/f2806x/osc.h"
-
 
 // **************************************************************************
 // the defines
 
-
 // **************************************************************************
 // the globals
-
 
 // **************************************************************************
 // the functions
 
-
-OSC_Handle OSC_init(void *pMemory,const size_t numBytes)
+OSC_Handle OSC_init(void *pMemory, const size_t numBytes)
 {
-  OSC_Handle oscHandle;
+    OSC_Handle oscHandle;
 
+    if (numBytes < sizeof(OSC_Obj))
+        return ((OSC_Handle) NULL);
 
-  if(numBytes < sizeof(OSC_Obj))
-    return((OSC_Handle)NULL);
+    // assign the handle
+    oscHandle = (OSC_Handle) pMemory;
 
-  // assign the handle
-  oscHandle = (OSC_Handle)pMemory;
-
-  return(oscHandle);
+    return (oscHandle);
 } // end of OSC_init() function
 
-
-void OSC_setCoarseTrim(OSC_Handle clkHandle,
-                       const OSC_Number_e oscNumber,
+void OSC_setCoarseTrim(OSC_Handle clkHandle, const OSC_Number_e oscNumber,
                        const uint_least8_t trimValue)
 {
-  OSC_Obj *osc = (OSC_Obj *)clkHandle;
+    OSC_Obj *osc = (OSC_Obj*) clkHandle;
 
-  ENABLE_PROTECTED_REGISTER_WRITE_MODE;
+    ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  if(oscNumber == OSC_Number_1)
+    if (oscNumber == OSC_Number_1)
     {
-      // clear the bits
-      osc->INTOSC1TRIM &= (~OSC_INTOSCnTRIM_COARSE_BITS);
+        // clear the bits
+        osc->INTOSC1TRIM &= (~OSC_INTOSCnTRIM_COARSE_BITS);
 
-      // set the bits
-      osc->INTOSC1TRIM |= trimValue;
+        // set the bits
+        osc->INTOSC1TRIM |= trimValue;
     }
-  else
+    else
     {
-      // clear the bits
-      osc->INTOSC2TRIM &= (~OSC_INTOSCnTRIM_COARSE_BITS);
+        // clear the bits
+        osc->INTOSC2TRIM &= (~OSC_INTOSCnTRIM_COARSE_BITS);
 
-      // set the bits
-      osc->INTOSC2TRIM |= trimValue;
+        // set the bits
+        osc->INTOSC2TRIM |= trimValue;
     }
-    
-  DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  return;
+    DISABLE_PROTECTED_REGISTER_WRITE_MODE;
+
+    return;
 } // end of OSC_setCoarseTrim() function
 
-
-void OSC_setFineTrim(OSC_Handle clkHandle,
-                     const OSC_Number_e oscNumber,
+void OSC_setFineTrim(OSC_Handle clkHandle, const OSC_Number_e oscNumber,
                      const uint_least8_t trimValue)
 {
-  OSC_Obj *osc = (OSC_Obj *)clkHandle;
+    OSC_Obj *osc = (OSC_Obj*) clkHandle;
 
-  ENABLE_PROTECTED_REGISTER_WRITE_MODE;
+    ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  if(oscNumber == OSC_Number_1)
+    if (oscNumber == OSC_Number_1)
     {
-      // clear the bits
-      osc->INTOSC1TRIM &= (~OSC_INTOSCnTRIM_FINE_BITS);
+        // clear the bits
+        osc->INTOSC1TRIM &= (~OSC_INTOSCnTRIM_FINE_BITS);
 
-      // set the bits
-      osc->INTOSC1TRIM |= trimValue << 9;
+        // set the bits
+        osc->INTOSC1TRIM |= trimValue << 9;
     }
-  else
+    else
     {
-      // clear the bits
-      osc->INTOSC2TRIM &= (~OSC_INTOSCnTRIM_FINE_BITS);
+        // clear the bits
+        osc->INTOSC2TRIM &= (~OSC_INTOSCnTRIM_FINE_BITS);
 
-      // set the bits
-      osc->INTOSC2TRIM |= trimValue << 9;
+        // set the bits
+        osc->INTOSC2TRIM |= trimValue << 9;
     }
-    
-  DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  return;
+    DISABLE_PROTECTED_REGISTER_WRITE_MODE;
+
+    return;
 } // end of OSC_setFineTrim() function
 
-
-void OSC_setTrim(OSC_Handle clkHandle,
-                     const OSC_Number_e oscNumber,
-                     const uint16_t trimValue)
+void OSC_setTrim(OSC_Handle clkHandle, const OSC_Number_e oscNumber,
+                 const uint16_t trimValue)
 {
-  OSC_Obj *osc = (OSC_Obj *)clkHandle;
+    OSC_Obj *osc = (OSC_Obj*) clkHandle;
 
-  ENABLE_PROTECTED_REGISTER_WRITE_MODE;
+    ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  if(oscNumber == OSC_Number_1)
+    if (oscNumber == OSC_Number_1)
     {
-      // set the bits
-      osc->INTOSC1TRIM = trimValue;
+        // set the bits
+        osc->INTOSC1TRIM = trimValue;
     }
-  else
+    else
     {
-      // set the bits
-      osc->INTOSC2TRIM = trimValue;
+        // set the bits
+        osc->INTOSC2TRIM = trimValue;
     }
 
-  DISABLE_PROTECTED_REGISTER_WRITE_MODE;
+    DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  return;
+    return;
 } // end of OSC_setTrim() function
-
 
 // end of file

@@ -35,35 +35,29 @@
 //!
 //! (C) Copyright 2011, Texas Instruments, Inc.
 
-
 // **************************************************************************
 // the includes
-
 #include "sw/modules/traj/src/32b/traj.h"
 
 // **************************************************************************
 // the defines
 
-
 // **************************************************************************
 // the globals
-
 
 // **************************************************************************
 // the functions
 
-TRAJ_Handle TRAJ_init(void *pMemory,const size_t numBytes)
+TRAJ_Handle TRAJ_init(void *pMemory, const size_t numBytes)
 {
-  TRAJ_Handle handle;
+    TRAJ_Handle handle;
 
+    if (numBytes < sizeof(TRAJ_Obj))
+        return ((TRAJ_Handle) NULL);
 
-  if(numBytes < sizeof(TRAJ_Obj))
-    return((TRAJ_Handle)NULL);
+    // assign the handle
+    handle = (TRAJ_Handle) pMemory;
 
-  // assign the handle
-  handle = (TRAJ_Handle)pMemory;
-
-  return(handle);
+    return (handle);
 } // end of TRAJ_init() function
-
 

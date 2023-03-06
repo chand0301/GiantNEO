@@ -35,29 +35,22 @@
 //!
 //! (C) Copyright 2015, Texas Instruments, Inc.
 
-
 // **************************************************************************
 // the includes
-
 #include "sw/drivers/pwr/src/32b/f28x/f2806x/pwr.h"
-
 
 // **************************************************************************
 // the defines
 
-
 // **************************************************************************
 // the globals
-
 
 // **************************************************************************
 // the functions
 
-
 void PWR_disableBrownOutReset(PWR_Handle pwrHandle)
 {
-    PWR_Obj *pwr = (PWR_Obj *)pwrHandle;
-
+    PWR_Obj *pwr = (PWR_Obj*) pwrHandle;
 
     // set the bits
     pwr->BORCFG |= PWR_BORCFG_BORENZ_BITS;
@@ -65,11 +58,9 @@ void PWR_disableBrownOutReset(PWR_Handle pwrHandle)
     return;
 } // end of PWR_disableBrownOutReset() function
 
-
 void PWR_disableWatchDogInt(PWR_Handle pwrHandle)
 {
-    PWR_Obj *pwr = (PWR_Obj *)pwrHandle;
-
+    PWR_Obj *pwr = (PWR_Obj*) pwrHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
@@ -81,11 +72,9 @@ void PWR_disableWatchDogInt(PWR_Handle pwrHandle)
     return;
 } // end of PWR_disableWatchDogInt() function
 
-
 void PWR_enableBrownOutReset(PWR_Handle pwrHandle)
 {
-    PWR_Obj *pwr = (PWR_Obj *)pwrHandle;
-
+    PWR_Obj *pwr = (PWR_Obj*) pwrHandle;
 
     // clear the bits
     pwr->BORCFG &= (~PWR_BORCFG_BORENZ_BITS);
@@ -93,42 +82,37 @@ void PWR_enableBrownOutReset(PWR_Handle pwrHandle)
     return;
 } // end of PWR_enableBrownOutReset() function
 
-
 void PWR_enableWatchDogInt(PWR_Handle pwrHandle)
 {
-    PWR_Obj *pwr = (PWR_Obj *)pwrHandle;
-
+    PWR_Obj *pwr = (PWR_Obj*) pwrHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
     // set the bits
-    pwr->LPMCR0 |= (uint16_t)(PWR_LPMCR0_WDINTE_BITS);
+    pwr->LPMCR0 |= (uint16_t) (PWR_LPMCR0_WDINTE_BITS);
 
     DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
     return;
 } // end of PWR_enableWatchDogInt() function
 
-
 PWR_Handle PWR_init(void *pMemory, const size_t numBytes)
 {
     PWR_Handle pwrHandle;
 
-
-    if(numBytes < sizeof(PWR_Obj))
-    return((PWR_Handle)NULL);
+    if (numBytes < sizeof(PWR_Obj))
+        return ((PWR_Handle) NULL);
 
     // assign the handle
-    pwrHandle = (PWR_Handle)pMemory;
+    pwrHandle = (PWR_Handle) pMemory;
 
-    return(pwrHandle);
+    return (pwrHandle);
 } // end of PWR_init() function
 
-
-void PWR_setLowPowerMode(PWR_Handle pwrHandle, const PWR_LowPowerMode_e lowPowerMode)
+void PWR_setLowPowerMode(PWR_Handle pwrHandle,
+                         const PWR_LowPowerMode_e lowPowerMode)
 {
-    PWR_Obj *pwr = (PWR_Obj *)pwrHandle;
-
+    PWR_Obj *pwr = (PWR_Obj*) pwrHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
@@ -144,11 +128,10 @@ void PWR_setLowPowerMode(PWR_Handle pwrHandle, const PWR_LowPowerMode_e lowPower
     return;
 } // end of PWR_enableBrownOutReset() function
 
-
-void PWR_setNumStandByClocks(PWR_Handle pwrHandle, const PWR_NumStandByClocks_e numClkCycles)
+void PWR_setNumStandByClocks(PWR_Handle pwrHandle,
+                             const PWR_NumStandByClocks_e numClkCycles)
 {
-    PWR_Obj *pwr = (PWR_Obj *)pwrHandle;
-    
+    PWR_Obj *pwr = (PWR_Obj*) pwrHandle;
 
     ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
@@ -162,6 +145,5 @@ void PWR_setNumStandByClocks(PWR_Handle pwrHandle, const PWR_NumStandByClocks_e 
 
     return;
 } // end of PWR_setNumStandByClocks() function
-
 
 // end of file

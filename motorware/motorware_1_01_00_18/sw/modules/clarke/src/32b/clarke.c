@@ -35,34 +35,30 @@
 //!
 //! (C) Copyright 2011, Texas Instruments, Inc.
 
-
 // **************************************************************************
 // the includes
-
 #include "sw/modules/clarke/src/32b/clarke.h"
 
 // **************************************************************************
 // the defines
 
-
 // **************************************************************************
 // the globals
-
 
 // **************************************************************************
 // the functions
 
-CLARKE_Handle CLARKE_init(void *pMemory,const size_t numBytes)
+CLARKE_Handle CLARKE_init(void *pMemory, const size_t numBytes)
 {
-  CLARKE_Handle handle;
+    CLARKE_Handle handle;
 
-  if(numBytes < sizeof(CLARKE_Obj))
-    return((CLARKE_Handle)NULL);
+    if (numBytes < sizeof(CLARKE_Obj))
+        return ((CLARKE_Handle) NULL);
 
-  // assign the handle
-  handle = (CLARKE_Handle)pMemory;
+    // assign the handle
+    handle = (CLARKE_Handle) pMemory;
 
-  return(handle);
+    return (handle);
 } // end of CLARKE_init() function
 
 // end of file

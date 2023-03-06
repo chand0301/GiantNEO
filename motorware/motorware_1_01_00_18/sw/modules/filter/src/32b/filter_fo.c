@@ -35,114 +35,92 @@
 //!
 //! (C) Copyright 2012, Texas Instruments, Inc.
 
-
 // **************************************************************************
 // the includes
-
 #include "sw/modules/filter/src/32b/filter_fo.h"
-
-
 
 // **************************************************************************
 // the defines
 
-
 // **************************************************************************
 // the globals
-
 
 // **************************************************************************
 // the functions
 
-
-void FILTER_FO_getDenCoeffs(FILTER_FO_Handle handle,_iq *pa1)
+void FILTER_FO_getDenCoeffs(FILTER_FO_Handle handle, _iq *pa1)
 {
-  FILTER_FO_Obj *obj = (FILTER_FO_Obj *)handle;
+    FILTER_FO_Obj *obj = (FILTER_FO_Obj*) handle;
 
+    *pa1 = obj->a1;
 
-  *pa1 = obj->a1;
-
-  return;
+    return;
 } // end of FILTER_FO_getDenCoeffs() function
 
-
-void FILTER_FO_getInitialConditions(FILTER_FO_Handle handle,_iq *px1,_iq *py1)
+void FILTER_FO_getInitialConditions(FILTER_FO_Handle handle, _iq *px1, _iq *py1)
 {
-  FILTER_FO_Obj *obj = (FILTER_FO_Obj *)handle;
+    FILTER_FO_Obj *obj = (FILTER_FO_Obj*) handle;
 
+    *px1 = obj->x1;
 
-  *px1 = obj->x1;
+    *py1 = obj->y1;
 
-  *py1 = obj->y1;
-
-  return;
+    return;
 } // end of FILTER_FO_getInitialConditions() function
 
-
-void FILTER_FO_getNumCoeffs(FILTER_FO_Handle handle,_iq *pb0,_iq *pb1)
+void FILTER_FO_getNumCoeffs(FILTER_FO_Handle handle, _iq *pb0, _iq *pb1)
 {
-  FILTER_FO_Obj *obj = (FILTER_FO_Obj *)handle;
+    FILTER_FO_Obj *obj = (FILTER_FO_Obj*) handle;
 
+    *pb0 = obj->b0;
+    *pb1 = obj->b1;
 
-  *pb0 = obj->b0;
-  *pb1 = obj->b1;
-
-  return;
+    return;
 } // end of FILTER_FO_getNumCoeffs() function
 
-
-FILTER_FO_Handle FILTER_FO_init(void *pMemory,const size_t numBytes)
+FILTER_FO_Handle FILTER_FO_init(void *pMemory, const size_t numBytes)
 {
-  FILTER_FO_Handle handle;
+    FILTER_FO_Handle handle;
 
+    if (numBytes < sizeof(FILTER_FO_Obj))
+        return ((FILTER_FO_Handle) NULL);
 
-  if(numBytes < sizeof(FILTER_FO_Obj))
-    return((FILTER_FO_Handle)NULL);
+    // assign the handle
+    handle = (FILTER_FO_Handle) pMemory;
 
-  // assign the handle
-  handle = (FILTER_FO_Handle)pMemory;
-
-  return(handle);
+    return (handle);
 } // end of FILTER_FO_init() function
 
-
-void FILTER_FO_setDenCoeffs(FILTER_FO_Handle handle,const _iq a1)
+void FILTER_FO_setDenCoeffs(FILTER_FO_Handle handle, const _iq a1)
 {
-  FILTER_FO_Obj *obj = (FILTER_FO_Obj *)handle;
+    FILTER_FO_Obj *obj = (FILTER_FO_Obj*) handle;
 
+    obj->a1 = a1;
 
-  obj->a1 = a1;
-
-  return;
+    return;
 } // end of FILTER_FO_setDenCoeffs() function
 
-
-void FILTER_FO_setInitialConditions(FILTER_FO_Handle handle,const _iq x1,const _iq y1)
+void FILTER_FO_setInitialConditions(FILTER_FO_Handle handle, const _iq x1,
+                                    const _iq y1)
 {
-  FILTER_FO_Obj *obj = (FILTER_FO_Obj *)handle;
+    FILTER_FO_Obj *obj = (FILTER_FO_Obj*) handle;
 
+    obj->x1 = x1;
 
-  obj->x1 = x1;
+    obj->y1 = y1;
 
-  obj->y1 = y1;
-
-  return;
+    return;
 } // end of FILTER_FO_setInitialConditions() function
 
-
-void FILTER_FO_setNumCoeffs(FILTER_FO_Handle handle,const _iq b0,const _iq b1)
+void FILTER_FO_setNumCoeffs(FILTER_FO_Handle handle, const _iq b0, const _iq b1)
 {
-  FILTER_FO_Obj *obj = (FILTER_FO_Obj *)handle;
+    FILTER_FO_Obj *obj = (FILTER_FO_Obj*) handle;
 
+    obj->b0 = b0;
+    obj->b1 = b1;
 
-  obj->b0 = b0;
-  obj->b1 = b1;
-
-  return;
+    return;
 } // end of FILTER_FO_setNumCoeffs() function
 
-
 // end of file
-
-
 

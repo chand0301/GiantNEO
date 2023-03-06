@@ -35,271 +35,241 @@
 //!
 //! (C) Copyright 2015, Texas Instruments, Inc.
 
-
 // **************************************************************************
 // the includes
-
 #include "sw/drivers/flash/src/32b/f28x/f2806x/flash.h"
-
 
 // **************************************************************************
 // the defines
 
-
 // **************************************************************************
 // the globals
-
 
 // **************************************************************************
 // the functions
 
 void FLASH_clear3VStatus(FLASH_Handle flashHandle)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  ENABLE_PROTECTED_REGISTER_WRITE_MODE;
+    // set the bits
+    flash->FSTATUS |= FLASH_FSTATUS_3VSTAT_BITS;
 
-  // set the bits
-  flash->FSTATUS |= FLASH_FSTATUS_3VSTAT_BITS;
+    DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  DISABLE_PROTECTED_REGISTER_WRITE_MODE;
-
-  return;
+    return;
 } // end of FLASH_clear3VStatus() function
-
 
 #pragma CODE_SECTION(FLASH_disablePipelineMode, "ramfuncs");
 void FLASH_disablePipelineMode(FLASH_Handle flashHandle)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  ENABLE_PROTECTED_REGISTER_WRITE_MODE;
+    // clear the bits
+    flash->FOPT &= (~FLASH_FOPT_ENPIPE_BITS);
 
-  // clear the bits
-  flash->FOPT &= (~FLASH_FOPT_ENPIPE_BITS);
+    DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  DISABLE_PROTECTED_REGISTER_WRITE_MODE;
-
-  return;
+    return;
 } // end of FLASH_disablePipelineMode() function
-
 
 #pragma CODE_SECTION(FLASH_enablePipelineMode, "ramfuncs");
 void FLASH_enablePipelineMode(FLASH_Handle flashHandle)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  ENABLE_PROTECTED_REGISTER_WRITE_MODE;
+    // set the bits
+    flash->FOPT |= FLASH_FOPT_ENPIPE_BITS;
 
-  // set the bits
-  flash->FOPT |= FLASH_FOPT_ENPIPE_BITS;
+    DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  DISABLE_PROTECTED_REGISTER_WRITE_MODE;
-
-  return;
+    return;
 } // end of FLASH_enablePipelineMode() function
-
 
 FLASH_3VStatus_e FLASH_get3VStatus(FLASH_Handle flashHandle)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    // get the status
+    FLASH_3VStatus_e status = (FLASH_3VStatus_e) (flash->FSTATUS
+            & FLASH_FSTATUS_3VSTAT_BITS);
 
-  // get the status
-  FLASH_3VStatus_e status = (FLASH_3VStatus_e)(flash->FSTATUS & FLASH_FSTATUS_3VSTAT_BITS);
-
-  return(status);
+    return (status);
 } // end of FLASH_get3VStatus() function
-
 
 uint16_t FLASH_getActiveWaitCount(FLASH_Handle flashHandle)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    // get the status
+    uint16_t count = (flash->FACTIVEWAIT & FLASH_FACTIVEWAIT_ACTIVEWAIT_BITS);
 
-  // get the status
-  uint16_t count = (flash->FACTIVEWAIT & FLASH_FACTIVEWAIT_ACTIVEWAIT_BITS);
-
-  return(count);
+    return (count);
 } // end of FLASH_getActiveWaitCount() function
-
 
 FLASH_CounterStatus_e FLASH_getActiveWaitStatus(FLASH_Handle flashHandle)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    // get the status
+    FLASH_CounterStatus_e status = (FLASH_CounterStatus_e) ((flash->FSTATUS
+            & FLASH_FSTATUS_ACTIVEWAITS_BITS) >> 3);
 
-  // get the status
-  FLASH_CounterStatus_e status = (FLASH_CounterStatus_e)((flash->FSTATUS & FLASH_FSTATUS_ACTIVEWAITS_BITS) >> 3);
-
-  return(status);
+    return (status);
 } // end of FLASH_getActiveWaitStatus() function
-
 
 FLASH_PowerMode_e FLASH_getPowerMode(FLASH_Handle flashHandle)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    // get the bits
+    FLASH_PowerMode_e mode = (FLASH_PowerMode_e) (flash->FSTATUS
+            & FLASH_FSTATUS_PWRS_BITS);
 
-  // get the bits
-  FLASH_PowerMode_e mode = (FLASH_PowerMode_e)(flash->FSTATUS & FLASH_FSTATUS_PWRS_BITS);
-
-  return(mode);
+    return (mode);
 } // end of FLASH_getPowerMode() function
-
 
 uint16_t FLASH_getStandbyWaitCount(FLASH_Handle flashHandle)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    // get the status
+    uint16_t count = (flash->FSTDBYWAIT & FLASH_FSTDBYWAIT_STDBYWAIT_BITS);
 
-  // get the status
-  uint16_t count = (flash->FSTDBYWAIT & FLASH_FSTDBYWAIT_STDBYWAIT_BITS);
-
-  return(count);
+    return (count);
 } // end of FLASH_getStandbyWaitCount() function
-
 
 FLASH_CounterStatus_e FLASH_getStandbyWaitStatus(FLASH_Handle flashHandle)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    // get the status
+    FLASH_CounterStatus_e status = (FLASH_CounterStatus_e) ((flash->FSTATUS
+            & FLASH_FSTATUS_STDBYWAITS_BITS) >> 2);
 
-  // get the status
-  FLASH_CounterStatus_e status = (FLASH_CounterStatus_e)((flash->FSTATUS & FLASH_FSTATUS_STDBYWAITS_BITS) >> 2);
-
-  return(status);
+    return (status);
 } // end of FLASH_getStandbyWaitStatus() function
 
-
-FLASH_Handle FLASH_init(void *pMemory,const size_t numBytes)
+FLASH_Handle FLASH_init(void *pMemory, const size_t numBytes)
 {
-  FLASH_Handle flashHandle;
+    FLASH_Handle flashHandle;
 
+    if (numBytes < sizeof(FLASH_Obj))
+        return ((FLASH_Handle) NULL);
 
-  if(numBytes < sizeof(FLASH_Obj))
-    return((FLASH_Handle)NULL);
+    // assign the handle
+    flashHandle = (FLASH_Handle) pMemory;
 
-  // assign the handle
-  flashHandle = (FLASH_Handle)pMemory;
-
-  return(flashHandle);
+    return (flashHandle);
 } // end of FLASH_init() function
 
-
 #pragma CODE_SECTION(FLASH_setActiveWaitCount, "ramfuncs");
-void FLASH_setActiveWaitCount(FLASH_Handle flashHandle,const uint16_t count)
+void FLASH_setActiveWaitCount(FLASH_Handle flashHandle, const uint16_t count)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  ENABLE_PROTECTED_REGISTER_WRITE_MODE;
+    flash->FACTIVEWAIT = count;
 
-  flash->FACTIVEWAIT = count;
+    DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  DISABLE_PROTECTED_REGISTER_WRITE_MODE;
-
-  return;
+    return;
 } // end of FLASH_setActiveWaitCount() function
 
-
 #pragma CODE_SECTION(FLASH_setNumPagedReadWaitStates, "ramfuncs");
-void FLASH_setNumPagedReadWaitStates(FLASH_Handle flashHandle,const FLASH_NumPagedWaitStates_e numStates)
+void FLASH_setNumPagedReadWaitStates(FLASH_Handle flashHandle,
+                                     const FLASH_NumPagedWaitStates_e numStates)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  ENABLE_PROTECTED_REGISTER_WRITE_MODE;
+    // clear the bits
+    flash->FBANKWAIT &= (~FLASH_FBANKWAIT_PAGEWAIT_BITS);
 
-  // clear the bits
-  flash->FBANKWAIT &= (~FLASH_FBANKWAIT_PAGEWAIT_BITS);
+    // set the bits
+    flash->FBANKWAIT |= numStates;
 
-  // set the bits
-  flash->FBANKWAIT |= numStates;
+    DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  DISABLE_PROTECTED_REGISTER_WRITE_MODE;
-
-  return;
+    return;
 } // end of FLASH_setNumPagedReadWaitStates() function
 
-
 #pragma CODE_SECTION(FLASH_setNumRandomReadWaitStates, "ramfuncs");
-void FLASH_setNumRandomReadWaitStates(FLASH_Handle flashHandle,const FLASH_NumRandomWaitStates_e numStates)
+void FLASH_setNumRandomReadWaitStates(
+        FLASH_Handle flashHandle, const FLASH_NumRandomWaitStates_e numStates)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  ENABLE_PROTECTED_REGISTER_WRITE_MODE;
+    // clear the bits
+    flash->FBANKWAIT &= (~FLASH_FBANKWAIT_RANDWAIT_BITS);
 
-  // clear the bits
-  flash->FBANKWAIT &= (~FLASH_FBANKWAIT_RANDWAIT_BITS);
+    // set the bits
+    flash->FBANKWAIT |= numStates;
 
-  // set the bits
-  flash->FBANKWAIT |= numStates;
+    DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  DISABLE_PROTECTED_REGISTER_WRITE_MODE;
-
-  return;
+    return;
 } // end of FLASH_setNumRandomReadWaitStates() function
 
-
 #pragma CODE_SECTION(FLASH_setOtpWaitStates, "ramfuncs");
-void FLASH_setOtpWaitStates(FLASH_Handle flashHandle,const FLASH_NumOtpWaitStates_e numStates)
+void FLASH_setOtpWaitStates(FLASH_Handle flashHandle,
+                            const FLASH_NumOtpWaitStates_e numStates)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  ENABLE_PROTECTED_REGISTER_WRITE_MODE;
+    // clear the bits
+    flash->FOTPWAIT &= (~FLASH_FOTPWAIT_OTPWAIT_BITS);
 
-  // clear the bits
-  flash->FOTPWAIT &= (~FLASH_FOTPWAIT_OTPWAIT_BITS);
+    // set the bits
+    flash->FOTPWAIT |= numStates;
 
-  // set the bits
-  flash->FOTPWAIT |= numStates;
+    DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  DISABLE_PROTECTED_REGISTER_WRITE_MODE;
-
-  return;
+    return;
 } // end of FLASH_setOneTimeProgrammableStates() function
 
-
 #pragma CODE_SECTION(FLASH_setPowerMode, "ramfuncs");
-void FLASH_setPowerMode(FLASH_Handle flashHandle,const FLASH_PowerMode_e mode)
+void FLASH_setPowerMode(FLASH_Handle flashHandle, const FLASH_PowerMode_e mode)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  ENABLE_PROTECTED_REGISTER_WRITE_MODE;
+    // clear the bits
+    flash->FPWR &= (~FLASH_FPWR_PWR_BITS);
 
-  // clear the bits
-  flash->FPWR &= (~FLASH_FPWR_PWR_BITS);
+    // set the bits
+    flash->FPWR |= mode;
 
-  // set the bits
-  flash->FPWR |= mode;
+    DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  DISABLE_PROTECTED_REGISTER_WRITE_MODE;
-
-  return;
+    return;
 } // end of FLASH_setPowerMode() function
 
-
 #pragma CODE_SECTION(FLASH_setStandbyWaitCount, "ramfuncs");
-void FLASH_setStandbyWaitCount(FLASH_Handle flashHandle,const uint16_t count)
+void FLASH_setStandbyWaitCount(FLASH_Handle flashHandle, const uint16_t count)
 {
-  FLASH_Obj *flash = (FLASH_Obj *)flashHandle;
+    FLASH_Obj *flash = (FLASH_Obj*) flashHandle;
 
+    ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  ENABLE_PROTECTED_REGISTER_WRITE_MODE;
+    flash->FSTDBYWAIT = count;
 
-  flash->FSTDBYWAIT = count;
+    DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
-  DISABLE_PROTECTED_REGISTER_WRITE_MODE;
-
-  return;
+    return;
 } // end of FLASH_setStandbyWaitCount() function
-
 
 // end of file

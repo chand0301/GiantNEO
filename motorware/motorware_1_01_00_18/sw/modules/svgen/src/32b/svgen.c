@@ -35,44 +35,37 @@
 //!
 //! (C) Copyright 2011, Texas Instruments, Inc.
 
-
 // **************************************************************************
 // the includes
-
 #include "sw/modules/svgen/src/32b/svgen.h"
 
 // **************************************************************************
 // the defines
 
-
 // **************************************************************************
 // the globals
-
 
 // **************************************************************************
 // the functions
 
-SVGEN_Handle SVGEN_init(void *pMemory,const size_t numBytes)
+SVGEN_Handle SVGEN_init(void *pMemory, const size_t numBytes)
 {
-  SVGEN_Handle svgenHandle;
+    SVGEN_Handle svgenHandle;
 
+    if (numBytes < sizeof(SVGEN_Obj))
+        return ((SVGEN_Handle) NULL);
 
-  if(numBytes < sizeof(SVGEN_Obj))
-    return((SVGEN_Handle)NULL);
+    // assign the handle
+    svgenHandle = (SVGEN_Handle) pMemory;
 
-  // assign the handle
-  svgenHandle = (SVGEN_Handle)pMemory;
-
-  return(svgenHandle);
+    return (svgenHandle);
 } // end of SVGEN_init() function
-
 
 void SVGEN_setup(SVGEN_Handle svgenHandle)
 {
 //  SVGEN_Obj *svgen = (SVGEN_Obj *)svgenHandle;
 
-  return;
+    return;
 } // end of SVGEN_setup() function
-
 
 // end of file

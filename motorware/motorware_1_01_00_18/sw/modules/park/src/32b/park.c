@@ -35,34 +35,30 @@
 //!
 //! (C) Copyright 2011, Texas Instruments, Inc.
 
-
 // **************************************************************************
 // the includes
-
 #include "sw/modules/park/src/32b/park.h"
 
 // **************************************************************************
 // the defines
 
-
 // **************************************************************************
 // the globals
-
 
 // **************************************************************************
 // the functions
 
-PARK_Handle PARK_init(void *pMemory,const size_t numBytes)
+PARK_Handle PARK_init(void *pMemory, const size_t numBytes)
 {
-  PARK_Handle handle;
+    PARK_Handle handle;
 
-  if(numBytes < sizeof(PARK_Obj))
-    return((PARK_Handle)NULL);
+    if (numBytes < sizeof(PARK_Obj))
+        return ((PARK_Handle) NULL);
 
-  // assign the handle
-  handle = (PARK_Handle)pMemory;
+    // assign the handle
+    handle = (PARK_Handle) pMemory;
 
-  return(handle);
+    return (handle);
 } // end of PARK_init() function
 
 // end of file

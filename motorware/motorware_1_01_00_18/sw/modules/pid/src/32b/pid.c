@@ -35,41 +35,35 @@
 //!
 //! (C) Copyright 2011, Texas Instruments, Inc.
 
-
 // **************************************************************************
 // the includes
-
 #include "sw/modules/pid/src/32b/pid.h"
-
 
 // **************************************************************************
 // the defines
 
-
 // **************************************************************************
 // the globals
-
 
 // **************************************************************************
 // the functions
 
-PID_Handle PID_init(void *pMemory,const size_t numBytes)
+PID_Handle PID_init(void *pMemory, const size_t numBytes)
 {
-  PID_Handle handle;
+    PID_Handle handle;
 
+    if (numBytes < sizeof(PID_Obj))
+        return ((PID_Handle) NULL);
 
-  if(numBytes < sizeof(PID_Obj))
-    return((PID_Handle)NULL);
+    // assign the handle
+    handle = (PID_Handle) pMemory;
 
-  // assign the handle
-  handle = (PID_Handle)pMemory;
+    // set some defaults
+    PID_setUi(handle, _IQ(0.0));
+    PID_setRefValue(handle, _IQ(0.0));
+    PID_setFbackValue(handle, _IQ(0.0));
 
-  // set some defaults
-  PID_setUi(handle,_IQ(0.0));
-  PID_setRefValue(handle,_IQ(0.0));
-  PID_setFbackValue(handle,_IQ(0.0));
-
-  return(handle);
+    return (handle);
 } // end of PID_init() function
 
 // end of file

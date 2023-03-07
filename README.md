@@ -1,3 +1,8 @@
+---
+tags: TI instaspin
+---
+
+
 # GETTING START WITH TI_instaspin_indoor_smart_trainer
 
 It is a modified instaspin project for indoor smart bike trainer. The whole system is based on the open source project "InstaSPIN-FOC" from TI under BSD licience. This project presents a impedance control struct which included a **PI-type torque observer** and a **impedance reference model**. By all this skills, we can simulate the inertia and friction of flywheel by PMSM which we call it "**electronic flywheel**".
@@ -89,17 +94,57 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 
 ## Motor drive/control HARDWARE
 
-* Drive board DRV8300DRGE-EVM
+電路原理架構，專案會操作在動力機與發電機模式，當處在發電機模式會有回升電壓，在電路架構方面需增加7th開關與功率電阻。
 
-    [![image](https://user-images.githubusercontent.com/30099017/219288029-c035ebc6-3dff-4d8d-b0a2-345f4327a11b.png)](https://www.ti.com/tool/DRV8300DRGE-EVM)
+![](https://i.imgur.com/wq7rVx0.png)
 
-* Extra board The 7th switch to control the energy flow.
 
-    ![image](https://user-images.githubusercontent.com/30099017/219288062-cadade4f-91ee-4911-9bcd-47e9c5f845ad.png)
+
+* Drive board DRV8300DRGE-EVM The 7th switch 
+
+![](https://i.imgur.com/uyHGe2G.png)
+
+:pushpin: [DRV8300DRGE-EVM mouser](https://www.mouser.tw/ProductDetail/Texas-Instruments/DRV8300DRGE-EVM?qs=pUKx8fyJudC7yrux7qp5Rg%3D%3D)
+
+:pushpin: The 7th switch
+![](https://i.imgur.com/RjltsY2.png)
+
 
 * DRIVE BOARD FROM EMTRC
 
+![](https://i.imgur.com/EPIOVp3.png)
+
+
+
+
 待續 預計規格
+NEO規格
+
+發電機模式
+
+| DC電壓 | DC電流 | Phase current(Peak) | 功率    |
+| ------ | ------ | ------------------- | --- |
+| 100V   | 20A    | Text                |   2kW  |
+
+電動機模式
+
+| DC電壓 | DC電流 | 
+| -------- | -------- |
+| 48V     | 1.5A     |
+
+EMTRC規格
+
+發電機模式
+
+| DC電壓 | DC電流 | Phase current(Peak) | 功率    |
+| ------ | ------ | ------------------- | --- |
+| 80V    | 20A    | Text                |   1.5kW  |
+
+電動機模式
+
+| DC電壓 | DC電流 | Phase current(Peak) |
+| -------- | -------- | -------- |
+| 48V     | 1.5A     | Text     |
 1. 發電機模式 DCBUS 80V
 2. 功率電阻5歐姆
 3. 最大功率1.28kW
@@ -176,7 +221,7 @@ Checks for errors in the user parameter values.
 
 實現訓練台核心演算法[IMPEDANCE CONTROL](https://www.youtube.com/watch?v=KJ8s1BUHoks)。
 
-:dart: [阻抗控制簡介]([/uuxLZHLURaqnxXp2EU0oYg](https://hackmd.io/uuxLZHLURaqnxXp2EU0oYg))
+:dart: [阻抗控制簡介](https://hackmd.io/uuxLZHLURaqnxXp2EU0oYg)
 
 **2. Customized USER.H**
 
@@ -208,3 +253,22 @@ uart comunicate with computer.
 - [ ] 目前馬達使用neo馬達，需進行馬達設計
 - [ ] 產品機構要求針對電阻散熱的部分進行考量
 - [ ] 驅動硬體目前由EMTRC開發中 預期規格2KW(100V 20A)
+
+
+1. HFI V.S. Sliding mode
+
+    HFI模式能夠解決Sliding mode在低速高扭力情況下，振動問題。但HFI有時會出現噪音情況。
+
+    ![](https://i.imgur.com/ALzTI6T.png)
+
+2. 速度控制器響應
+
+    目前專案速度控制器是使用PI，可以換成專案中MOTION部分所提供的速度控制器SpinTAC
+
+    ![](https://i.imgur.com/Am9v5zH.png)
+
+3. 路感舒適度-運動科學
+
+    可以繪製花生圖去分析路感情況。
+
+    ![](https://i.imgur.com/w9T5Gj2.png)

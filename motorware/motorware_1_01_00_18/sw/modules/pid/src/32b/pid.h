@@ -264,14 +264,14 @@ static inline void PID_run_spd(PID_Handle handle, const _iq refValue,
     return;
 } // end of PID_run_spd() function
 
-//! \brief     Runs the PID controller for torque observer
+//! \brief     Runs the PID controller for torque observer with B
 //! \param[in] handle      The PID controller handle
 //! \param[in] refValue    The reference value to the controller
 //! \param[in] fbackValue  The feedback value to the controller
 //! \param[in] pOutValue   The pointer to the controller output value
-static inline void PID_run_torque_ob(PID_Handle handle,
-                                     const _iq refValue_speed,
-                                     const _iq fback_Iq, _iq *pOutValue)
+static inline void PID_run_torque_ob_B(PID_Handle handle,
+                                       const _iq refValue_speed,
+                                       const _iq fback_Iq, _iq *pOutValue)
 {
     PID_Obj *obj = (PID_Obj*) handle;
 
@@ -281,7 +281,7 @@ static inline void PID_run_torque_ob(PID_Handle handle,
     _iq J = _IQ(3.318309118); // A/kRPM
     /*B (A/kRPM) is not important in the torque observer,
      * it won't be much different if we ignore it. */
-    //_iq B = _IQ(5.66986084);
+    _iq B = _IQ(5.66986084);
     _iq Acc;
     _iq speed_fback;
     _iq Torque_sum;
@@ -317,7 +317,72 @@ static inline void PID_run_torque_ob(PID_Handle handle,
         *pOutValue = _IQsat(_IQmpy( (Up + Ui) , invKt_a ), obj->outMax,
                             obj->outMin);
 
-        Torque_sum = (Up + Ui) - _IQmpy(_IQ(0.0), speed_fback)
+        Torque_sum = (Up + Ui) - _IQmpy(B, speed_fback)
+                + _IQdiv(fback_Iq, invKt_a);
+        Acc = _IQdiv(Torque_sum, J);
+
+        obj->Ui = Ui;                     // store the intetral output
+        obj->Kd = Acc;                    // store the Acc output
+        obj->fbackValue = speed_fback;
+        obj->refValue = refValue_speed;
+    }
+    return;
+} // end of PID_run_torque_ob_B() function
+
+//! \brief     Runs the PID controller for torque observer without B
+//! \param[in] handle      The PID controller handle
+//! \param[in] refValue    The reference value to the controller
+//! \param[in] fbackValue  The feedback value to the controller
+//! \param[in] pOutValue   The pointer to the controller output value
+static inline void PID_run_torque_ob(PID_Handle handle,
+                                     const _iq refValue_speed,
+                                     const _iq fback_Iq, _iq *pOutValue)
+{
+    PID_Obj *obj = (PID_Obj*) handle;
+
+    _iq Error;
+    _iq Up, Ui;
+    _iq invKt_a = _IQ(1.0);
+    _iq J = _IQ(3.318309118); // A/kRPM
+    /*B (A/kRPM) is not important in the torque observer,
+     * it won't be much different if we ignore it. */
+    _iq B = _IQ(0.0);
+    _iq Acc;
+    _iq speed_fback;
+    _iq Torque_sum;
+    //Therhold 35 RPM ~= 3km/hr
+    if (_IQabs(refValue_speed) < _IQ(0.035))
+    {
+        Ui = _IQ(0.0);
+        Acc = _IQ(0.0);
+        speed_fback = _IQ(0.0);
+        obj->Ui = Ui;
+        obj->Kd = Acc;
+        obj->fbackValue = speed_fback;
+        obj->refValue = refValue_speed;
+        *pOutValue = _IQ(0.0);
+    }
+    else
+    {
+        Acc = obj->Kd;                   // load the previous integral output
+        speed_fback = obj->fbackValue;   // load the previous integral output
+        Ui = obj->Ui;                    // load the previous integral output
+
+        speed_fback = speed_fback + _IQmpy(Acc, _IQ(0.0001));
+        Error = refValue_speed - speed_fback;
+
+        // Compute the proportional output
+        Up = _IQmpy(_IQmpy(obj->Kp,Error), _IQ(1.0));
+
+        // Compute the integral output
+        Ui = _IQsat(Ui + _IQmpy( _IQmpy(obj->Ki,Error), _IQ(1.0)), obj->outMax,
+                    obj->outMin);
+
+        // Saturate the PID output
+        *pOutValue = _IQsat(_IQmpy( (Up + Ui) , invKt_a ), obj->outMax,
+                            obj->outMin);
+
+        Torque_sum = (Up + Ui) - _IQmpy(B, speed_fback)
                 + _IQdiv(fback_Iq, invKt_a);
         Acc = _IQdiv(Torque_sum, J);
 

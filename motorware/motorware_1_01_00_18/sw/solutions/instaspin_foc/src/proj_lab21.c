@@ -866,7 +866,7 @@ interrupt void mainISR(void)
             Idq_offset_pu.value[0] = TRAJ_getIntValue(
                     ((CTRL_Obj*) ctrlHandle)->trajHandle_Id);
             Idq_offset_pu.value[1] = TRAJ_getIntValue(trajHandle_Iq);
-            ;
+
 
             flag_enableSpeedCtrl = EST_doSpeedCtrl(estHandle)
                     & gMotorVars.Flag_enableSpeedCtrl;
@@ -904,14 +904,14 @@ interrupt void mainISR(void)
             Iq_Amp = (_iq) _IQmpy(CTRL_getIq_in_pu(ctrlHandle),
                                   _IQ(USER_IQ_FULL_SCALE_CURRENT_A));
 
-            PID_run_torque_ob(pidHandle_Tob, Speed_kRPM, Iq_Amp,
+            PID_run_torque_ob_B(pidHandle_Tob, Speed_kRPM, Iq_Amp,
                               &(torque_head));
 
             //yPotentiometer use to control B from IQ(2.0) to IQ(20.0)
             yPotentiometer = _IQmpy(xPotentiometer,_IQ(18.0)) + _IQ(2.0);
 
-            //gPotentiometer use to control J from IQ(2.0) to IQ(40.0)
-            gPotentiometer = _IQmpy(fPotentiometer,_IQ(38.0)) + _IQ(2.0);
+            //gPotentiometer use to control J from IQ(2.0) to IQ(50.0)
+            gPotentiometer = _IQmpy(fPotentiometer,_IQ(48.0)) + _IQ(2.0);
 
             Refmodel(pidHandle_Refmodel, gPotentiometer, yPotentiometer,
                      torque_head, &(refspeed)); //NM -> KRPM

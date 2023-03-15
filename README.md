@@ -117,14 +117,15 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 
 
 
-待續 預計規格
+**預計規格**
+
 NEO規格
 
 發電機模式
 
 | DC電壓 | DC電流 | Phase current(Peak) | 功率    |
 | ------ | ------ | ------------------- | --- |
-| 100V   | 20A    | Text                |   2kW  |
+| 110V   | 20A    |        85A         |   2.2kW  |
 
 電動機模式
 
@@ -138,17 +139,17 @@ EMTRC規格
 
 | DC電壓 | DC電流 | Phase current(Peak) | 功率    |
 | ------ | ------ | ------------------- | --- |
-| 80V    | 20A    | Text                |   1.5kW  |
+| 80V    | 20A    |      61A           |   1.6kW  |
 
 電動機模式
 
-| DC電壓 | DC電流 | Phase current(Peak) |
-| -------- | -------- | -------- |
-| 48V     | 1.5A     | Text     |
+| DC電壓 | DC電流 |
+| -------- | -------- | 
+| 48V     | 1.5A     |
 1. 發電機模式 DCBUS 80V
-2. 功率電阻5歐姆
-3. 最大功率1.28kW
-4. DC 16A
+2. 功率電阻4歐姆
+3. 最大功率1.6kW
+4. DC 20A
 
 ## TI InstaSPIN-FOC base feature
 **1. Sensorless motor drive**

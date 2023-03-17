@@ -487,8 +487,8 @@ void main(void)
     // enable the ADC interrupts
     HAL_enableAdcInts(halHandle);
 
-    // enable the SCI interrupts
-    HAL_enableSciInts(halHandle);
+    // enable the SCI interrupts  !!!fix
+    //HAL_enableSciInts(halHandle);
 
     // enable global interrupts
     HAL_enableGlobalInts(halHandle);
@@ -568,8 +568,8 @@ void main(void)
 #ifdef DCBUS_REGULATE
       // regulate the VdcBus voltage
       VdcBus_regualte(halHandle,VDCSET,gMotorVars.VdcBus_kV);
-      //Protect the DCBUS from voltage spike
-      if( gMotorVars.VdcBus_kV > _IQ(0.06) )
+      //Protect the DCBUS from voltage spike 80V
+      if( gMotorVars.VdcBus_kV > _IQ(0.08) )
       {
           HAL_disablePwm(halHandle);
           gMotorVars.Flag_enableSys = false;
@@ -577,7 +577,7 @@ void main(void)
 #endif
 
       //Get the yPotentiometer from IQ(-0.95) to IQ(-1.0) at ADCINB6
-      xPotentiometer = HAL_readPotentiometerData(halHandle);
+      xPotentiometer = HAL_readPotentiometerDatax(halHandle);
       yPotentiometer = _IQmpy(xPotentiometer,_IQ(-0.05)) - _IQ(0.95);
 
 
@@ -722,7 +722,7 @@ interrupt void mainISR(void)
             gIdq_ref_pu.value[1] = _IQdiv(torque_head_comm ,_IQ(USER_IQ_FULL_SCALE_CURRENT_A));
             #endif
 
-            #ifdef REFERENCEMODEL
+            #ifdef REFERENCEMODEL //fix ref mode!!!
 
             PID_run_torque_ob(pidHandle[3],Speed_kRPM,Iq_Amp,
                                                       &(torque_head));

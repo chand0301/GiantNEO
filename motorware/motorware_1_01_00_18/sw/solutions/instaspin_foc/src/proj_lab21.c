@@ -658,7 +658,7 @@ void main(void)
             // regulate the VdcBus voltage
             VdcBus_regualte(halHandle, VDCSET, gMotorVars.VdcBus_kV);
             //Protect the DCBUS from voltage spike(which higher than 60V)
-            if (gMotorVars.VdcBus_kV > _IQ(0.06))
+            if (gMotorVars.VdcBus_kV > _IQ(0.08))
             {
                 HAL_disablePwm(halHandle);
                 gMotorVars.Flag_enableSys = false;

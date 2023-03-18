@@ -37,12 +37,9 @@
 //!         to the HAL object
 //!
 //! (C) Copyright 2011, Texas Instruments, Inc.
-
 // **************************************************************************
 // the includes
-
 // modules
-
 // platforms
 #include "hal_obj.h"
 #include "sw/modules/svgen/src/32b/svgen_current.h"
@@ -524,6 +521,24 @@ static inline void HAL_readAdcData(HAL_Handle handle, HAL_AdcData_t *pAdcData)
     _iq value;
     _iq current_sf = HAL_getCurrentScaleFactor(handle);
     _iq voltage_sf = HAL_getVoltageScaleFactor(handle);
+
+#ifdef MW_DRIVER
+    // convert current A
+    // sample the first sample twice due to errata sprz342f, ignore the first sample
+    value = (_iq) ADC_readResult(obj->adcHandle, ADC_ResultNumber_1);
+    value = _IQ12mpy(value,current_sf) - obj->adcBias.I.value[0]; // divide by 2^numAdcBits = 2^12
+    pAdcData->I.value[0] = value * (-1);
+
+    // convert current B
+    value = (_iq) ADC_readResult(obj->adcHandle, ADC_ResultNumber_2);
+    value = _IQ12mpy(value,current_sf) - obj->adcBias.I.value[1]; // divide by 2^numAdcBits = 2^12
+    pAdcData->I.value[1] = value * (-1);
+
+    // convert current C
+    value = (_iq) ADC_readResult(obj->adcHandle, ADC_ResultNumber_3);
+    value = _IQ12mpy(value,current_sf) - obj->adcBias.I.value[2]; // divide by 2^numAdcBits = 2^12
+    pAdcData->I.value[2] = value * (-1);
+#endif
 
 #ifdef drv8301kit_revD
   // convert current A

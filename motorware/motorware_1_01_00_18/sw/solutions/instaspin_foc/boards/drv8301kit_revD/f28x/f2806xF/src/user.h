@@ -72,7 +72,9 @@ extern "C" {
 /*If define drv8301. there is No UART No DCBUS_REGULATE,
  * can only do the speed control*/
 //#define drv8301kit_revD
+//#define MW_DRIVER
 #define DRV8300DIPW_EVM
+
 
 /*control mode*/
 
@@ -97,6 +99,26 @@ extern "C" {
 //! \brief CURRENTS AND VOLTAGES
 
 // **************************************************************************
+
+#ifdef MW_DRIVER
+#define USER_IQ_FULL_SCALE_FREQ_Hz        (100) //maximum freq ~= 72Hz
+#define USER_IQ_FULL_SCALE_VOLTAGE_V      (48.0)
+#define USER_ADC_FULL_SCALE_VOLTAGE_V       (85.885)
+#define USER_IQ_FULL_SCALE_CURRENT_A          (45.0)
+#define USER_ADC_FULL_SCALE_CURRENT_A        (90.0)
+#define   I_A_offset    (1.054858565)
+#define   I_B_offset    (1.075172186)
+#define   I_C_offset    (1.061470509)
+#define   V_A_offset    (0.4903128743)
+#define   V_B_offset    (0.4880359769)
+#define   V_C_offset    (0.4874520898)
+#define USER_MAX_VS_MAG_PU        (0.5)
+#define USER_VOLTAGE_FILTER_POLE_Hz  (424.4)
+#define ST_SPEED_SAMPLE_TIME (0.001)
+#define USER_SYSTEM_BANDWIDTH      (90.0)
+#endif
+
+
 #ifdef DRV8300DIPW_EVM
 #define USER_IQ_FULL_SCALE_FREQ_Hz        (100) //maximum freq ~= 72Hz
 #define USER_IQ_FULL_SCALE_VOLTAGE_V      (48.0)
@@ -482,7 +504,7 @@ extern "C" {
 #define USER_MOTOR_MAGNETIZING_CURRENT  (NULL)
 #define USER_MOTOR_RES_EST_CURRENT      (5.0)
 #define USER_MOTOR_IND_EST_CURRENT      (-5.0)
-#define USER_MOTOR_MAX_CURRENT          (20.0)//40MAX
+#define USER_MOTOR_MAX_CURRENT          (40.0)//40MAX
 #define USER_MOTOR_FLUX_EST_FREQ_Hz     (40.0)
 #define USER_MOTOR_ENCODER_LINES        (1.0)
 #define USER_MOTOR_MAX_SPEED_KRPM       (0.27)

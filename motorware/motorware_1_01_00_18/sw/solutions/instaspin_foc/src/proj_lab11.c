@@ -646,6 +646,12 @@ interrupt void mainISR(void)
     HAL_readAdcDataWithOffsets(halHandle,&gAdcData);
 
     // remove offsets
+
+#ifdef MW_DRIVER
+    gAdcData.I.value[0] = (-1) * (gAdcData.I.value[0] - gOffsets_I_pu.value[0]);
+    gAdcData.I.value[1] = (-1) * (gAdcData.I.value[1] - gOffsets_I_pu.value[1]);
+    gAdcData.I.value[2] = (-1) * (gAdcData.I.value[2] - gOffsets_I_pu.value[2]);
+#endif
 #ifdef DRV8300DIPW_EVM
     gAdcData.I.value[0] = (-1) * (gAdcData.I.value[0] - gOffsets_I_pu.value[0]);
     gAdcData.I.value[1] = (-1) * (gAdcData.I.value[1] - gOffsets_I_pu.value[1]);

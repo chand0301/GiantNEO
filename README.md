@@ -100,9 +100,13 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 
 
 
-* Drive board DRV8300DRGE-EVM The 7th switch 
+* Drive board DRV8300DRGE-EVM & The 7th switch 
 
 ![](https://i.imgur.com/uyHGe2G.png)
+
+| input voltage | output current |
+| -------- | -------- |
+| 6V - 100V     | 30A (phase peak)     |
 
 :pushpin: [DRV8300DRGE-EVM mouser](https://www.mouser.tw/ProductDetail/Texas-Instruments/DRV8300DRGE-EVM?qs=pUKx8fyJudC7yrux7qp5Rg%3D%3D)
 

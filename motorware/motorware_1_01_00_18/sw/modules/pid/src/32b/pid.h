@@ -278,9 +278,8 @@ static inline void PID_run_torque_ob_B(PID_Handle handle,
     _iq Error;
     _iq Up, Ui;
     _iq invKt_a = _IQ(1.0);
+    _iq Gain = _IQ(2.0);
     _iq J = _IQ(3.318309118); // A/kRPM
-    /*B (A/kRPM) is not important in the torque observer,
-     * it won't be much different if we ignore it. */
     _iq B = _IQ(5.66986084);
     _iq Acc;
     _iq speed_fback;
@@ -307,10 +306,10 @@ static inline void PID_run_torque_ob_B(PID_Handle handle,
         Error = refValue_speed - speed_fback;
 
         // Compute the proportional output
-        Up = _IQmpy(_IQmpy(obj->Kp,Error), _IQ(1.0));
+        Up = _IQmpy(_IQmpy(obj->Kp,Error), Gain);
 
         // Compute the integral output
-        Ui = _IQsat(Ui + _IQmpy( _IQmpy(obj->Ki,Error), _IQ(1.0)), obj->outMax,
+        Ui = _IQsat(Ui + _IQmpy( _IQmpy(obj->Ki,Error), Gain), obj->outMax,
                     obj->outMin);
 
         // Saturate the PID output

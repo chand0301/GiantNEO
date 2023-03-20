@@ -892,7 +892,7 @@ void HAL_setupAdcs(HAL_Handle handle)
                           ADC_SocSampleDelay_9_cycles);
 
     // EXT IB-FB
-    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_2, ADC_SocChanNumber_A5);
+    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_2, ADC_SocChanNumber_B1);
     ADC_setSocTrigSrc(obj->adcHandle, ADC_SocNumber_2,
                       ADC_SocTrigSrc_EPWM1_ADCSOCA);
     ADC_setSocSampleDelay(obj->adcHandle, ADC_SocNumber_2,
@@ -913,7 +913,7 @@ void HAL_setupAdcs(HAL_Handle handle)
                           ADC_SocSampleDelay_9_cycles);
 
     // ADC-Vhb2
-    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_5, ADC_SocChanNumber_B1);
+    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_5, ADC_SocChanNumber_A5);
     ADC_setSocTrigSrc(obj->adcHandle, ADC_SocNumber_5,
                       ADC_SocTrigSrc_EPWM1_ADCSOCA);
     ADC_setSocSampleDelay(obj->adcHandle, ADC_SocNumber_5,

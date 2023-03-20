@@ -71,6 +71,7 @@ _iq torque_head = _IQ(0.0);
 _iq pre_torque_head = _IQ(0.0);
 _iq refspeed = _IQ(0.0);
 _iq VDCSET = _IQ(0.048);
+_iq VDCPORTECT = _IQ(0.06);
 _iq Iq_Amp = _IQ(0.0);
 _iq Speed_kRPM = _IQ(0.0);
 uint16_t success = 0;
@@ -236,13 +237,13 @@ void main(void)
         // The following instructions load the parameters for the torque
         // observer.
         PID_setGains(pidHandle_Tob, _IQ(66.3692), _IQ(113.3972), _IQ(0.0));
-        PID_setMinMax(pidHandle_Tob, _IQ(-20.0), _IQ(20.0));
+        PID_setMinMax(pidHandle_Tob, _IQ(-25.0), _IQ(25.0));
         PID_setUi(pidHandle_Tob, _IQ(0.0));
 
         // The following instructions load the parameters for the reference
         // model.
         PID_setGains(pidHandle_Refmodel, _IQ(0.275), _IQ(0.348), _IQ(0.0));
-        PID_setMinMax(pidHandle_Refmodel, _IQ(-40.0), _IQ(40.0));
+        PID_setMinMax(pidHandle_Refmodel, _IQ(-0.25), _IQ(0.25));
         PID_setUi(pidHandle_Refmodel, _IQ(0.0));
     }
 
@@ -658,16 +659,16 @@ void main(void)
             // regulate the VdcBus voltage
             VdcBus_regualte(halHandle, VDCSET, gMotorVars.VdcBus_kV);
             //Protect the DCBUS from voltage spike(which higher than 60V)
-            if (gMotorVars.VdcBus_kV > _IQ(0.08))
+            if (gMotorVars.VdcBus_kV > VDCPORTECT)
             {
                 HAL_disablePwm(halHandle);
                 gMotorVars.Flag_enableSys = false;
             }
 #endif
 
-            //Get the yPotentiometer from IQ(0.0) to IQ(1.0) at ADCINB6
+            //Get the xPotentiometer from IQ(0.0) to IQ(1.0) at ADCINB6
             xPotentiometer = HAL_readPotentiometerDatax(halHandle);
-            //Get the yPotentiometer from IQ(0.0) to IQ(1.0) at ADCINA6
+            //Get the fPotentiometer from IQ(0.0) to IQ(1.0) at ADCINA6
             fPotentiometer = HAL_readPotentiometerDataf(halHandle);
 
             // calculate the throttle position and output as a torque command

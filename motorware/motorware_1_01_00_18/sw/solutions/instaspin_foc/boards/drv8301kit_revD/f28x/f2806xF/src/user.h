@@ -68,7 +68,6 @@ extern "C" {
 // **************************************************************************
 // the defines
 /*Drive board*/
-
 /*If define drv8301. there is No UART No DCBUS_REGULATE,
  * can only do the speed control*/
 //#define drv8301kit_revD
@@ -77,19 +76,20 @@ extern "C" {
 
 
 /*control mode*/
-
 /* !!choose one of them!!*/
-#define SPEEDLOOP //Project original speed control mode
+//#define SPEEDLOOP //Project original speed control mode
 //#define CURRENTLOOP //Impedance control without referencemodel
-//#define REFERENCEMODEL //Impedance control
+#define REFERENCEMODEL //Impedance control
 
 /*Extra fun*/
 //#define overmodulation
 //!!!!Please Remain open to protect dc bus from motor BEMF.!!!!
 #define DCBUS_REGULATE
-/*only for LAB11 and LAB21, remain comment when doing ohther labs*/
-//#define UART
-//#define ADCINT1_HIGHEST_PRTORITY
+
+//only valiable for LAB11 and LAB21, remain comment when doing ohther labs
+#define UART
+#define ADCINT1_HIGHEST_PRTORITY
+
 
 /*motor*/
 //#define USER_MOTOR BL90M //
@@ -103,15 +103,15 @@ extern "C" {
 #ifdef MW_DRIVER
 #define USER_IQ_FULL_SCALE_FREQ_Hz        (100) //maximum freq ~= 72Hz
 #define USER_IQ_FULL_SCALE_VOLTAGE_V      (48.0)
-#define USER_ADC_FULL_SCALE_VOLTAGE_V       (85.885)
-#define USER_IQ_FULL_SCALE_CURRENT_A          (45.0)
-#define USER_ADC_FULL_SCALE_CURRENT_A        (90.0)
-#define   I_A_offset    (1.054858565)
-#define   I_B_offset    (1.075172186)
-#define   I_C_offset    (1.061470509)
-#define   V_A_offset    (0.4903128743)
-#define   V_B_offset    (0.4880359769)
-#define   V_C_offset    (0.4874520898)
+#define USER_ADC_FULL_SCALE_VOLTAGE_V       (85.0)
+#define USER_IQ_FULL_SCALE_CURRENT_A          (18.33)
+#define USER_ADC_FULL_SCALE_CURRENT_A        (36.66)
+#define   I_A_offset    (0.991)
+#define   I_B_offset    (0.991)
+#define   I_C_offset    (0.991)
+#define   V_A_offset    (0.073)
+#define   V_B_offset    (0.073)
+#define   V_C_offset    (0.073)
 #define USER_MAX_VS_MAG_PU        (0.5)
 #define USER_VOLTAGE_FILTER_POLE_Hz  (424.4)
 #define ST_SPEED_SAMPLE_TIME (0.001)
@@ -504,14 +504,14 @@ extern "C" {
 #define USER_MOTOR_MAGNETIZING_CURRENT  (NULL)
 #define USER_MOTOR_RES_EST_CURRENT      (5.0)
 #define USER_MOTOR_IND_EST_CURRENT      (-5.0)
-#define USER_MOTOR_MAX_CURRENT          (40.0)//40MAX
+#define USER_MOTOR_MAX_CURRENT          (25.0)
 #define USER_MOTOR_FLUX_EST_FREQ_Hz     (40.0)
 #define USER_MOTOR_ENCODER_LINES        (1.0)
 #define USER_MOTOR_MAX_SPEED_KRPM       (0.27)
 #define USER_SYSTEM_INERTIA             (3.318309188)
 #define USER_SYSTEM_FRICTION            (5.66986084)
 #define USER_SYSTEM_BANDWIDTH_SCALE     (1.0)
-#define IPD_HFI_EXC_FREQ_HZ             (500)//937.5       // excitation frequency, Hz
+#define IPD_HFI_EXC_FREQ_HZ             (937.5)//937.5       // excitation frequency, Hz
 #define IPD_HFI_LP_SPD_FILT_HZ          (35.0)        // lowpass filter cutoff frequency, Hz
 #define IPD_HFI_HP_IQ_FILT_HZ           (100.0)        // highpass filter cutoff frequency, Hz
 #define IPD_HFI_KSPD                    (30.0)     //??   // the speed gain value

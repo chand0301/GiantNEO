@@ -104,9 +104,9 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 
 ![](https://i.imgur.com/uyHGe2G.png)
 
-| input voltage | output current |
-| -------- | -------- |
-| 6V - 100V     | 30A (phase peak)     |
+| input voltage | output current   | software current limit |
+| ------------- | ---------------- |:----------------------:|
+| 6V - 100V     | 30A (phase peak) |          25A           |
 
 :pushpin: [DRV8300DRGE-EVM mouser](https://www.mouser.tw/ProductDetail/Texas-Instruments/DRV8300DRGE-EVM?qs=pUKx8fyJudC7yrux7qp5Rg%3D%3D)
 
@@ -118,12 +118,12 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 
 ![](https://i.imgur.com/EPIOVp3.png)
 
+TO be continue...
 
 
+### 預計規格
 
-**預計規格**
-
-NEO規格
+**NEO規格**
 
 發電機模式
 
@@ -137,7 +137,7 @@ NEO規格
 | -------- | -------- |
 | 48V     | 1.5A     |
 
-EMTRC規格
+**EMTRC規格**
 
 發電機模式
 
@@ -161,6 +161,8 @@ EMTRC規格
 All labs are using sensorless control methods 
 
 include [Sliding mode](https://en.wikipedia.org/wiki/Sliding_mode_control) and [High Frequency Injection](https://ieeexplore.ieee.org/document/5157420).
+
+:dart: [sensorless FOC](https://hackmd.io/fXTAxaK0TOSR6tjotgS3uw)
 
 **2. Motor Parameter IDentify**
 
@@ -252,27 +254,23 @@ uart comunicate with computer.
 
 ## TO DO ...
 
+- [x] 增加reference model模擬B
 - [ ] 根據實際路面輸出扭矩，提升訓練台對路感的模擬程度。
-- [ ] 增加reference model模擬B
-- [ ] 低速高扭狀態目前以HFI解決
 - [ ] 目前馬達使用neo馬達，需進行馬達設計
 - [ ] 產品機構要求針對電阻散熱的部分進行考量
-- [ ] 驅動硬體目前由EMTRC開發中 預期規格2KW(100V 20A)
-
-
-1. HFI V.S. Sliding mode
-
+- [ ] 驅動硬體目前由EMTRC開發中 預期規格 1.6 kW
+- [ ] HFI V.S. Sliding mode
     HFI模式能夠解決Sliding mode在低速高扭力情況下，振動問題。但HFI有時會出現噪音情況。
 
     ![](https://i.imgur.com/ALzTI6T.png)
 
-2. 速度控制器響應
+- [ ] 速度控制器響應
 
     目前專案速度控制器是使用PI，可以換成專案中MOTION部分所提供的速度控制器SpinTAC
 
     ![](https://i.imgur.com/Am9v5zH.png)
 
-3. 路感舒適度-運動科學
+- [ ] 路感舒適度-運動科學
 
     可以繪製花生圖去分析路感情況。
 

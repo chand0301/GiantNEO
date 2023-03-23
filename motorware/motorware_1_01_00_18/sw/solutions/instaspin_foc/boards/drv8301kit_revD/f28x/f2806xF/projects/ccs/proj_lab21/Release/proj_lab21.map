@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v22.6.0                     
 ******************************************************************************
->> Linked Mon Mar 20 14:32:50 2023
+>> Linked Thu Mar 23 16:33:49 2023
 
 OUTPUT FILE NAME:   <proj_lab21.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 0000c05b
@@ -216,7 +216,7 @@ MODULE SUMMARY
     +--+---------------------+-------+------------------+--------------------+
        Total:                13302   305                731               
                                                                           
-    C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib/rts2800_ml.lib
+    C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib/rts2800_ml.lib
        e_powf.c.obj          1054    62                 0                 
        e_logf.c.obj          391     16                 0                 
        fd_mpy28.asm.obj      131     0                  0                 
@@ -251,22 +251,22 @@ MODULE SUMMARY
     +--+---------------------+-------+------------------+--------------------+
        Total:                2796    120                11                
                                                                           
-    D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/afsel/lib/32b/f28x/afsel.lib
+    D:/GIANT/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/afsel/lib/32b/f28x/afsel.lib
        afsel_priv.obj        352     0                  40                
     +--+---------------------+-------+------------------+--------------------+
        Total:                352     0                  40                
                                                                           
-    D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/fstart/lib/32b/f28x/fstart.lib
+    D:/GIANT/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/fstart/lib/32b/f28x/fstart.lib
        fstart_priv.obj       125     4                  2                 
     +--+---------------------+-------+------------------+--------------------+
        Total:                125     4                  2                 
                                                                           
-    D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/ipd/lib/32b/f28x/ipd_hfi.lib
+    D:/GIANT/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/ipd/lib/32b/f28x/ipd_hfi.lib
        ipd_hfi_priv.obj      982     4                  102               
     +--+---------------------+-------+------------------+--------------------+
        Total:                982     4                  102               
                                                                           
-    D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/iqmath/lib/f28x/32b/IQmath.lib
+    D:/GIANT/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/iqmath/lib/f28x/32b/IQmath.lib
        IQmathTables.obj      0       2896               0                 
        IQNexpTable.obj       0       140                0                 
        IQ24div.obj           0       71                 0                 

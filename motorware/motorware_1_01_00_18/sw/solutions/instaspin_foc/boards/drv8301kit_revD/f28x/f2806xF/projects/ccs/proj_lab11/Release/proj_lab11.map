@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v22.6.0                     
 ******************************************************************************
->> Linked Mon Mar 20 13:58:05 2023
+>> Linked Thu Mar 23 16:35:31 2023
 
 OUTPUT FILE NAME:   <proj_lab11.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 0000ae0d
@@ -191,7 +191,7 @@ MODULE SUMMARY
     +--+---------------------+-------+------------------+--------------------+
        Total:                9959    333                821               
                                                                           
-    C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib/rts2800_ml.lib
+    C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib/rts2800_ml.lib
        e_powf.c.obj          1054    62                 0                 
        e_logf.c.obj          391     16                 0                 
        fd_mpy28.asm.obj      131     0                  0                 
@@ -225,12 +225,12 @@ MODULE SUMMARY
     +--+---------------------+-------+------------------+--------------------+
        Total:                2734    118                11                
                                                                           
-    D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/fast/lib/32b/f28x/EST_getIdq_pu.lib
+    D:/GIANT/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/fast/lib/32b/f28x/EST_getIdq_pu.lib
        EST_getIdq_pu.obj     14      0                  0                 
     +--+---------------------+-------+------------------+--------------------+
        Total:                14      0                  0                 
                                                                           
-    D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/iqmath/lib/f28x/32b/IQmath.lib
+    D:/GIANT/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/iqmath/lib/f28x/32b/IQmath.lib
        IQmathTables.obj      0       2896               0                 
        IQNexpTable.obj       0       140                0                 
        IQ24div.obj           0       71                 0                 

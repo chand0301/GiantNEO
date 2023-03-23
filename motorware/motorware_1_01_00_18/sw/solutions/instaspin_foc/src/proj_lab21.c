@@ -732,18 +732,20 @@ void main(void)
 
 } // end of main() function
 
+#ifdef UART
 //! \brief the ISR for SCI-B receive interrupt
 interrupt void sciBRxISR(void)
 {
-#ifdef UART
+
     HAL_Obj *obj = (HAL_Obj*) halHandle;
     dataRx = SCI_getDataNonBlocking(halHandle->sciBHandle, &success);
     //success = SCI_putDataNonBlocking(halHandle->sciBHandle, dataTx);
     // acknowledge interrupt from SCI group so that SCI interrupt
     // is not received twice
     PIE_clearInt(obj->pieHandle, PIE_GroupNumber_9);
-#endif
+
 } // end of sciBRxISR() function
+#endif
 
 interrupt void mainISR(void)
 {

@@ -2,7 +2,7 @@
 <link_info>
    <banner>TMS320C2000 Linker PC v22.6.0.LTS</banner>
    <copyright>Copyright (c) 1996-2018 Texas Instruments Incorporated</copyright>
-   <link_time>0x6417f5ed</link_time>
+   <link_time>0x641c0f53</link_time>
    <link_errors>0x0</link_errors>
    <output_file>proj_lab11.out</output_file>
    <entry_point>
@@ -160,439 +160,439 @@
          <name>&lt;internal&gt;</name>
       </input_file>
       <input_file id="fl-21">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>fd_mpy28.asm.obj</name>
       </input_file>
       <input_file id="fl-22">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>fd_tol28.asm.obj</name>
       </input_file>
       <input_file id="fl-23">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>fs_div28.asm.obj</name>
       </input_file>
       <input_file id="fl-24">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>fs_mpy28.asm.obj</name>
       </input_file>
       <input_file id="fl-25">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>fs_neg28.asm.obj</name>
       </input_file>
       <input_file id="fl-26">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>fs_tofd28.asm.obj</name>
       </input_file>
       <input_file id="fl-27">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>fs_toi28.asm.obj</name>
       </input_file>
       <input_file id="fl-28">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>fs_tou28.asm.obj</name>
       </input_file>
       <input_file id="fl-29">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>fs_toul28.asm.obj</name>
       </input_file>
       <input_file id="fl-2a">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>i_tofs28.asm.obj</name>
       </input_file>
       <input_file id="fl-2b">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>u_tofs28.asm.obj</name>
       </input_file>
       <input_file id="fl-2c">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>ul_tofs28.asm.obj</name>
       </input_file>
       <input_file id="fl-2d">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__CTRL_init_tmp.obj</name>
       </input_file>
       <input_file id="fl-2e">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__CTRL_setGains_tmp.obj</name>
       </input_file>
       <input_file id="fl-2f">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__CTRL_setParams_tmp.obj</name>
       </input_file>
       <input_file id="fl-30">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__CTRL_setUserMotorParams_tmp.obj</name>
       </input_file>
       <input_file id="fl-31">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__CTRL_setupEstIdleState_tmp.obj</name>
       </input_file>
       <input_file id="fl-32">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getAngle_pu_tmp.obj</name>
       </input_file>
       <input_file id="fl-33">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getFlux_VpHz_tmp.obj</name>
       </input_file>
       <input_file id="fl-34">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getFlux_pu_tmp.obj</name>
       </input_file>
       <input_file id="fl-35">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getFm_pu_tmp.obj</name>
       </input_file>
       <input_file id="fl-36">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getIdRated_tmp.obj</name>
       </input_file>
       <input_file id="fl-37">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\</path>
          <kind>archive</kind>
          <file>EST_getIdq_pu.lib</file>
          <name>EST_getIdq_pu.obj</name>
       </input_file>
       <input_file id="fl-38">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getLs_coarse_max_pu_tmp.obj</name>
       </input_file>
       <input_file id="fl-39">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getLs_d_H_tmp.obj</name>
       </input_file>
       <input_file id="fl-3a">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getLs_d_pu_tmp.obj</name>
       </input_file>
       <input_file id="fl-3b">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getLs_q_H_tmp.obj</name>
       </input_file>
       <input_file id="fl-3c">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getLs_q_pu_tmp.obj</name>
       </input_file>
       <input_file id="fl-3d">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getOneOverDcBus_pu_tmp.obj</name>
       </input_file>
       <input_file id="fl-3e">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getRr_Ohm_tmp.obj</name>
       </input_file>
       <input_file id="fl-3f">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getRs_Ohm_tmp.obj</name>
       </input_file>
       <input_file id="fl-40">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getSpeed_krpm_tmp.obj</name>
       </input_file>
       <input_file id="fl-41">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_getState_tmp.obj</name>
       </input_file>
       <input_file id="fl-42">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_init_tmp.obj</name>
       </input_file>
       <input_file id="fl-43">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_run_tmp.obj</name>
       </input_file>
       <input_file id="fl-44">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_setFlag_enableForceAngle_tmp.obj</name>
       </input_file>
       <input_file id="fl-45">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_setFlag_enableRsRecalc_tmp.obj</name>
       </input_file>
       <input_file id="fl-46">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_setIdle_tmp.obj</name>
       </input_file>
       <input_file id="fl-47">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_setLs_d_pu_tmp.obj</name>
       </input_file>
       <input_file id="fl-48">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_setLs_qFmt_tmp.obj</name>
       </input_file>
       <input_file id="fl-49">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_setLs_q_pu_tmp.obj</name>
       </input_file>
       <input_file id="fl-4a">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__EST_updateState_tmp.obj</name>
       </input_file>
       <input_file id="fl-4b">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__OFFSET_init_tmp.obj</name>
       </input_file>
       <input_file id="fl-4c">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__OFFSET_setBeta_tmp.obj</name>
       </input_file>
       <input_file id="fl-4d">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__OFFSET_setInitCond_tmp.obj</name>
       </input_file>
       <input_file id="fl-4e">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\fast\lib\32b\f28x\f2806x\</path>
          <kind>archive</kind>
          <file>2806xRevB_FastSpinROMSymbols.lib</file>
          <name>TMS320x2806x_REVB_boot_rom_out__OFFSET_setOffset_tmp.obj</name>
       </input_file>
       <input_file id="fl-4f">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
          <kind>archive</kind>
          <file>IQmath.lib</file>
          <name>IQ24cosPU.obj</name>
       </input_file>
       <input_file id="fl-50">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
          <kind>archive</kind>
          <file>IQmath.lib</file>
          <name>IQmathTables.obj</name>
       </input_file>
       <input_file id="fl-51">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
          <kind>archive</kind>
          <file>IQmath.lib</file>
          <name>IQ24div.obj</name>
       </input_file>
       <input_file id="fl-52">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
          <kind>archive</kind>
          <file>IQmath.lib</file>
          <name>IQ24exp.obj</name>
       </input_file>
       <input_file id="fl-53">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
          <kind>archive</kind>
          <file>IQmath.lib</file>
          <name>IQNexpTable.obj</name>
       </input_file>
       <input_file id="fl-54">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
          <kind>archive</kind>
          <file>IQmath.lib</file>
          <name>IQ24sinPU.obj</name>
       </input_file>
       <input_file id="fl-55">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
          <kind>archive</kind>
          <file>IQmath.lib</file>
          <name>IQ24sqrt.obj</name>
       </input_file>
       <input_file id="fl-56">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
          <kind>archive</kind>
          <file>IQmath.lib</file>
          <name>IQ24toF.obj</name>
       </input_file>
       <input_file id="fl-57">
-         <path>D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
+         <path>D:\GIANT\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\modules\iqmath\lib\f28x\32b\</path>
          <kind>archive</kind>
          <file>IQmath.lib</file>
          <name>IQ30toF.obj</name>
       </input_file>
       <input_file id="fl-58">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>boot28.asm.obj</name>
       </input_file>
       <input_file id="fl-59">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>args_main.c.obj</name>
       </input_file>
       <input_file id="fl-5a">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>startup.c.obj</name>
       </input_file>
       <input_file id="fl-5b">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>pre_init.c.obj</name>
       </input_file>
       <input_file id="fl-5c">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>s_ceilf.c.obj</name>
       </input_file>
       <input_file id="fl-5d">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>fs_add28.asm.obj</name>
       </input_file>
       <input_file id="fl-5e">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>fs_cmp28.asm.obj</name>
       </input_file>
       <input_file id="fl-5f">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>cpy_tbl.c.obj</name>
       </input_file>
       <input_file id="fl-60">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>exit.c.obj</name>
       </input_file>
       <input_file id="fl-61">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>_lock.c.obj</name>
       </input_file>
       <input_file id="fl-62">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>e_logf.c.obj</name>
       </input_file>
       <input_file id="fl-63">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>l_tofs28.asm.obj</name>
       </input_file>
       <input_file id="fl-64">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>errno.c.obj</name>
       </input_file>
       <input_file id="fl-65">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>memcpy.c.obj</name>
       </input_file>
       <input_file id="fl-66">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>e_powf.c.obj</name>
       </input_file>
       <input_file id="fl-67">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>s_scalbnf.c.obj</name>
       </input_file>
       <input_file id="fl-68">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>s_copysignf.c.obj</name>
       </input_file>
       <input_file id="fl-69">
-         <path>C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
+         <path>C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\</path>
          <kind>archive</kind>
          <file>rts2800_ml.lib</file>
          <name>e_sqrtf.c.obj</name>
@@ -2023,7 +2023,7 @@
          <name>.debug_info</name>
          <load_address>0x6989e</load_address>
          <run_address>0x6989e</run_address>
-         <size>0x12f</size>
+         <size>0x11c</size>
       </object_component>
       <object_component id="oc-3a">
          <name>.debug_abbrev</name>
@@ -3322,7 +3322,7 @@
          <name>.debug_info</name>
          <load_address>0x0</load_address>
          <run_address>0x0</run_address>
-         <size>0x699cd</size>
+         <size>0x699ba</size>
          <contents>
             <object_component_ref idref="oc-39"/>
             <object_component_ref idref="oc-3c"/>

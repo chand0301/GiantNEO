@@ -61,13 +61,19 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
     * DCBUS(48V)
     * UART tx rx 2 pins
     * The USB port to your computer
-5. Navigate to proj_lab21.c and user.h. Check the defines in the use.h. it should be look like this at first.
+5. Navigate to **proj_lab21.c** and **user.h**. Check the defines in the use.h. it should be look like this at first. 
 
-    ![](https://i.imgur.com/DTbsHsh.png)
+    :dart:MW_DRIVER為EMTRC開發的驅動版，目前開發中。
+
+    ![](https://i.imgur.com/p8CTOlD.png)
+
+
 
 6. Build, debug and reset the program under CCS
 
 7. Open Scripting console and load proj_lab21.js
+
+    `"D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\solutions\instaspin_foc\src\proj_lab21.js"`
 
     ![](https://i.imgur.com/M9kzaAA.png)
 
@@ -221,8 +227,23 @@ Checks for errors in the user parameter values.
 * LAB 10-d dual motor control
 * LAB 05d e f  SpinTAC Speed Controller
     
+    :dart: [弱磁控制](https://www.slideshare.net/ssuser46ea1f1/mtpapptx)
+    :dart: [over-modulation](https://www.switchcraft.org/learning/2017/3/15/space-vector-pwm-intro)
     
-## Something Special for this project IN LAB21!
+    
+## Something Special for this project in LAB 21 and LAB 11!
+
+:dart: 6種模式切換
+
+|      LAB 11       |       LAB 21       |
+|:-----------------:|:------------------:|
+|   Sliding mode    | HFI + Sliding mode |
+|   SPEED主動模式   |   SPEED主動模式    |
+|  CURRENT阻力模式  |  CURRENT阻力模式   |
+| REFERENCE阻力模式 | REFERENCE阻力模式  |
+|  DCBUS保護(48V)   |   DCBUS保護(48V)   |
+
+
 
 **1. impedance/Admittance control**
 
@@ -236,7 +257,7 @@ Checks for errors in the user parameter values.
 
 **3. UART**
 
-uart comunicate with computer.
+UART communicate with computer.
 
 輸出絕對角度與扭矩，量化騎乘路感，以提供開發者不同的路感設計。
 
@@ -250,17 +271,16 @@ uart comunicate with computer.
 
 **5. DCBUS Regulate**
 
-提供dcbusregulate fun提供直流電壓保護功能與直流電壓控制功能，使系統能夠操作在發電機模式。
+提供dcbus regulate fun提供直流電壓保護功能與直流電壓控制功能，使系統能夠操作在發電機模式。
 
 ## TO DO ...
 
-- [x] 增加reference model模擬B
-- [ ] 根據實際路面輸出扭矩，提升訓練台對路感的模擬程度。
+- [x] 增加reference model可調控與模擬 J、B
+- [ ] 根據實際路面輸出扭矩，提升訓練台對路感的模擬程度，目前debug介面開發中(UART)
 - [ ] 目前馬達使用neo馬達，需進行馬達設計
 - [ ] 產品機構要求針對電阻散熱的部分進行考量
 - [ ] 驅動硬體目前由EMTRC開發中 預期規格 1.6 kW
-- [ ] HFI V.S. Sliding mode
-    HFI模式能夠解決Sliding mode在低速高扭力情況下，振動問題。但HFI有時會出現噪音情況。
+- [ ] HFI模式能夠解決Sliding mode在低速高扭力情況下，振動問題，但HFI有時會出現噪音情況。
 
     ![](https://i.imgur.com/ALzTI6T.png)
 
@@ -275,3 +295,6 @@ uart comunicate with computer.
     可以繪製花生圖去分析路感情況。
 
     ![](https://i.imgur.com/w9T5Gj2.png)
+    
+    ![](https://i.imgur.com/fnB0BFo.png)
+

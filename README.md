@@ -9,7 +9,7 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 
 ![](https://i.imgur.com/XBmxdjT.png)
 
-:pushpin:For more info.
+:pushpin:For more info. about smart trainer and TI instaspin
 * [InstaSPIN-FOC](https://www.ti.com/tool/MOTORWARE)
 * [The GIANT instaspin application guide](https://hackmd.io/Ez8wGv0RTmCtK8G1QkHDAw)
 * [GARMIN訓練台](https://www.youtube.com/watch?v=qmBaQdZJ56g) 
@@ -25,6 +25,8 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 * 開發環境 Windows + CCSTUDIO + git bash
 
 * Compiler TI C2000 ccs1220
+
+* 所有[硬體設備](/mvPftNxrQiykBAgUTeB-Ag)
 
 
 **A QUICK START**
@@ -168,7 +170,7 @@ All labs are using sensorless control methods
 
 include [Sliding mode](https://en.wikipedia.org/wiki/Sliding_mode_control) and [High Frequency Injection](https://ieeexplore.ieee.org/document/5157420).
 
-:dart: [sensorless FOC](https://hackmd.io/fXTAxaK0TOSR6tjotgS3uw)
+:dart: [PMSM Sensorless FOC](/fXTAxaK0TOSR6tjotgS3uw)
 
 **2. Motor Parameter IDentify**
 

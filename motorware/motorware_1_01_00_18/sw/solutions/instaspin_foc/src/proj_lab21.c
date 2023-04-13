@@ -881,6 +881,8 @@ interrupt void mainISR(void)
             /*run the original speed control loop if SPEEDLOOP is defined*/
 #ifdef SPEEDLOOP
             gMotorVars.Flag_enableSpeedCtrl = true;
+            ctrlHandle->speed_ref_pu = gMotorVars.SpeedRef_krpm;
+
 #endif
             /*run the torque observer if CURRENTLOOP is defined*/
 #ifdef CURRENTLOOP

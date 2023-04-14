@@ -67,7 +67,7 @@ extern "C" {
 
 // **************************************************************************
 // the defines
-/*Drive board*/
+/*Drive board ava for all the labs*/
 /*If define drv8301. there is No UART No DCBUS_REGULATE,
  * can only do the speed control*/
 //#define drv8301kit_revD
@@ -75,22 +75,22 @@ extern "C" {
 #define DRV8300DIPW_EVM
 
 
-/*control mode*/
+/*control mode only ava in LAB11 and LAB21*/
 /* !!choose one of them!!*/
 #define SPEEDLOOP //Project original speed control mode
 //#define CURRENTLOOP //Impedance control without referencemodel
 //#define REFERENCEMODEL //Impedance control
 
-/*Extra fun*/
+/*Extra fun only ava in LAB11 and LAB21*/
 //!!!!Please Remain open to protect dc bus from motor BEMF.!!!!
 #define DCBUS_REGULATE
 
 //only valiable for LAB11 and LAB21, remain comment when doing ohther labs
-#define UART
-#define ADCINT1_HIGHEST_PRTORITY
+//#define UART
+//#define ADCINT1_HIGHEST_PRTORITY
 
 
-/*motor*/
+/*motor ava for all the labs*/
 //#define USER_MOTOR BL90M //
 //#define USER_MOTOR Willy
 #define USER_MOTOR TacxNeo

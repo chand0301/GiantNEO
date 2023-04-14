@@ -1,10 +1,15 @@
+---
+tags: TI instaspin
+---
+
+
 # GETTING START WITH TI_instaspin_indoor_smart_trainer
 
 It is a modified instaspin project for indoor smart bike trainer. The whole system is based on the open source project "InstaSPIN-FOC" from TI under BSD licience. This project presents a impedance control struct which included a **PI-type torque observer** and a **impedance reference model**. By all this skills, we can simulate the inertia and friction of flywheel by PMSM which we call it "**electronic flywheel**".
 
 ![](https://i.imgur.com/XBmxdjT.png)
 
-:pushpin:For more info.
+:pushpin:For more info. about smart trainer and TI instaspin
 * [InstaSPIN-FOC](https://www.ti.com/tool/MOTORWARE)
 * [The GIANT instaspin application guide](https://hackmd.io/Ez8wGv0RTmCtK8G1QkHDAw)
 * [GARMIN訓練台](https://www.youtube.com/watch?v=qmBaQdZJ56g) 
@@ -20,6 +25,8 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 * 開發環境 Windows + CCSTUDIO + git bash
 
 * Compiler TI C2000 ccs1220
+
+* 所有[硬體設備](/mvPftNxrQiykBAgUTeB-Ag)
 
 
 **A QUICK START**
@@ -56,13 +63,19 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
     * DCBUS(48V)
     * UART tx rx 2 pins
     * The USB port to your computer
-5. Navigate to proj_lab21.c and user.h. Check the defines in the use.h. it should be look like this at first.
+5. Navigate to **proj_lab21.c** and **user.h**. Check the defines in the use.h. it should be look like this at first. 
 
-    ![](https://i.imgur.com/DTbsHsh.png)
+    :dart:MW_DRIVER為EMTRC開發的驅動版，目前開發中。
+
+    ![](https://i.imgur.com/p8CTOlD.png)
+
+
 
 6. Build, debug and reset the program under CCS
 
 7. Open Scripting console and load proj_lab21.js
+
+    `"D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\solutions\instaspin_foc\src\proj_lab21.js"`
 
     ![](https://i.imgur.com/M9kzaAA.png)
 
@@ -89,21 +102,66 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 
 ## Motor drive/control HARDWARE
 
-* Drive board DRV8300DRGE-EVM
+電路原理架構，專案會操作在動力機與發電機模式，當處在發電機模式會有回升電壓，在電路架構方面需增加7th開關與功率電阻。
 
-    [![image](https://user-images.githubusercontent.com/30099017/219288029-c035ebc6-3dff-4d8d-b0a2-345f4327a11b.png)](https://www.ti.com/tool/DRV8300DRGE-EVM)
+![](https://i.imgur.com/wq7rVx0.png)
 
-* Extra board The 7th switch to control the energy flow.
 
-    ![image](https://user-images.githubusercontent.com/30099017/219288062-cadade4f-91ee-4911-9bcd-47e9c5f845ad.png)
+
+* Drive board DRV8300DRGE-EVM & The 7th switch 
+
+![](https://i.imgur.com/uyHGe2G.png)
+
+| input voltage | output current   | software current limit |
+| ------------- | ---------------- |:----------------------:|
+| 6V - 100V     | 30A (phase peak) |          25A           |
+
+:pushpin: [DRV8300DRGE-EVM mouser](https://www.mouser.tw/ProductDetail/Texas-Instruments/DRV8300DRGE-EVM?qs=pUKx8fyJudC7yrux7qp5Rg%3D%3D)
+
+:pushpin: The 7th switch
+![](https://i.imgur.com/RjltsY2.png)
+
 
 * DRIVE BOARD FROM EMTRC
 
-待續 預計規格
+![](https://i.imgur.com/EPIOVp3.png)
+
+TO be continue...
+
+
+### 預計規格
+
+**NEO規格**
+
+發電機模式
+
+| DC電壓 | DC電流 | Phase current(Peak) | 功率    |
+| ------ | ------ | ------------------- | --- |
+| 110V   | 20A    |        85A         |   2.2kW  |
+
+電動機模式
+
+| DC電壓 | DC電流 | 
+| -------- | -------- |
+| 48V     | 1.5A     |
+
+**EMTRC規格**
+
+發電機模式
+
+| DC電壓 | DC電流 | Phase current(Peak) | 功率    |
+| ------ | ------ | ------------------- | --- |
+| 80V    | 20A    |      61A           |   1.6kW  |
+
+電動機模式
+
+| DC電壓 | DC電流 |
+| -------- | -------- | 
+| 48V     | 1.5A     |
 1. 發電機模式 DCBUS 80V
-2. 功率電阻5歐姆
-3. 最大功率1.28kW
-4. DC 16A
+2. 功率電阻4歐姆
+3. 最大功率1.6kW
+4. DC 20A
 
 ## TI InstaSPIN-FOC base feature
 **1. Sensorless motor drive**
@@ -111,6 +169,8 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 All labs are using sensorless control methods 
 
 include [Sliding mode](https://en.wikipedia.org/wiki/Sliding_mode_control) and [High Frequency Injection](https://ieeexplore.ieee.org/document/5157420).
+
+:dart: [PMSM Sensorless FOC](/fXTAxaK0TOSR6tjotgS3uw)
 
 **2. Motor Parameter IDentify**
 
@@ -169,14 +229,29 @@ Checks for errors in the user parameter values.
 * LAB 10-d dual motor control
 * LAB 05d e f  SpinTAC Speed Controller
     
+    :dart: [弱磁控制](https://www.slideshare.net/ssuser46ea1f1/mtpapptx)
+    :dart: [over-modulation](https://www.switchcraft.org/learning/2017/3/15/space-vector-pwm-intro)
     
-## Something Special for this project IN LAB21!
+    
+## Something Special for this project in LAB 21 and LAB 11!
+
+:dart: 6種模式切換
+
+|      LAB 11       |       LAB 21       |
+|:-----------------:|:------------------:|
+|   Sliding mode    | HFI + Sliding mode |
+|   SPEED主動模式   |   SPEED主動模式    |
+|  CURRENT阻力模式  |  CURRENT阻力模式   |
+| REFERENCE阻力模式 | REFERENCE阻力模式  |
+|  DCBUS保護(48V)   |   DCBUS保護(48V)   |
+
+
 
 **1. impedance/Admittance control**
 
 實現訓練台核心演算法[IMPEDANCE CONTROL](https://www.youtube.com/watch?v=KJ8s1BUHoks)。
 
-:dart: [阻抗控制簡介]([/uuxLZHLURaqnxXp2EU0oYg](https://hackmd.io/uuxLZHLURaqnxXp2EU0oYg))
+:dart: [阻抗控制簡介](https://hackmd.io/uuxLZHLURaqnxXp2EU0oYg)
 
 **2. Customized USER.H**
 
@@ -184,7 +259,7 @@ Checks for errors in the user parameter values.
 
 **3. UART**
 
-uart comunicate with computer.
+UART communicate with computer.
 
 輸出絕對角度與扭矩，量化騎乘路感，以提供開發者不同的路感設計。
 
@@ -198,13 +273,30 @@ uart comunicate with computer.
 
 **5. DCBUS Regulate**
 
-提供dcbusregulate fun提供直流電壓保護功能與直流電壓控制功能，使系統能夠操作在發電機模式。
+提供dcbus regulate fun提供直流電壓保護功能與直流電壓控制功能，使系統能夠操作在發電機模式。
 
 ## TO DO ...
 
-- [ ] 根據實際路面輸出扭矩，提升訓練台對路感的模擬程度。
-- [ ] 增加reference model模擬B
-- [ ] 低速高扭狀態目前以HFI解決
+- [x] 增加reference model可調控與模擬 J、B
+- [ ] 根據實際路面輸出扭矩，提升訓練台對路感的模擬程度，目前debug介面開發中(UART)
 - [ ] 目前馬達使用neo馬達，需進行馬達設計
 - [ ] 產品機構要求針對電阻散熱的部分進行考量
-- [ ] 驅動硬體目前由EMTRC開發中 預期規格2KW(100V 20A)
+- [ ] 驅動硬體目前由EMTRC開發中 預期規格 1.6 kW
+- [ ] HFI模式能夠解決Sliding mode在低速高扭力情況下，振動問題，但HFI有時會出現噪音情況。
+
+    ![](https://i.imgur.com/ALzTI6T.png)
+
+- [ ] 速度控制器響應
+
+    目前專案速度控制器是使用PI，可以換成專案中MOTION部分所提供的速度控制器SpinTAC
+
+    ![](https://i.imgur.com/Am9v5zH.png)
+
+- [ ] 路感舒適度-運動科學
+
+    可以繪製花生圖去分析路感情況。
+
+    ![](https://i.imgur.com/w9T5Gj2.png)
+    
+    ![](https://i.imgur.com/fnB0BFo.png)
+

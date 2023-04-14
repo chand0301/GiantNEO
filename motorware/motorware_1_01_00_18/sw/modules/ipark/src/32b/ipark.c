@@ -35,39 +35,31 @@
 //!
 //! (C) Copyright 2011, Texas Instruments, Inc.
 
-
 // **************************************************************************
 // the includes
-
 #include "sw/modules/ipark/src/32b/ipark.h"
-
 
 // **************************************************************************
 // the defines
 
-
 // **************************************************************************
 // the globals
-
 
 // **************************************************************************
 // the functions
 
-IPARK_Handle IPARK_init(void *pMemory,const size_t numBytes)
+IPARK_Handle IPARK_init(void *pMemory, const size_t numBytes)
 {
-  IPARK_Handle handle;
+    IPARK_Handle handle;
 
-  if(numBytes < sizeof(IPARK_Obj))
-    return((IPARK_Handle)NULL);
+    if (numBytes < sizeof(IPARK_Obj))
+        return ((IPARK_Handle) NULL);
 
-  // assign the handle
-  handle = (IPARK_Handle)pMemory;
+    // assign the handle
+    handle = (IPARK_Handle) pMemory;
 
-  return(handle);
+    return (handle);
 } // end of IPARK_init() function
 
 // end of file
-
-
-
 

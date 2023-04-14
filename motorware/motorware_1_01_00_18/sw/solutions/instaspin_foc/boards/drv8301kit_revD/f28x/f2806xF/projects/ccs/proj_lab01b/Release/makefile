@@ -4,15 +4,15 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := C:/ti/ccs930/ccs/tools/compiler/ti-cgt-c2000_18.12.4.LTS
+CG_TOOL_ROOT := C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
 -lrts2800_ml.lib \
-"D:/GIANT/GIANT_TI_instaspin/motorware/motorware_1_01_00_18/sw/modules/fast/lib/32b/f28x/f2806x/2806xRevB_FastSpinROMSymbols.lib" \
-"D:/GIANT/GIANT_TI_instaspin/motorware/motorware_1_01_00_18/sw/modules/iqmath/lib/f28x/32b/IQmath.lib" \
+"D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/fast/lib/32b/f28x/f2806x/2806xRevB_FastSpinROMSymbols.lib" \
+"D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/iqmath/lib/f28x/32b/IQmath.lib" \
 "./CodeStartBranch.obj" \
 "./adc.obj" \
 "./angle_gen.obj" \
@@ -41,7 +41,7 @@ ORDERED_OBJS += \
 "./user.obj" \
 "./vs_freq.obj" \
 "./wdog.obj" \
-"D:/GIANT/GIANT_TI_instaspin/motorware/motorware_1_01_00_18/sw/ide/ccs/cmd/f2806x/f28069F_ram_lnk.cmd" \
+"D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/ide/ccs/cmd/f2806x/f28069F_ram_lnk.cmd" \
 $(GEN_CMDS__FLAG) \
 
 -include ../makefile.init
@@ -162,7 +162,7 @@ all: proj_lab01b.out
 proj_lab01b.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: C2000 Linker'
-	"C:/ti/ccs930/ccs/tools/compiler/ti-cgt-c2000_18.12.4.LTS/bin/cl2000" -v28 -ml -mt -O2 --opt_for_speed=2 -g --define=FAST_ROM_V1p6 --diag_warning=225 --display_error_number -z -m"proj_lab01b.map" --stack_size=0x3B0 --warn_sections -i"C:/ti/ccs930/ccs/tools/compiler/ti-cgt-c2000_18.12.4.LTS/lib" -i"C:/ti/ccs930/ccs/tools/compiler/ti-cgt-c2000_18.12.4.LTS/include" --reread_libs --priority --disable_auto_rts --diag_suppress=16002 --xml_link_info="proj_lab01b_linkInfo.xml" --rom_model -o "proj_lab01b.out" $(ORDERED_OBJS)
+	"C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt -O2 --opt_for_speed=2 -g --define=FAST_ROM_V1p6 --diag_warning=225 --display_error_number -z -m"proj_lab01b.map" --stack_size=0x3B0 --warn_sections -i"C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib" -i"C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --reread_libs --priority --disable_auto_rts --diag_suppress=16002 --xml_link_info="proj_lab01b_linkInfo.xml" --rom_model -o "proj_lab01b.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 

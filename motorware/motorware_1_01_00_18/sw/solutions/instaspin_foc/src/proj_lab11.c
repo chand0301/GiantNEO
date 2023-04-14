@@ -64,87 +64,90 @@
 int count = 0;
 _iq xPotentiometer = _IQ(0.0);
 _iq yPotentiometer = _IQ(0.0);
+_iq fPotentiometer = _IQ(0.0);
+_iq gPotentiometer = _IQ(0.0);
 _iq torque_head = _IQ(0.0);
 _iq pre_torque_head = _IQ(0.0);
 _iq torque_head_comm = _IQ(0.0);
 _iq refspeed = _IQ(0.0);
 _iq VDCSET = _IQ(0.048);
+_iq VDCPORTECT = _IQ(0.06);
 _iq pu_to_khz_sf = _IQ(USER_IQ_FULL_SCALE_FREQ_Hz/1000.0);
 _iq khz_to_krpm_sf = _IQ(60.0/USER_MOTOR_NUM_POLE_PAIRS);
 _iq Iq_Amp = _IQ(0.0);
 _iq Speed_kRPM = _IQ(0.0);
 bool Flag_enableDcBusProtect = false;
-uint16_t success=0;
-uint16_t dataTx_speed=0,dataTx_torque=0,dataTx_current=0,dataRx=999;
+uint16_t success = 0;
+uint16_t dataTx_speed = 0, dataTx_torque = 0, dataTx_current = 0, dataRx = 999;
 
 // the PWMDAC variable
 HAL_DacData_t gDacData;
 
-CLARKE_Handle   clarkeHandle_I;  //!< the handle for the current Clarke
-                                 //!< transform
-CLARKE_Obj      clarke_I;        //!< the current Clarke transform object
+CLARKE_Handle clarkeHandle_I;  //!< the handle for the current Clarke
+//!< transform
+CLARKE_Obj clarke_I;        //!< the current Clarke transform object
 
-CLARKE_Handle   clarkeHandle_V;  //!< the handle for the voltage Clarke
-                                 //!< transform
-CLARKE_Obj      clarke_V;        //!< the voltage Clarke transform object
+CLARKE_Handle clarkeHandle_V;  //!< the handle for the voltage Clarke
+//!< transform
+CLARKE_Obj clarke_V;        //!< the voltage Clarke transform object
 
-EST_Handle      estHandle;       //!< the handle for the estimator
+EST_Handle estHandle;       //!< the handle for the estimator
 
-PID_Obj         pid[5];          //!< three objects for PID controllers
-                                 //!< 0 - Speed, 1 - Id, 2 - Iq, 3 - Torque ob, 4 - refmodel
-PID_Handle      pidHandle[5];    //!< three handles for PID controllers
-                                 //!< 0 - Speed, 1 - Id, 2 - Iq, 3 - Torque ob, 4 - refmodel
-uint16_t        pidCntSpeed;     //!< count variable to decimate the execution
-                                 //!< of the speed PID controller
+PID_Obj pid[5];          //!< three objects for PID controllers
+//!< 0 - Speed, 1 - Id, 2 - Iq, 3 - Torque ob, 4 - refmodel
+PID_Handle pidHandle[5];    //!< three handles for PID controllers
+//!< 0 - Speed, 1 - Id, 2 - Iq, 3 - Torque ob, 4 - refmodel
+uint16_t pidCntSpeed;     //!< count variable to decimate the execution
+//!< of the speed PID controller
 
-IPARK_Handle    iparkHandle;     //!< the handle for the inverse Park
-                                 //!< transform
-IPARK_Obj       ipark;           //!< the inverse Park transform object
+IPARK_Handle iparkHandle;     //!< the handle for the inverse Park
+//!< transform
+IPARK_Obj ipark;           //!< the inverse Park transform object
 
-SVGEN_Handle    svgenHandle;     //!< the handle for the space vector generator
-SVGEN_Obj       svgen;           //!< the space vector generator object
+SVGEN_Handle svgenHandle;     //!< the handle for the space vector generator
+SVGEN_Obj svgen;           //!< the space vector generator object
 
 #ifdef CSM_ENABLE
 #pragma DATA_SECTION(halHandle,"rom_accessed_data");
 #endif
-HAL_Handle      halHandle;       //!< the handle for the hardware abstraction
-                                 //!< layer (HAL)
+HAL_Handle halHandle;       //!< the handle for the hardware abstraction
+//!< layer (HAL)
 
-HAL_PwmData_t   gPwmData = {_IQ(0.0),_IQ(0.0),_IQ(0.0)};  //!< contains the
-                                 //!< pwm values for each phase.
-                                 //!< -1.0 is 0%, 1.0 is 100%
+HAL_PwmData_t gPwmData = { _IQ(0.0), _IQ(0.0), _IQ(0.0) };  //!< contains the
+//!< pwm values for each phase.
+//!< -1.0 is 0%, 1.0 is 100%
 
-HAL_AdcData_t   gAdcData;        //!< contains three current values, three
-                                 //!< voltage values and one DC buss value
+HAL_AdcData_t gAdcData;        //!< contains three current values, three
+//!< voltage values and one DC buss value
 
-MATH_vec3       gOffsets_I_pu = {_IQ(0.0),_IQ(0.0),_IQ(0.0)};  //!< contains
-                                 //!< the offsets for the current feedback
+MATH_vec3 gOffsets_I_pu = { _IQ(0.0), _IQ(0.0), _IQ(0.0) };  //!< contains
+//!< the offsets for the current feedback
 
-MATH_vec3       gOffsets_V_pu = {_IQ(0.0),_IQ(0.0),_IQ(0.0)};  //!< contains
-                                 //!< the offsets for the voltage feedback
+MATH_vec3 gOffsets_V_pu = { _IQ(0.0), _IQ(0.0), _IQ(0.0) };  //!< contains
+//!< the offsets for the voltage feedback
 
-MATH_vec2       gIdq_ref_pu = {_IQ(0.0),_IQ(0.0)};  //!< contains the Id and
-                                 //!< Iq references
+MATH_vec2 gIdq_ref_pu = { _IQ(0.0), _IQ(0.0) };  //!< contains the Id and
+//!< Iq references
 
-MATH_vec2       gVdq_out_pu = {_IQ(0.0),_IQ(0.0)};  //!< contains the output
-                                 //!< Vd and Vq from the current controllers
+MATH_vec2 gVdq_out_pu = { _IQ(0.0), _IQ(0.0) };  //!< contains the output
+//!< Vd and Vq from the current controllers
 
-MATH_vec2       gIdq_pu = {_IQ(0.0),_IQ(0.0)};  //!< contains the Id and Iq
-                                 //!< measured values
+MATH_vec2 gIdq_pu = { _IQ(0.0), _IQ(0.0) };  //!< contains the Id and Iq
+//!< measured values
 
 #ifdef CSM_ENABLE
 #pragma DATA_SECTION(gUserParams,"rom_accessed_data");
 #endif
-USER_Params     gUserParams;
+USER_Params gUserParams;
 
 volatile MOTOR_Vars_t gMotorVars = MOTOR_Vars_INIT;   //!< the global motor
-                                 //!< variables that are defined in main.h and
-                                 //!< used for display in the debugger's watch
-                                 //!< window
+        //!< variables that are defined in main.h and
+        //!< used for display in the debugger's watch
+        //!< window
 
 #ifdef FLASH
 // Used for running BackGround in flash, and ISR in RAM
-extern uint16_t *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart;
+        extern uint16_t *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart;
 
 #ifdef CSM_ENABLE
 extern uint16_t *econst_start, *econst_end, *econst_ram_load;
@@ -158,15 +161,15 @@ FS_Obj fs;
 FS_Handle fsHandle;
 
 // define CPU time
-CPU_TIME_Obj     cpu_time;
-CPU_TIME_Handle  cpu_timeHandle;
+CPU_TIME_Obj cpu_time;
+CPU_TIME_Handle cpu_timeHandle;
 
 // set the offset, default value of 1 microsecond
-int16_t gCmpOffset = (int16_t)(1.0 * USER_SYSTEM_FREQ_MHz);
+int16_t gCmpOffset = (int16_t) (1.0 * USER_SYSTEM_FREQ_MHz);
 
-MATH_vec3 gIavg = {_IQ(0.0), _IQ(0.0), _IQ(0.0)};
+MATH_vec3 gIavg = { _IQ(0.0), _IQ(0.0), _IQ(0.0) };
 uint16_t gIavg_shift = 1;
-MATH_vec3 gPwmData_prev = {_IQ(0.0), _IQ(0.0), _IQ(0.0)};
+MATH_vec3 gPwmData_prev = { _IQ(0.0), _IQ(0.0), _IQ(0.0) };
 
 #ifdef DRV8301_SPI
 // Watch window interface to the 8301 SPI
@@ -181,11 +184,11 @@ _iq gTorque_Ls_Id_Iq_pu_to_Nm_sf;
 
 _iq gTorque_Flux_Iq_pu_to_Nm_sf;
 
-_iq gSpeed_krpm_to_pu_sf = _IQ((float_t)USER_MOTOR_NUM_POLE_PAIRS * 1000.0
-            / (USER_IQ_FULL_SCALE_FREQ_Hz * 60.0));
+_iq gSpeed_krpm_to_pu_sf =
+        _IQ((float_t)USER_MOTOR_NUM_POLE_PAIRS * 1000.0 / (USER_IQ_FULL_SCALE_FREQ_Hz * 60.0));
 
-_iq gSpeed_hz_to_krpm_sf = _IQ(60.0 / (float_t)USER_MOTOR_NUM_POLE_PAIRS
-            / 1000.0);
+_iq gSpeed_hz_to_krpm_sf = _IQ(
+        60.0 / (float_t)USER_MOTOR_NUM_POLE_PAIRS / 1000.0);
 
 // **************************************************************************
 // the functions
@@ -198,7 +201,7 @@ void main(void)
     // Only used if running from FLASH
     // Note that the variable FLASH is defined by the project
 
-    #ifdef FLASH
+#ifdef FLASH
     // Copy time critical code and Flash setup code to RAM
     // The RamfuncsLoadStart, RamfuncsLoadEnd, and RamfuncsRunStart
     // symbols are created by the linker. Refer to the linker files.
@@ -219,21 +222,21 @@ void main(void)
         }
     #endif
     #endif
-/*
-      // set DAC parameters
+    /*
+     // set DAC parameters
 
-    //  gDacData.ptrData[0] = &gPwmData.Tabc.value[0];
-    //  gDacData.ptrData[1] = &gPwmData.Tabc.value[1];
-    //  gDacData.ptrData[2] = &gPwmData.Tabc.value[2];
-    //  gDacData.ptrData[3] = &gAdcData.V.value[0];
+     //  gDacData.ptrData[0] = &gPwmData.Tabc.value[0];
+     //  gDacData.ptrData[1] = &gPwmData.Tabc.value[1];
+     //  gDacData.ptrData[2] = &gPwmData.Tabc.value[2];
+     //  gDacData.ptrData[3] = &gAdcData.V.value[0];
 
-      gDacData.ptrData[0] = &torque_head;
-      gDacData.ptrData[1] = &gAdcData.I.value[0];
-      gDacData.ptrData[2] = &gPwmData.Tabc.value[0];
-      gDacData.ptrData[3] = &gAdcData.V.value[0];
+     gDacData.ptrData[0] = &torque_head;
+     gDacData.ptrData[1] = &gAdcData.I.value[0];
+     gDacData.ptrData[2] = &gPwmData.Tabc.value[0];
+     gDacData.ptrData[3] = &gAdcData.V.value[0];
 
-      HAL_setDacParameters(halHandle, &gDacData);
-*/
+     HAL_setDacParameters(halHandle, &gDacData);
+     */
 
     // initialize the Hardware Abstraction Layer  (HAL)
     // halHandle will be used throughout the code to interface with the HAL
@@ -242,7 +245,7 @@ void main(void)
     // multiple objects by simply passing a different handle. The use of
     // handles is explained in this document:
     // C:/ti/motorware/motorware_1_01_00_1x/docs/motorware_coding_standards.pdf
-    halHandle = HAL_init(&hal,sizeof(hal));
+    halHandle = HAL_init(&hal, sizeof(hal));
 
     // check for errors in user parameters
     USER_checkForErrors(&gUserParams);
@@ -252,9 +255,9 @@ void main(void)
 
     // do not allow code execution if there is a user parameter error. If there
     // is an error, the code will be stuck in this forever loop
-    if(gMotorVars.UserErrorCode != USER_ErrorCode_NoError)
+    if (gMotorVars.UserErrorCode != USER_ErrorCode_NoError)
     {
-        for(;;)
+        for (;;)
         {
             gMotorVars.Flag_enableSys = false;
         }
@@ -262,12 +265,12 @@ void main(void)
 
     // initialize the Clarke modules
     // Clarke handle initialization for current signals
-    clarkeHandle_I = CLARKE_init(&clarke_I,sizeof(clarke_I));
+    clarkeHandle_I = CLARKE_init(&clarke_I, sizeof(clarke_I));
     // Clarke handle initialization for voltage signals
-    clarkeHandle_V = CLARKE_init(&clarke_V,sizeof(clarke_V));
+    clarkeHandle_V = CLARKE_init(&clarke_V, sizeof(clarke_V));
 
     // initialize the estimator
-    estHandle = EST_init((void *)USER_EST_HANDLE_ADDRESS,0x200);
+    estHandle = EST_init((void*) USER_EST_HANDLE_ADDRESS, 0x200);
 
     // initialize the user parameters
     // This function initializes all values of structure gUserParams with
@@ -279,16 +282,16 @@ void main(void)
     // set the hardware abstraction layer parameters
     // This function initializes all peripherals through a Hardware Abstraction
     // Layer (HAL). It uses all values stored in gUserParams.
-    HAL_setParams(halHandle,&gUserParams);
+    HAL_setParams(halHandle, &gUserParams);
 
-    #ifdef FAST_ROM_V1p6
+#ifdef FAST_ROM_V1p6
     {
         // These function calls are used to initialize the estimator with ROM
         // function calls. It needs the specific address where the controller
         // object is declared by the ROM code.
-        CTRL_Handle ctrlHandle = CTRL_init((void *)USER_CTRL_HANDLE_ADDRESS
-                            ,0x200);
-        CTRL_Obj *obj = (CTRL_Obj *)ctrlHandle;
+        CTRL_Handle ctrlHandle = CTRL_init((void*) USER_CTRL_HANDLE_ADDRESS,
+                                           0x200);
+        CTRL_Obj *obj = (CTRL_Obj*) ctrlHandle;
 
         // this sets the estimator handle (part of the controller object) to
         // the same value initialized above by the EST_init() function call.
@@ -300,11 +303,11 @@ void main(void)
         // initialize the estimator through the controller. These three
         // function calls are needed for the F2806xF/M implementation of
         // InstaSPIN.
-        CTRL_setParams(ctrlHandle,&gUserParams);
+        CTRL_setParams(ctrlHandle, &gUserParams);
         CTRL_setUserMotorParams(ctrlHandle);
         CTRL_setupEstIdleState(ctrlHandle);
     }
-    #else
+#else
     {
         // initialize the estimator. These two function calls are needed for
         // the F2802xF implementation of InstaSPIN using the estimator handle
@@ -320,13 +323,13 @@ void main(void)
     // **NOTE: changing the input parameter from 'false' to 'true' will cause
     // **      run time issues. Lab11 does not support Rs Online function
     //
-    EST_setFlag_enableRsRecalc(estHandle,false);
+    EST_setFlag_enableRsRecalc(estHandle, false);
 
     // set the number of current sensors
-    setupClarke_I(clarkeHandle_I,USER_NUM_CURRENT_SENSORS);
+    setupClarke_I(clarkeHandle_I, USER_NUM_CURRENT_SENSORS);
 
     // set the number of voltage sensors
-    setupClarke_V(clarkeHandle_V,USER_NUM_VOLTAGE_SENSORS);
+    setupClarke_V(clarkeHandle_V, USER_NUM_VOLTAGE_SENSORS);
 
     // set the pre-determined current and voltage feedback offset values
     gOffsets_I_pu.value[0] = _IQ(I_A_offset);
@@ -341,8 +344,8 @@ void main(void)
         // This equation defines the relationship between per unit current and
         // real-world current. The resulting value in per units (pu) is then
         // used to configure the controllers
-        _iq maxCurrent_pu = _IQ(USER_MOTOR_MAX_CURRENT
-                    / USER_IQ_FULL_SCALE_CURRENT_A);
+        _iq maxCurrent_pu = _IQ(
+                USER_MOTOR_MAX_CURRENT / USER_IQ_FULL_SCALE_CURRENT_A);
 
         // This equation uses the scaled maximum voltage vector, which is
         // already in per units, hence there is no need to include the #define
@@ -368,8 +371,9 @@ void main(void)
         // 0.25/IsrPeriod_sec, which is equal to USER_ISR_FREQ_HZ/4. This means
         // that by setting Kp as described below, the bandwidth in Hz is
         // USER_ISR_FREQ_HZ/(8*pi).
-        _iq Kp_Id = _IQ((0.25 * Ls_d * fullScaleCurrent) / (IsrPeriod_sec
-                    * fullScaleVoltage));
+        _iq Kp_Id = _IQ(
+                (0.25 * Ls_d * fullScaleCurrent)
+                        / (IsrPeriod_sec * fullScaleVoltage));
 
         // In order to achieve pole/zero cancellation (which reduces the
         // closed-loop transfer function from a second-order system to a
@@ -384,8 +388,9 @@ void main(void)
         // Now do the same thing for Kp for the q-axis current controller.
         // If the motor is not an IPM motor, Ld and Lq are the same, which
         // means that Kp_Iq = Kp_Id
-        _iq Kp_Iq = _IQ((0.25 * Ls_q * fullScaleCurrent) / (IsrPeriod_sec
-                    * fullScaleVoltage));
+        _iq Kp_Iq = _IQ(
+                (0.25 * Ls_q * fullScaleCurrent)
+                        / (IsrPeriod_sec * fullScaleVoltage));
 
         // Do the same thing for Ki for the q-axis current controller.  If the
         // motor is not an IPM motor, Ld and Lq are the same, which means that
@@ -396,87 +401,88 @@ void main(void)
         // controllers.  Each PI controller has two coefficients; Kp and Ki.
         // So you have a total of six coefficients that must be defined.
         // This is for the speed controller
-        pidHandle[0] = PID_init(&pid[0],sizeof(pid[0]));
+        pidHandle[0] = PID_init(&pid[0], sizeof(pid[0]));
         // This is for the Id current controller
-        pidHandle[1] = PID_init(&pid[1],sizeof(pid[1]));
+        pidHandle[1] = PID_init(&pid[1], sizeof(pid[1]));
         // This is for the Iq current controller
-        pidHandle[2] = PID_init(&pid[2],sizeof(pid[2]));
+        pidHandle[2] = PID_init(&pid[2], sizeof(pid[2]));
         // This is for the torque observer
-        pidHandle[3] = PID_init(&pid[3],sizeof(pid[3]));
+        pidHandle[3] = PID_init(&pid[3], sizeof(pid[3]));
         // This is for the reference model
-        pidHandle[4] = PID_init(&pid[4],sizeof(pid[4]));
+        pidHandle[4] = PID_init(&pid[4], sizeof(pid[4]));
 
         // The following instructions load the parameters for the speed PI
         // controller.
         //_iq kp_spd = 0.00788954;
         //_iq ki_spd = 6.25;
-        PID_setGains(pidHandle[0],_IQ(0.5),_IQ(0.005),_IQ(0.0));
+        PID_setGains(pidHandle[0], _IQ(0.5), _IQ(0.005), _IQ(0.0));
 
         // The current limit is performed by the limits placed on the speed PI
         // controller output.  In the following statement, the speed
         // controller's largest negative current is set to -maxCurrent_pu, and
         // the largest positive current is set to maxCurrent_pu.
-        PID_setMinMax(pidHandle[0],-maxCurrent_pu,maxCurrent_pu);
-        PID_setUi(pidHandle[0],_IQ(0.0));  // Set the initial condition value
-                                           // for the integrator output to 0
+        PID_setMinMax(pidHandle[0], -maxCurrent_pu, maxCurrent_pu);
+        PID_setUi(pidHandle[0], _IQ(0.0));  // Set the initial condition value
+                                            // for the integrator output to 0
 
         pidCntSpeed = 0;  // Set the counter for decimating the speed
                           // controller to 0
 
-#ifdef CURRENTLOOP
+        // initialize the Torque Observer and Refmodel
+        {
         // The following instructions load the parameters for the torque
         // observer.
         PID_setGains(pidHandle[3],_IQ(66.3662),_IQ(113.3972),_IQ(0.0));
-        PID_setMinMax(pidHandle[3],_IQ(-20.0),_IQ(20.0));
+        PID_setMinMax(pidHandle[3],_IQ(-25.0),_IQ(25.0));
         PID_setUi(pidHandle[3],_IQ(0.0));
-#endif
-#ifdef REFERENCEMODEL
+
+
         // The following instructions load the parameters for the reference
         // model.
-        PID_setGains(pidHandle[4],_IQ(0.275),_IQ(0.348),_IQ(0.0));
-        PID_setMinMax(pidHandle[4],_IQ(-40.0),_IQ(40.0));
-        PID_setUi(pidHandle[4],_IQ(0.0));
-#endif
+        PID_setGains(pidHandle[4], _IQ(0.0), _IQ(0.0), _IQ(0.0));
+        PID_setMinMax(pidHandle[4], _IQ(-0.25), _IQ(0.25));
+        PID_setUi(pidHandle[4], _IQ(0.0));
+        }
 
         // The following instructions load the parameters for the d-axis
         // current controller.
         // P term = Kp_Id, I term = Ki_Id, D term = 0
-        PID_setGains(pidHandle[1],Kp_Id,Ki_Id,_IQ(0.0));
+        PID_setGains(pidHandle[1], Kp_Id, Ki_Id, _IQ(0.0));
 
         // Largest negative voltage = -maxVoltage_pu, largest positive
         // voltage = maxVoltage_pu
-        PID_setMinMax(pidHandle[1],-maxVoltage_pu,maxVoltage_pu);
+        PID_setMinMax(pidHandle[1], -maxVoltage_pu, maxVoltage_pu);
 
         // Set the initial condition value for the integrator output to 0
-        PID_setUi(pidHandle[1],_IQ(0.0));
+        PID_setUi(pidHandle[1], _IQ(0.0));
 
         // The following instructions load the parameters for the q-axis
         // current controller.
         // P term = Kp_Iq, I term = Ki_Iq, D term = 0
-        PID_setGains(pidHandle[2],Kp_Iq,Ki_Iq,_IQ(0.0));
+        PID_setGains(pidHandle[2], Kp_Iq, Ki_Iq, _IQ(0.0));
 
         // The largest negative voltage = 0 and the largest positive
         // voltage = 0.  But these limits are updated every single ISR before
         // actually executing the Iq controller. The limits depend on how much
         // voltage is left over after the Id controller executes. So having an
         // initial value of 0 does not affect Iq current controller execution.
-        PID_setMinMax(pidHandle[2],_IQ(0.0),_IQ(0.0));
+        PID_setMinMax(pidHandle[2], _IQ(0.0), _IQ(0.0));
 
         // Set the initial condition value for the integrator output to 0
-        PID_setUi(pidHandle[2],_IQ(0.0));
+        PID_setUi(pidHandle[2], _IQ(0.0));
     }
 
     // initialize the speed reference in kilo RPM where base speed is
     // USER_IQ_FULL_SCALE_FREQ_Hz.
     // Set 10 Hz electrical frequency as initial value, so the kRPM value would
     // be: 10 * 60 / motor pole pairs / 1000.
-    gMotorVars.SpeedRef_krpm = _IQmpy(_IQ(10.0),gSpeed_hz_to_krpm_sf);
+    gMotorVars.SpeedRef_krpm = _IQmpy(_IQ(10.0), gSpeed_hz_to_krpm_sf);
 
     // initialize the inverse Park module
-    iparkHandle = IPARK_init(&ipark,sizeof(ipark));
+    iparkHandle = IPARK_init(&ipark, sizeof(ipark));
 
     // initialize the space vector generator module
-    svgenHandle = SVGEN_init(&svgen,sizeof(svgen));
+    svgenHandle = SVGEN_init(&svgen, sizeof(svgen));
 
     // setup faults
     HAL_setupFaults(halHandle);
@@ -508,36 +514,37 @@ void main(void)
     // enable the system by default
     gMotorVars.Flag_enableSys = true;
 
-    #ifdef DRV8301_SPI
-        // turn on the DRV8301 if present
-        HAL_enableDrv(halHandle);
-        // initialize the DRV8301 interface
-        HAL_setupDrvSpi(halHandle,&gDrvSpi8301Vars);
-    #endif
+#ifdef DRV8301_SPI
+    // turn on the DRV8301 if present
+    HAL_enableDrv(halHandle);
+    // initialize the DRV8301 interface
+    HAL_setupDrvSpi(halHandle, &gDrvSpi8301Vars);
+#endif
 
     // Begin the background loop
-    for(;;)
+    for (;;)
     {
         // Waiting for enable system flag to be set
-        while(!(gMotorVars.Flag_enableSys));
+        while (!(gMotorVars.Flag_enableSys))
+            ;
 
         // loop while the enable system flag is true
-        while(gMotorVars.Flag_enableSys)
+        while (gMotorVars.Flag_enableSys)
         {
             // If Flag_enableSys is set AND Flag_Run_Identify is set THEN
             // enable PWMs and set the speed reference
-            if(gMotorVars.Flag_Run_Identify)
+            if (gMotorVars.Flag_Run_Identify)
             {
                 // update estimator state
-                EST_updateState(estHandle,0);
+                EST_updateState(estHandle, 0);
 
-                #ifdef FAST_ROM_V1p6
-                    // call this function to fix 1p6. This is only used for
-                    // F2806xF/M implementation of InstaSPIN (version 1.6 of
-                    // ROM), since the inductance calculation is not done
-                    // correctly in ROM, so this function fixes that ROM bug.
-                    softwareUpdate1p6(estHandle);
-                #endif
+#ifdef FAST_ROM_V1p6
+                // call this function to fix 1p6. This is only used for
+                // F2806xF/M implementation of InstaSPIN (version 1.6 of
+                // ROM), since the inductance calculation is not done
+                // correctly in ROM, so this function fixes that ROM bug.
+                softwareUpdate1p6(estHandle);
+#endif
 
                 // enable the PWM
                 HAL_enablePwm(halHandle);
@@ -551,11 +558,11 @@ void main(void)
                 HAL_disablePwm(halHandle);
 
                 // clear integrator outputs
-                PID_setUi(pidHandle[0],_IQ(0.0));
-                PID_setUi(pidHandle[1],_IQ(0.0));
-                PID_setUi(pidHandle[2],_IQ(0.0));
-                PID_setUi(pidHandle[3],_IQ(0.0));
-                PID_setUi(pidHandle[4],_IQ(0.0));
+                PID_setUi(pidHandle[0], _IQ(0.0));
+                PID_setUi(pidHandle[1], _IQ(0.0));
+                PID_setUi(pidHandle[2], _IQ(0.0));
+                PID_setUi(pidHandle[3], _IQ(0.0));
+                PID_setUi(pidHandle[4], _IQ(0.0));
 
                 // clear Id and Iq references
                 gIdq_ref_pu.value[0] = _IQ(0.0);
@@ -566,24 +573,24 @@ void main(void)
             updateGlobalVariables(estHandle);
 
 #ifdef DCBUS_REGULATE
-      // regulate the VdcBus voltage
-      VdcBus_regualte(halHandle,VDCSET,gMotorVars.VdcBus_kV);
-      //Protect the DCBUS from voltage spike
-      if( gMotorVars.VdcBus_kV > _IQ(0.06) )
-      {
-          HAL_disablePwm(halHandle);
-          gMotorVars.Flag_enableSys = false;
-      }
+            // regulate the VdcBus voltage
+            VdcBus_regualte(halHandle, VDCSET, gMotorVars.VdcBus_kV);
+            //Protect the DCBUS from voltage spike 60V
+            if (gMotorVars.VdcBus_kV > VDCPORTECT)
+            {
+                HAL_disablePwm(halHandle);
+                gMotorVars.Flag_enableSys = false;
+            }
 #endif
 
-      //Get the yPotentiometer from IQ(-0.95) to IQ(-1.0) at ADCINB6
-      xPotentiometer = HAL_readPotentiometerData(halHandle);
-      yPotentiometer = _IQmpy(xPotentiometer,_IQ(-0.05)) - _IQ(0.95);
-
+            //Get the xPotentiometer from IQ(0.0) to IQ(1.0) at ADCINB6
+            xPotentiometer = HAL_readPotentiometerDatax(halHandle);
+            //Get the fPotentiometer from IQ(0.0) to IQ(1.0) at ADCINA6
+            fPotentiometer = HAL_readPotentiometerDataf(halHandle);
 
             // enable/disable the forced angle
             EST_setFlag_enableForceAngle(estHandle,
-            gMotorVars.Flag_enableForceAngle);
+                                         gMotorVars.Flag_enableForceAngle);
 
 #ifdef SPEEDLOOP
     // set target speed
@@ -591,17 +598,14 @@ void main(void)
     gIdq_ref_pu.value[0] = _IQdiv(gMotorVars.IdRef_A,_IQ(USER_IQ_FULL_SCALE_CURRENT_A));
 #endif
 
-
-
             //Potentiometer
             //gPotentiometer = HAL_readPotentiometerData(halHandle);
 
+#ifdef DRV8301_SPI
+            HAL_writeDrvData(halHandle, &gDrvSpi8301Vars);
 
-            #ifdef DRV8301_SPI
-                HAL_writeDrvData(halHandle,&gDrvSpi8301Vars);
-
-                HAL_readDrvData(halHandle,&gDrvSpi8301Vars);
-            #endif
+            HAL_readDrvData(halHandle, &gDrvSpi8301Vars);
+#endif
 
         } // end of while(gFlag_enableSys) loop
 
@@ -612,21 +616,18 @@ void main(void)
     } // end of for(;;) loop
 } // end of main() function
 
-
 //! \brief the ISR for SCI-B receive interrupt
 interrupt void sciBRxISR(void)
 {
 #ifdef UART
-  HAL_Obj *obj = (HAL_Obj *)halHandle;
-  dataRx = SCI_getDataNonBlocking(halHandle->sciBHandle, &success);
-  //success = SCI_putDataNonBlocking(halHandle->sciBHandle, dataTx);
-  // acknowledge interrupt from SCI group so that SCI interrupt
-  // is not received twice
-  PIE_clearInt(obj->pieHandle,PIE_GroupNumber_9);
+    HAL_Obj *obj = (HAL_Obj*) halHandle;
+    dataRx = SCI_getDataNonBlocking(halHandle->sciBHandle, &success);
+    //success = SCI_putDataNonBlocking(halHandle->sciBHandle, dataTx);
+    // acknowledge interrupt from SCI group so that SCI interrupt
+    // is not received twice
+    PIE_clearInt(obj->pieHandle, PIE_GroupNumber_9);
 #endif
 } // end of sciBRxISR() function
-
-
 
 //! \brief     The main ISR that implements the motor control.
 interrupt void mainISR(void)
@@ -640,12 +641,18 @@ interrupt void mainISR(void)
     MATH_vec2 phasor;
 
     // acknowledge the ADC interrupt
-    HAL_acqAdcInt(halHandle,ADC_IntNumber_1);
+    HAL_acqAdcInt(halHandle, ADC_IntNumber_1);
 
     // convert the ADC data
-    HAL_readAdcDataWithOffsets(halHandle,&gAdcData);
+    HAL_readAdcDataWithOffsets(halHandle, &gAdcData);
 
     // remove offsets
+
+#ifdef MW_DRIVER
+    gAdcData.I.value[0] = (-1) * (gAdcData.I.value[0] - gOffsets_I_pu.value[0]);
+    gAdcData.I.value[1] = (-1) * (gAdcData.I.value[1] - gOffsets_I_pu.value[1]);
+    gAdcData.I.value[2] = (-1) * (gAdcData.I.value[2] - gOffsets_I_pu.value[2]);
+#endif
 #ifdef DRV8300DIPW_EVM
     gAdcData.I.value[0] = (-1) * (gAdcData.I.value[0] - gOffsets_I_pu.value[0]);
     gAdcData.I.value[1] = (-1) * (gAdcData.I.value[1] - gOffsets_I_pu.value[1]);
@@ -663,30 +670,31 @@ interrupt void mainISR(void)
 
     // run Clarke transform on current.  Three values are passed, two values
     // are returned.
-    CLARKE_run(clarkeHandle_I,&gAdcData.I,&Iab_pu);
+    CLARKE_run(clarkeHandle_I, &gAdcData.I, &Iab_pu);
 
     // run Clarke transform on voltage.  Three values are passed, two values
     // are returned.
-    CLARKE_run(clarkeHandle_V,&gAdcData.V,&Vab_pu);
+    CLARKE_run(clarkeHandle_V, &gAdcData.V, &Vab_pu);
 
     {
-    // run the estimator
-    // The speed reference is needed so that the proper sign of the forced
-    // angle is calculated. When the estimator does not do motor ID as in this
-    // lab, only the sign of the speed reference is used
-    EST_run(estHandle,&Iab_pu,&Vab_pu,gAdcData.dcBus,gMotorVars.SpeedRef_pu);
+        // run the estimator
+        // The speed reference is needed so that the proper sign of the forced
+        // angle is calculated. When the estimator does not do motor ID as in this
+        // lab, only the sign of the speed reference is used
+        EST_run(estHandle, &Iab_pu, &Vab_pu, gAdcData.dcBus,
+                gMotorVars.SpeedRef_pu);
 
-    // generate the motor electrical angle
-    angle_pu = EST_getAngle_pu(estHandle);
-    speed_pu = EST_getFm_pu(estHandle);
+        // generate the motor electrical angle
+        angle_pu = EST_getAngle_pu(estHandle);
+        speed_pu = EST_getFm_pu(estHandle);
 
-    // get Idq from estimator to avoid sin and cos, and a Park transform,
-    // which saves CPU cycles
-    EST_getIdq_pu(estHandle,&gIdq_pu);
+        // get Idq from estimator to avoid sin and cos, and a Park transform,
+        // which saves CPU cycles
+        EST_getIdq_pu(estHandle, &gIdq_pu);
     }
 
     // run the appropriate controller
-    if(gMotorVars.Flag_Run_Identify)
+    if (gMotorVars.Flag_Run_Identify)
     {
         // Declaration of local variables.
         _iq refValue;
@@ -695,44 +703,14 @@ interrupt void mainISR(void)
 
         // when appropriate, run the PID speed controller
         // This mechanism provides the decimation for the speed loop.
-        if(pidCntSpeed >= USER_NUM_CTRL_TICKS_PER_SPEED_TICK)
+        if (pidCntSpeed >= USER_NUM_CTRL_TICKS_PER_SPEED_TICK)
         {
             // Reset the Speed PID execution counter.
             pidCntSpeed = 0;
-            #ifdef SPEEDLOOP
+#ifdef SPEEDLOOP
             // The next instruction executes the PI speed controller and places
             // its output in Idq_ref_pu.value[1], which is the input reference
             // value for the q-axis current controller.
-
-            PID_run_spd(pidHandle[0],gMotorVars.SpeedRef_pu,speed_pu,
-                                            &(gIdq_ref_pu.value[1]));
-            #endif
-
-            #ifdef CURRENTLOOP
-            Iq_Amp =  (_iq)_IQmpy(gIdq_pu.value[1],
-                        _IQ(USER_IQ_FULL_SCALE_CURRENT_A));
-            Speed_kRPM = _IQmpy(_IQmpy(speed_pu,pu_to_khz_sf),khz_to_krpm_sf);
-
-            PID_run_torque_ob(pidHandle[3],Speed_kRPM,Iq_Amp,
-                                          &(torque_head));
-
-            torque_head_comm = _IQmpy( torque_head, yPotentiometer) + _IQ(0.0);
-
-            gIdq_ref_pu.value[0] = _IQdiv(gMotorVars.IdRef_A,_IQ(USER_IQ_FULL_SCALE_CURRENT_A));
-            gIdq_ref_pu.value[1] = _IQdiv(torque_head_comm ,_IQ(USER_IQ_FULL_SCALE_CURRENT_A));
-            #endif
-
-            #ifdef REFERENCEMODEL
-
-            PID_run_torque_ob(pidHandle[3],Speed_kRPM,Iq_Amp,
-                                                      &(torque_head));
-            torque_head_comm = _IQmpy( torque_head,_IQ(1.0));
-
-            Refmodel(pidHandle[4],torque_head_comm,&(refspeed)); //NM -> KRPM
-
-            gMotorVars.SpeedRef_pu = _IQmpy(refspeed,gSpeed_krpm_to_pu_sf);
-
-            gIdq_ref_pu.value[0] = _IQdiv(gMotorVars.IdRef_A,_IQ(USER_IQ_FULL_SCALE_CURRENT_A));
 
             PID_run_spd(pidHandle[0],gMotorVars.SpeedRef_pu,speed_pu,
                                             &(gIdq_ref_pu.value[1]));
@@ -745,6 +723,49 @@ interrupt void mainISR(void)
             pidCntSpeed++;
         }
 
+#ifdef CURRENTLOOP
+        Iq_Amp =  (_iq)_IQmpy(gIdq_pu.value[1],
+                    _IQ(USER_IQ_FULL_SCALE_CURRENT_A));
+        Speed_kRPM = _IQmpy(_IQmpy(speed_pu,pu_to_khz_sf),khz_to_krpm_sf);
+
+        PID_run_torque_ob(pidHandle[3],Speed_kRPM,Iq_Amp,
+                                      &(torque_head));
+
+        //from IQ(-0.95) to IQ(-1.0)
+        yPotentiometer = _IQmpy(xPotentiometer,_IQ(-0.05)) - _IQ(0.95);
+
+        torque_head_comm = _IQmpy( torque_head, yPotentiometer) + _IQ(0.0);
+
+        gIdq_ref_pu.value[0] = _IQdiv(gMotorVars.IdRef_A,_IQ(USER_IQ_FULL_SCALE_CURRENT_A));
+        gIdq_ref_pu.value[1] = _IQdiv(torque_head_comm ,_IQ(USER_IQ_FULL_SCALE_CURRENT_A));
+#endif
+
+#ifdef REFERENCEMODEL
+
+        Iq_Amp =  (_iq)_IQmpy(gIdq_pu.value[1],
+                    _IQ(USER_IQ_FULL_SCALE_CURRENT_A));
+        Speed_kRPM = _IQmpy(_IQmpy(speed_pu,pu_to_khz_sf),khz_to_krpm_sf);
+
+        PID_run_torque_ob_B(pidHandle[3], Speed_kRPM, Iq_Amp, &(torque_head));
+
+        //yPotentiometer use to control B from IQ(2.0) to IQ(20.0)
+        yPotentiometer = _IQmpy(xPotentiometer,_IQ(18.0)) + _IQ(2.0);
+
+        //gPotentiometer use to control J from IQ(2.0) to IQ(50.0)
+        gPotentiometer = _IQmpy(fPotentiometer,_IQ(48.0)) + _IQ(2.0);
+
+        Refmodel(pidHandle[4], gPotentiometer, yPotentiometer, torque_head,
+                 &(refspeed)); //NM -> KRPM
+
+        gMotorVars.SpeedRef_pu = _IQmpy(refspeed, gSpeed_krpm_to_pu_sf);
+
+        gIdq_ref_pu.value[0] = _IQdiv(gMotorVars.IdRef_A,
+                                      _IQ(USER_IQ_FULL_SCALE_CURRENT_A));
+
+        PID_run_spd(pidHandle[0], gMotorVars.SpeedRef_pu, speed_pu,
+                    &(gIdq_ref_pu.value[1]));
+#endif
+
         // Get the reference value for the d-axis current controller.
         //refValue = gIdq_ref_pu.value[0];
         refValue = gIdq_ref_pu.value[0];
@@ -755,7 +776,7 @@ interrupt void mainISR(void)
         // The next instruction executes the PI current controller for the
         // d axis and places its output in Vdq_pu.value[0], which is the
         // control voltage along the d-axis (Vd)
-        PID_run(pidHandle[1],refValue,fbackValue,&(gVdq_out_pu.value[0]));
+        PID_run(pidHandle[1], refValue, fbackValue, &(gVdq_out_pu.value[0]));
 
         // get the Iq reference value
         refValue = gIdq_ref_pu.value[1];
@@ -771,16 +792,16 @@ interrupt void mainISR(void)
         // controller executes first. The next instruction calculates the
         // maximum limits for this voltage as:
         // Vq_min_max = +/- sqrt(Vbus^2 - Vd^2)
-        outMax_pu = _IQsqrt(_IQ(USER_MAX_VS_MAG_PU * USER_MAX_VS_MAG_PU)
-                - _IQmpy(gVdq_out_pu.value[0],gVdq_out_pu.value[0]));
+        outMax_pu =
+                _IQsqrt(_IQ(USER_MAX_VS_MAG_PU * USER_MAX_VS_MAG_PU) - _IQmpy(gVdq_out_pu.value[0],gVdq_out_pu.value[0]));
 
         // Set the limits to +/- outMax_pu
-        PID_setMinMax(pidHandle[2],-outMax_pu,outMax_pu);
+        PID_setMinMax(pidHandle[2], -outMax_pu, outMax_pu);
 
         // The next instruction executes the PI current controller for the
         // q axis and places its output in Vdq_pu.value[1], which is the
         // control voltage vector along the q-axis (Vq)
-        PID_run(pidHandle[2],refValue,fbackValue,&(gVdq_out_pu.value[1]));
+        PID_run(pidHandle[2], refValue, fbackValue, &(gVdq_out_pu.value[1]));
 
         // The voltage vector is now calculated and ready to be applied to the
         // motor in the form of three PWM signals.  However, even though the
@@ -790,7 +811,7 @@ interrupt void mainISR(void)
         // was calculated for, by an amount which is proportional to the
         // sampling frequency and the speed of the motor.  For steady-state
         // speeds, we can calculate this angle delay and compensate for it.
-        angle_pu = angleDelayComp(speed_pu,angle_pu);
+        angle_pu = angleDelayComp(speed_pu, angle_pu);
 
         // compute the sine and cosine phasor values which are part of the inverse
         // Park transform calculations. Once these values are computed,
@@ -800,24 +821,24 @@ interrupt void mainISR(void)
         phasor.value[1] = _IQsinPU(angle_pu);
 
         // set the phasor in the inverse Park transform
-        IPARK_setPhasor(iparkHandle,&phasor);
+        IPARK_setPhasor(iparkHandle, &phasor);
 
         // Run the inverse Park module.  This converts the voltage vector from
         // synchronous frame values to stationary frame values.
-        IPARK_run(iparkHandle,&gVdq_out_pu,&Vab_pu);
+        IPARK_run(iparkHandle, &gVdq_out_pu, &Vab_pu);
 
         // These 3 statements compensate for variations in the DC bus by adjusting the
         // PWM duty cycle. The goal is to achieve the same volt-second product
         // regardless of the DC bus value.  To do this, we must divide the desired voltage
         // values by the DC bus value.  Or...it is easier to multiply by 1/(DC bus value).
         oneOverDcBus = EST_getOneOverDcBus_pu(estHandle);
-        Vab_pu.value[0] = _IQmpy(Vab_pu.value[0],oneOverDcBus);
-        Vab_pu.value[1] = _IQmpy(Vab_pu.value[1],oneOverDcBus);
+        Vab_pu.value[0] = _IQmpy(Vab_pu.value[0], oneOverDcBus);
+        Vab_pu.value[1] = _IQmpy(Vab_pu.value[1], oneOverDcBus);
 
         // Now run the space vector generator (SVGEN) module.
         // There is no need to do an inverse CLARKE transform, as this is
         // handled in the SVGEN_run function.
-        SVGEN_run(svgenHandle,&Vab_pu,&(gPwmData.Tabc));
+        SVGEN_run(svgenHandle, &Vab_pu, &(gPwmData.Tabc));
     }
     else  // gMotorVars.Flag_Run_Identify = 0
     {
@@ -831,41 +852,40 @@ interrupt void mainISR(void)
     }
 
     // write to the PWM compare registers, and then we are done!
-    HAL_writePwmData(halHandle,&gPwmData);
+    HAL_writePwmData(halHandle, &gPwmData);
 
 #ifdef UART
-        dataTx_speed = (uint16_t)(_IQtoF(gMotorVars.Speed_krpm) * 1000);
-        dataTx_torque = (uint16_t)(_IQtoF(gMotorVars.Torque_Nm) * 10);
-        //dataTx_angle = (uint16_t)(_IQtoF(gMotorVars.Torque_Nm) * 10);
-        SCI_putDataNonBlocking(halHandle->sciBHandle, dataTx_torque);
-        //SCI_putDataNonBlocking(halHandle->sciBHandle, 'B');
+    dataTx_speed = (uint16_t) (_IQtoF(gMotorVars.Speed_krpm) * 1000);
+    dataTx_torque = (uint16_t) (_IQtoF(gMotorVars.Torque_Nm) * 10);
+    //dataTx_angle = (uint16_t)(_IQtoF(gMotorVars.Torque_Nm) * 10);
+    SCI_putDataNonBlocking(halHandle->sciBHandle, dataTx_torque);
+    //SCI_putDataNonBlocking(halHandle->sciBHandle, 'B');
 #endif
-/*
-    // connect inputs of the PWMDAC module.
-    gDacData.value[0] = (*gDacData.ptrData[0]);   //
-    gDacData.value[1] = (*gDacData.ptrData[1]);   //
-    gDacData.value[2] = (*gDacData.ptrData[2]);   //
-    gDacData.value[3] = (*gDacData.ptrData[3]);   //
+    /*
+     // connect inputs of the PWMDAC module.
+     gDacData.value[0] = (*gDacData.ptrData[0]);   //
+     gDacData.value[1] = (*gDacData.ptrData[1]);   //
+     gDacData.value[2] = (*gDacData.ptrData[2]);   //
+     gDacData.value[3] = (*gDacData.ptrData[3]);   //
 
-    HAL_writeDacData(halHandle,&gDacData);
-*/
-
+     HAL_writeDacData(halHandle,&gDacData);
+     */
 
     return;
 } // end of mainISR() function
 
-
 //! \brief  The angleDelayComp function compensates for the delay introduced
 //! \brief  from the time when the system inputs are sampled to when the PWM
 //! \brief  voltages are applied to the motor windings.
-_iq angleDelayComp(const _iq fm_pu,const _iq angleUncomp_pu)
+_iq angleDelayComp(const _iq fm_pu, const _iq angleUncomp_pu)
 {
-    _iq angleDelta_pu = _IQmpy(fm_pu,_IQ(USER_IQ_FULL_SCALE_FREQ_Hz
-                / (USER_PWM_FREQ_kHz*1000.0)));
-    _iq angleCompFactor = _IQ(1.0 + (float_t)USER_NUM_PWM_TICKS_PER_ISR_TICK
-                * 0.5);
-    _iq angleDeltaComp_pu = _IQmpy(angleDelta_pu,angleCompFactor);
-    uint32_t angleMask = ((uint32_t)0xFFFFFFFF >> (32 - GLOBAL_Q));
+    _iq angleDelta_pu = _IQmpy(
+            fm_pu,
+            _IQ(USER_IQ_FULL_SCALE_FREQ_Hz / (USER_PWM_FREQ_kHz*1000.0)));
+    _iq angleCompFactor = _IQ(
+            1.0 + (float_t)USER_NUM_PWM_TICKS_PER_ISR_TICK * 0.5);
+    _iq angleDeltaComp_pu = _IQmpy(angleDelta_pu, angleCompFactor);
+    uint32_t angleMask = ((uint32_t) 0xFFFFFFFF >> (32 - GLOBAL_Q));
     _iq angleComp_pu;
     _iq angleTmp_pu;
 
@@ -877,14 +897,13 @@ _iq angleDelayComp(const _iq fm_pu,const _iq angleUncomp_pu)
     angleComp_pu = _IQabs(angleTmp_pu) & angleMask;
 
     // account for sign
-    if(angleTmp_pu < _IQ(0.0))
+    if (angleTmp_pu < _IQ(0.0))
     {
         angleComp_pu = -angleComp_pu;
     }
 
-    return(angleComp_pu);
+    return (angleComp_pu);
 } // end of angleDelayComp() function
-
 
 //! \brief  Call this function to fix 1p6. This is only used for F2806xF/M
 //! \brief  implementation of InstaSPIN (version 1.6 of ROM) since the
@@ -893,39 +912,38 @@ _iq angleDelayComp(const _iq fm_pu,const _iq angleUncomp_pu)
 void softwareUpdate1p6(EST_Handle handle)
 {
     float_t fullScaleInductance = USER_IQ_FULL_SCALE_VOLTAGE_V
-                    / (USER_IQ_FULL_SCALE_CURRENT_A
-                    * USER_VOLTAGE_FILTER_POLE_rps);
+            / (USER_IQ_FULL_SCALE_CURRENT_A * USER_VOLTAGE_FILTER_POLE_rps);
     float_t Ls_coarse_max = _IQ30toF(EST_getLs_coarse_max_pu(handle));
-    int_least8_t lShift = ceil(log(USER_MOTOR_Ls_d / (Ls_coarse_max
-                         * fullScaleInductance)) / log(2.0));
+    int_least8_t lShift = ceil(
+            log(USER_MOTOR_Ls_d / (Ls_coarse_max * fullScaleInductance))
+                    / log(2.0));
     uint_least8_t Ls_qFmt = 30 - lShift;
-    float_t L_max = fullScaleInductance * pow(2.0,lShift);
+    float_t L_max = fullScaleInductance * pow(2.0, lShift);
     _iq Ls_d_pu = _IQ30(USER_MOTOR_Ls_d / L_max);
     _iq Ls_q_pu = _IQ30(USER_MOTOR_Ls_q / L_max);
 
     // store the results
-    EST_setLs_d_pu(handle,Ls_d_pu);
-    EST_setLs_q_pu(handle,Ls_q_pu);
-    EST_setLs_qFmt(handle,Ls_qFmt);
+    EST_setLs_d_pu(handle, Ls_d_pu);
+    EST_setLs_q_pu(handle, Ls_q_pu);
+    EST_setLs_qFmt(handle, Ls_qFmt);
 
     return;
 } // end of softwareUpdate1p6() function
 
-
 //! \brief     Setup the Clarke transform for either 2 or 3 sensors.
 //! \param[in] handle             The clarke (CLARKE) handle
 //! \param[in] numCurrentSensors  The number of current sensors
-void setupClarke_I(CLARKE_Handle handle,const uint_least8_t numCurrentSensors)
+void setupClarke_I(CLARKE_Handle handle, const uint_least8_t numCurrentSensors)
 {
-    _iq alpha_sf,beta_sf;
+    _iq alpha_sf, beta_sf;
 
     // initialize the Clarke transform module for current
-    if(numCurrentSensors == 3)
+    if (numCurrentSensors == 3)
     {
         alpha_sf = _IQ(MATH_ONE_OVER_THREE);
         beta_sf = _IQ(MATH_ONE_OVER_SQRT_THREE);
     }
-    else if(numCurrentSensors == 2)
+    else if (numCurrentSensors == 2)
     {
         alpha_sf = _IQ(1.0);
         beta_sf = _IQ(MATH_ONE_OVER_SQRT_THREE);
@@ -937,22 +955,21 @@ void setupClarke_I(CLARKE_Handle handle,const uint_least8_t numCurrentSensors)
     }
 
     // set the parameters
-    CLARKE_setScaleFactors(handle,alpha_sf,beta_sf);
-    CLARKE_setNumSensors(handle,numCurrentSensors);
+    CLARKE_setScaleFactors(handle, alpha_sf, beta_sf);
+    CLARKE_setNumSensors(handle, numCurrentSensors);
 
     return;
 } // end of setupClarke_I() function
 
-
 //! \brief     Setup the Clarke transform for either 2 or 3 sensors.
 //! \param[in] handle             The clarke (CLARKE) handle
 //! \param[in] numVoltageSensors  The number of voltage sensors
-void setupClarke_V(CLARKE_Handle handle,const uint_least8_t numVoltageSensors)
+void setupClarke_V(CLARKE_Handle handle, const uint_least8_t numVoltageSensors)
 {
-    _iq alpha_sf,beta_sf;
+    _iq alpha_sf, beta_sf;
 
     // initialize the Clarke transform module for voltage
-    if(numVoltageSensors == 3)
+    if (numVoltageSensors == 3)
     {
         alpha_sf = _IQ(MATH_ONE_OVER_THREE);
         beta_sf = _IQ(MATH_ONE_OVER_SQRT_THREE);
@@ -965,12 +982,11 @@ void setupClarke_V(CLARKE_Handle handle,const uint_least8_t numVoltageSensors)
 
     // In other words, the only acceptable number of voltage sensors is three.
     // set the parameters
-    CLARKE_setScaleFactors(handle,alpha_sf,beta_sf);
-    CLARKE_setNumSensors(handle,numVoltageSensors);
+    CLARKE_setScaleFactors(handle, alpha_sf, beta_sf);
+    CLARKE_setNumSensors(handle, numVoltageSensors);
 
     return;
 } // end of setupClarke_V() function
-
 
 //! \brief     Update the global variables (gMotorVars).
 //! \param[in] handle  The estimator (EST) handle
@@ -984,16 +1000,17 @@ void updateGlobalVariables(EST_Handle handle)
         _iq Flux_pu = EST_getFlux_pu(handle);
         _iq Id_pu = PID_getFbackValue(pidHandle[1]);
         _iq Iq_pu = PID_getFbackValue(pidHandle[2]);
-        _iq Ld_minus_Lq_pu = _IQ30toIQ(EST_getLs_d_pu(handle)
-                    - EST_getLs_q_pu(handle));
+        _iq Ld_minus_Lq_pu = _IQ30toIQ(
+                EST_getLs_d_pu(handle) - EST_getLs_q_pu(handle));
 
         // Reactance Torque
         _iq Torque_Flux_Iq_Nm = _IQmpy(_IQmpy(Flux_pu,Iq_pu),
-                    gTorque_Flux_Iq_pu_to_Nm_sf);
+                                       gTorque_Flux_Iq_pu_to_Nm_sf);
 
         // Reluctance Torque
-        _iq Torque_Ls_Id_Iq_Nm = _IQmpy(_IQmpy(_IQmpy(Ld_minus_Lq_pu,Id_pu),
-                    Iq_pu),gTorque_Ls_Id_Iq_pu_to_Nm_sf);
+        _iq Torque_Ls_Id_Iq_Nm = _IQmpy(
+                _IQmpy(_IQmpy(Ld_minus_Lq_pu,Id_pu), Iq_pu),
+                gTorque_Ls_Id_Iq_pu_to_Nm_sf);
 
         // Total torque is sum of reactance torque and reluctance torque
         _iq Torque_Nm = Torque_Flux_Iq_Nm + Torque_Ls_Id_Iq_Nm;
@@ -1020,38 +1037,37 @@ void updateGlobalVariables(EST_Handle handle)
     gMotorVars.Flux_VpHz = EST_getFlux_VpHz(handle);
 
     // get the flux in Wb in fixed point
-    gMotorVars.Flux_Wb = _IQmpy(EST_getFlux_pu(handle),gFlux_pu_to_Wb_sf);
+    gMotorVars.Flux_Wb = _IQmpy(EST_getFlux_pu(handle), gFlux_pu_to_Wb_sf);
 
     // get the estimator state
     gMotorVars.EstState = EST_getState(handle);
 
     // Get the DC buss voltage
     gMotorVars.VdcBus_kV = _IQmpy(gAdcData.dcBus,
-            _IQ(USER_IQ_FULL_SCALE_VOLTAGE_V / 1000.0));
+                                  _IQ(USER_IQ_FULL_SCALE_VOLTAGE_V / 1000.0));
 
     // read Vd and Vq vectors per units
     gMotorVars.Vd = gVdq_out_pu.value[0];
     gMotorVars.Vq = gVdq_out_pu.value[1];
 
     // calculate vector Vs in per units: (Vs = sqrt(Vd^2 + Vq^2))
-    gMotorVars.Vs = _IQsqrt(_IQmpy(gMotorVars.Vd,gMotorVars.Vd)
-            + _IQmpy(gMotorVars.Vq,gMotorVars.Vq));
+    gMotorVars.Vs =
+            _IQsqrt(_IQmpy(gMotorVars.Vd,gMotorVars.Vd) + _IQmpy(gMotorVars.Vq,gMotorVars.Vq));
 
     // read Id and Iq vectors in amps
 
     gMotorVars.Id_A = _IQmpy(gIdq_pu.value[0],
-            _IQ(USER_IQ_FULL_SCALE_CURRENT_A));
+                             _IQ(USER_IQ_FULL_SCALE_CURRENT_A));
     gMotorVars.Iq_A = _IQmpy(gIdq_pu.value[1],
-            _IQ(USER_IQ_FULL_SCALE_CURRENT_A));
+                             _IQ(USER_IQ_FULL_SCALE_CURRENT_A));
 
     // calculate vector Is in amps:  (Is_A = sqrt(Id_A^2 + Iq_A^2))
-    gMotorVars.Is_A = _IQsqrt(_IQmpy(gMotorVars.Id_A,gMotorVars.Id_A)
-            + _IQmpy(gMotorVars.Iq_A,gMotorVars.Iq_A));
+    gMotorVars.Is_A =
+            _IQsqrt(_IQmpy(gMotorVars.Id_A,gMotorVars.Id_A) + _IQmpy(gMotorVars.Iq_A,gMotorVars.Iq_A));
 
     return;
 } // end of updateGlobalVariables() function
 
 //@} //defgroup
 // end of file
-
 

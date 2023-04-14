@@ -35,22 +35,17 @@
 //!
 //! (C) Copyright 2015, Texas Instruments, Inc.
 
-
 // **************************************************************************
 // the includes
-
 #include "sw/drivers/cpu/src/32b/f28x/f2806x/cpu.h"
-
 
 // **************************************************************************
 // the defines
-
 
 // **************************************************************************
 // the globals
 
 CPU_Obj cpu;
-
 
 // **************************************************************************
 // the functions
@@ -58,116 +53,104 @@ CPU_Obj cpu;
 void CPU_clearIntFlags(CPU_Handle cpuHandle)
 {
 
-  // clear the bits
-  IFR = 0;
+    // clear the bits
+    IFR = 0;
 
-  return;
+    return;
 } // end of CPU_clearIntFlags() function
-
 
 void CPU_disableDebugInt(CPU_Handle cpuHandle)
 {
 
-  // set the bit
-  asm(" setc DBGM");
+    // set the bit
+    asm(" setc DBGM");
 
-  return;
+    return;
 } // end of CPU_disableDebug() function
-
 
 void CPU_disableGlobalInts(CPU_Handle cpuHandle)
 {
 
-  // set the bit
-  asm(" setc INTM");
+    // set the bit
+    asm(" setc INTM");
 
-  return;
+    return;
 } // end of CPU_disableGlobalInts() function
 
-
-void CPU_disableInt(CPU_Handle cpuHandle,const CPU_IntNumber_e intNumber)
+void CPU_disableInt(CPU_Handle cpuHandle, const CPU_IntNumber_e intNumber)
 {
 
-  // clear the bit
-  IER &= (~intNumber);
+    // clear the bit
+    IER &= (~intNumber);
 
-  return;
+    return;
 } // end of CPU_disableInt() function
-
 
 void CPU_disableInts(CPU_Handle cpuHandle)
 {
 
-  // clear the bits
-  IER = 0;
+    // clear the bits
+    IER = 0;
 
-  return;
+    return;
 } // end of CPU_disableInts() function
-
 
 void CPU_disableProtectedRegisterWrite(CPU_Handle cpuHandle)
 {
 
-  // clear the bits
-  asm(" EDIS");
+    // clear the bits
+    asm(" EDIS");
 
-  return;
+    return;
 } // end fo CPU_disableProtectedRegisterWrite() function
-
 
 void CPU_enableDebugInt(CPU_Handle cpuHandle)
 {
 
-  // clear the bit
-  asm(" clrc DBGM");
+    // clear the bit
+    asm(" clrc DBGM");
 
-  return;
+    return;
 } // end of CPU_enableDebugInt() function
-
 
 void CPU_enableGlobalInts(CPU_Handle cpuHandle)
 {
 
-  // clear the bit
-  asm(" clrc INTM");
+    // clear the bit
+    asm(" clrc INTM");
 
-  return;
+    return;
 } // end of CPU_enableGlobalInts() function
 
-
-void CPU_enableInt(CPU_Handle cpuHandle,const CPU_IntNumber_e intNumber)
+void CPU_enableInt(CPU_Handle cpuHandle, const CPU_IntNumber_e intNumber)
 {
 
-  // set the interrupt 
-  IER |= intNumber;
+    // set the interrupt 
+    IER |= intNumber;
 
-  return;
+    return;
 } // end of CPU_enableInt() function
-
 
 void CPU_enableProtectedRegisterWrite(CPU_Handle cpuHandle)
 {
 
-  // set the bits
-  asm(" EALLOW");
+    // set the bits
+    asm(" EALLOW");
 
-  return;
+    return;
 } // end fo CPU_enableProtectedRegisterWrite() function
 
-
-CPU_Handle CPU_init(void *pMemory,const size_t numBytes)
+CPU_Handle CPU_init(void *pMemory, const size_t numBytes)
 {
-  CPU_Handle cpuHandle;
+    CPU_Handle cpuHandle;
 
+    if (numBytes < sizeof(CPU_Obj))
+        return ((CPU_Handle) NULL);
 
-  if(numBytes < sizeof(CPU_Obj))
-    return((CPU_Handle)NULL);
+    // assign the handle
+    cpuHandle = (CPU_Handle) pMemory;
 
-  // assign the handle
-  cpuHandle = (CPU_Handle)pMemory;
-
-  return(cpuHandle);
+    return (cpuHandle);
 } // end of CPU_init() function
-
 
 // end of file

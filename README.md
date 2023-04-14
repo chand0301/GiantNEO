@@ -40,8 +40,8 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
     ```
     mkdir GIANT #想存放的目錄
     cd GIANT
-    git clone git@github.com:TomT0329/GAINT_TI_instaspin.git
-    cd GIANT_TI_instaspin/
+    git@github.com:TomT0329/TI_instaspin_indoor_smart_trainer.git
+    cd TI_instaspin_indoor_smart_trainer/
     ```
 
 

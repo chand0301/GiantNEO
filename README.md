@@ -53,7 +53,7 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 
     ![](https://i.imgur.com/K4H6hMP.png)
 
-4. Make sure all the signals a functional
+4. Make sure all the signals are functional
     * SVPWM 6pins
     * ADC include current volatge total 6pins
     * two Potentialmeter check DC source and two signals pins
@@ -63,11 +63,11 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
     * DCBUS(48V)
     * UART tx rx 2 pins
     * The USB port to your computer
-5. Navigate to **proj_lab21.c** and **user.h**. Check the defines in the use.h. it should be look like this at first. 
+5. Navigate to **proj_lab21.c** and **user.h**. Check the defines in the user.h. it should be look like picture below at first. 
 
+
+    ![](https://i.imgur.com/7SSoiIW.png)
     :dart:MW_DRIVER為EMTRC開發的驅動版，目前開發中。
-
-    ![](https://i.imgur.com/p8CTOlD.png)
 
 
 
@@ -81,7 +81,7 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 
 8. Set gMotorVars.Flag_enableSys = 1 gMotorVars.Flag_Run_Identify =1
 
-9. U r ready to go. you can also use scope to check dcbus voltage, motor phase current and the 7th switch control signal.
+9. You are ready to go. you can also use scope to check dcbus voltage, motor phase current and the 7th switch control signal.
 
     ![](https://i.imgur.com/9AQQhAP.png)
 
@@ -102,7 +102,8 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 
 ## Motor drive/control HARDWARE
 
-電路原理架構，專案會操作在動力機與發電機模式，當處在發電機模式會有回升電壓，在電路架構方面需增加7th開關與功率電阻。
+:dart: 
+電路原理，專案需要操作在動力機與發電機模式，當處在發電機模式會有回升電壓，因此電路架構方面需增加7th開關與功率電阻。
 
 ![](https://i.imgur.com/wq7rVx0.png)
 
@@ -128,8 +129,7 @@ It is a modified instaspin project for indoor smart bike trainer. The whole syst
 
 TO be continue...
 
-
-### 預計規格
+### 電路板規格
 
 **NEO規格**
 
@@ -162,6 +162,20 @@ TO be continue...
 2. 功率電阻4歐姆
 3. 最大功率1.6kW
 4. DC 20A
+
+**TI公版規格**
+
+發電機模式
+
+| DC電壓 | DC電流 | Phase current(Peak) | 功率    |
+| ------ | ------ | ------------------- | --- |
+| 48V    | 10A    |      25A           |   600W  |
+
+電動機模式
+
+| DC電壓 | DC電流 |
+| -------- | -------- | 
+| 48V     | 1.5A     |
 
 ## TI InstaSPIN-FOC base feature
 **1. Sensorless motor drive**
@@ -233,7 +247,7 @@ Checks for errors in the user parameter values.
     :dart: [over-modulation](https://www.switchcraft.org/learning/2017/3/15/space-vector-pwm-intro)
     
     
-## Something Special for this project in LAB 21 and LAB 11!
+## Something Special in LAB 21 and LAB 11
 
 :dart: 6種模式切換
 

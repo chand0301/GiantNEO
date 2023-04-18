@@ -67,32 +67,31 @@ extern "C" {
 
 // **************************************************************************
 // the defines
-/*Drive board ava for all the labs*/
-/*If define drv8301. there is No UART No DCBUS_REGULATE,
- * can only do the speed control*/
-//#define drv8301kit_revD
+
+/*Drive boards are avaliable for all the labs*/
+
+//#define drv8301kit_revD //NO dcbus regulate
 //#define MW_DRIVER
 #define DRV8300DIPW_EVM
 
 
-/*control mode only ava in LAB11 and LAB21*/
-/* !!choose one of them!!*/
-#define SPEEDLOOP //Project original speed control mode
+/*control mode only avaliable in LAB11 and LAB21 choose one of them.*/
+
+//#define SPEEDLOOP //Project original speed control mode
 //#define CURRENTLOOP //Impedance control without referencemodel
-//#define REFERENCEMODEL //Impedance control
+#define REFERENCEMODEL //Impedance control
 
-/*Extra fun only ava in LAB11 and LAB21*/
-//!!!!Please Remain open to protect dc bus from motor BEMF.!!!!
-#define DCBUS_REGULATE
+/*Extra fun only avaliable in LAB11 and LAB21*/
 
-//only valiable for LAB11 and LAB21, remain comment when doing ohther labs
-//#define UART
-//#define ADCINT1_HIGHEST_PRTORITY
+#define DCBUS_REGULATE //Please Remain open to protect dc bus from motor BEMF.
+//#define UART //only avaliable for LAB11 and LAB21, remain comment when doing ohther labs
+//#define ADCINT1_HIGHEST_PRTORITY //only avaliable for LAB11 and LAB21, remain comment when doing ohther labs
 
 
-/*motor ava for all the labs*/
-//#define USER_MOTOR BL90M //
-//#define USER_MOTOR Willy
+/*motors are avaliable for all the labs*/
+
+//#define USER_MOTOR BL90M //Motor from EMTRC
+//#define USER_MOTOR Willy //The skate board motor
 #define USER_MOTOR TacxNeo
 
 //! \brief CURRENTS AND VOLTAGES

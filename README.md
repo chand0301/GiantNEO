@@ -3,7 +3,7 @@ tags: TI instaspin
 ---
 
 
-# GETTING START WITH TI_instaspin_indoor_smart_trainer
+# GETTING START WITH GiantNEO
 
 It is a modified [InstaSPIN-FOC](https://www.ti.com/tool/MOTORWARE) project for indoor smart bike trainer. The whole system is based on the open source project "InstaSPIN-FOC" from TI under BSD licience. This project presents a impedance control struct which included a **PI-type torque observer** and a **impedance reference model**. By all this skills, we can simulate the inertia and friction of flywheel by PMSM which we call it "**electronic flywheel**".
 

@@ -538,6 +538,17 @@ static inline void HAL_readAdcData(HAL_Handle handle, HAL_AdcData_t *pAdcData)
     value = (_iq) ADC_readResult(obj->adcHandle, ADC_ResultNumber_3);
     value = _IQ12mpy(value,current_sf) - obj->adcBias.I.value[2]; // divide by 2^numAdcBits = 2^12
     pAdcData->I.value[2] = value * (-1);
+
+    /*TO DO~*/
+//    // read the I_SENSE_Load value
+//    value = (_iq)ADC_readResult(obj->adcHandle,ADC_ResultNumber_8);     // divide by 2^numAdcBits = 2^12
+//    value = _IQ12mpy(value,voltage_sf);
+//    pAdcData->I_SENSE_Load = value;
+//
+//    // read the Temp value
+//    value = (_iq)ADC_readResult(obj->adcHandle,ADC_ResultNumber_9);     // divide by 2^numAdcBits = 2^12
+//    value = _IQ12mpy(value,voltage_sf);
+//    pAdcData->Temp = value;
 #endif
 
 #ifdef drv8301kit_revD

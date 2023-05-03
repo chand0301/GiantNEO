@@ -71,21 +71,21 @@ extern "C" {
 /*Drive boards are avaliable for all the labs*/
 
 //#define drv8301kit_revD //NO dcbus regulate
-//#define MW_DRIVER
-#define DRV8300DIPW_EVM
+#define MW_DRIVER
+//#define DRV8300DIPW_EVM
 
 
 /*control mode only avaliable in LAB11 and LAB21 choose one of them.*/
 
-//#define SPEEDLOOP //Project original speed control mode
+#define SPEEDLOOP //Project original speed control mode
 //#define CURRENTLOOP //Impedance control without referencemodel
-#define REFERENCEMODEL //Impedance control
+//#define REFERENCEMODEL //Impedance control
 
 /*Extra fun only avaliable in LAB11 and LAB21*/
 
 #define DCBUS_REGULATE //Please Remain open to protect dc bus from motor BEMF.
-//#define UART //only avaliable for LAB11 and LAB21, remain comment when doing ohther labs
-//#define ADCINT1_HIGHEST_PRTORITY //only avaliable for LAB11 and LAB21, remain comment when doing ohther labs
+#define UART //only avaliable for LAB11 and LAB21, remain comment when doing ohther labs
+#define ADCINT1_HIGHEST_PRTORITY //only avaliable for LAB11 and LAB21, remain comment when doing ohther labs
 
 
 /*motors are avaliable for all the labs*/
@@ -99,21 +99,19 @@ extern "C" {
 // **************************************************************************
 
 #ifdef MW_DRIVER
-#define USER_IQ_FULL_SCALE_FREQ_Hz        (100) //maximum freq ~= 72Hz
+#define USER_IQ_FULL_SCALE_FREQ_Hz        (120.0) //maximum freq ~= 72Hz
 #define USER_IQ_FULL_SCALE_VOLTAGE_V      (48.0)
-#define USER_ADC_FULL_SCALE_VOLTAGE_V       (85.0)
+#define USER_ADC_FULL_SCALE_VOLTAGE_V       (85.885)
 #define USER_IQ_FULL_SCALE_CURRENT_A          (18.33)
 #define USER_ADC_FULL_SCALE_CURRENT_A        (36.66)
-#define   I_A_offset    (0.991)
-#define   I_B_offset    (0.991)
-#define   I_C_offset    (0.991)
-#define   V_A_offset    (0.073)
-#define   V_B_offset    (0.073)
-#define   V_C_offset    (0.073)
+#define   I_A_offset    (0.9954052567)
+#define   I_B_offset    (1.019765794)
+#define   I_C_offset    (0.9909060001)
+#define   V_A_offset    (0.4875975251)
+#define   V_B_offset    (0.4893425107)
+#define   V_C_offset    (0.488736093)
 #define USER_MAX_VS_MAG_PU        (0.5)
 #define USER_VOLTAGE_FILTER_POLE_Hz  (424.4)
-#define ST_SPEED_SAMPLE_TIME (0.001)
-#define USER_SYSTEM_BANDWIDTH      (90.0)
 #endif
 
 
@@ -502,7 +500,7 @@ extern "C" {
 #define USER_MOTOR_MAGNETIZING_CURRENT  (NULL)
 #define USER_MOTOR_RES_EST_CURRENT      (5.0)
 #define USER_MOTOR_IND_EST_CURRENT      (-5.0)
-#define USER_MOTOR_MAX_CURRENT          (25.0)
+#define USER_MOTOR_MAX_CURRENT          (5.0)
 #define USER_MOTOR_FLUX_EST_FREQ_Hz     (40.0)
 #define USER_MOTOR_ENCODER_LINES        (1.0)
 #define USER_MOTOR_MAX_SPEED_KRPM       (0.27)

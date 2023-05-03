@@ -875,76 +875,57 @@ void HAL_setupAdcs(HAL_Handle handle)
     ADC_setIntSrc(obj->adcHandle, ADC_IntNumber_1, ADC_IntSrc_EOC7);
 
 #ifdef MW_DRIVER
-    //configure the SOCs for drv8301kit_revD
-    // EXT IA-FB
-    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_0, ADC_SocChanNumber_A1);
-    ADC_setSocTrigSrc(obj->adcHandle, ADC_SocNumber_0,
-                      ADC_SocTrigSrc_EPWM1_ADCSOCA);
-    ADC_setSocSampleDelay(obj->adcHandle, ADC_SocNumber_0,
-                          ADC_SocSampleDelay_9_cycles);
+    //configure the SOCs for EMTRC_Motor
+     // EXT IA-FB(ADCINA1)
+     ADC_setSocChanNumber(obj->adcHandle,ADC_SocNumber_0,ADC_SocChanNumber_A1);
+     ADC_setSocTrigSrc(obj->adcHandle,ADC_SocNumber_0,ADC_SocTrigSrc_EPWM1_ADCSOCA);
+     ADC_setSocSampleDelay(obj->adcHandle,ADC_SocNumber_0,ADC_SocSampleDelay_9_cycles);
 
-    // EXT IA-FB
-    // Duplicate conversion due to ADC Initial Conversion bug (SPRZ342)
-    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_1, ADC_SocChanNumber_A1);
-    ADC_setSocTrigSrc(obj->adcHandle, ADC_SocNumber_1,
-                      ADC_SocTrigSrc_EPWM1_ADCSOCA);
-    ADC_setSocSampleDelay(obj->adcHandle, ADC_SocNumber_1,
-                          ADC_SocSampleDelay_9_cycles);
+     // EXT IA-FB(ADCINA1)
+     // Duplicate conversion due to ADC Initial Conversion bug (SPRZ342)
+     ADC_setSocChanNumber(obj->adcHandle,ADC_SocNumber_1,ADC_SocChanNumber_A1);
+     ADC_setSocTrigSrc(obj->adcHandle,ADC_SocNumber_1,ADC_SocTrigSrc_EPWM1_ADCSOCA);
+     ADC_setSocSampleDelay(obj->adcHandle,ADC_SocNumber_1,ADC_SocSampleDelay_9_cycles);
 
-    // EXT IB-FB
-    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_2, ADC_SocChanNumber_B1);
-    ADC_setSocTrigSrc(obj->adcHandle, ADC_SocNumber_2,
-                      ADC_SocTrigSrc_EPWM1_ADCSOCA);
-    ADC_setSocSampleDelay(obj->adcHandle, ADC_SocNumber_2,
-                          ADC_SocSampleDelay_9_cycles);
+     // EXT IB-FB(ADCINB1)
+     ADC_setSocChanNumber(obj->adcHandle,ADC_SocNumber_2,ADC_SocChanNumber_B1);
+     ADC_setSocTrigSrc(obj->adcHandle,ADC_SocNumber_2,ADC_SocTrigSrc_EPWM1_ADCSOCA);
+     ADC_setSocSampleDelay(obj->adcHandle,ADC_SocNumber_2,ADC_SocSampleDelay_9_cycles);
 
-    // EXT IC-FB
-    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_3, ADC_SocChanNumber_A2);
-    ADC_setSocTrigSrc(obj->adcHandle, ADC_SocNumber_3,
-                      ADC_SocTrigSrc_EPWM1_ADCSOCA);
-    ADC_setSocSampleDelay(obj->adcHandle, ADC_SocNumber_3,
-                          ADC_SocSampleDelay_9_cycles);
+     // EXT IC-FB(ADCINA2)
+     ADC_setSocChanNumber(obj->adcHandle,ADC_SocNumber_3,ADC_SocChanNumber_A2);
+     ADC_setSocTrigSrc(obj->adcHandle,ADC_SocNumber_3,ADC_SocTrigSrc_EPWM1_ADCSOCA);
+     ADC_setSocSampleDelay(obj->adcHandle,ADC_SocNumber_3,ADC_SocSampleDelay_9_cycles);
 
-    // ADC-Vhb1
-    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_4, ADC_SocChanNumber_B5);
-    ADC_setSocTrigSrc(obj->adcHandle, ADC_SocNumber_4,
-                      ADC_SocTrigSrc_EPWM1_ADCSOCA);
-    ADC_setSocSampleDelay(obj->adcHandle, ADC_SocNumber_4,
-                          ADC_SocSampleDelay_9_cycles);
+     // ADC-Vhb1(ADCINB5)
+     ADC_setSocChanNumber(obj->adcHandle,ADC_SocNumber_4,ADC_SocChanNumber_B5);
+     ADC_setSocTrigSrc(obj->adcHandle,ADC_SocNumber_4,ADC_SocTrigSrc_EPWM1_ADCSOCA);
+     ADC_setSocSampleDelay(obj->adcHandle,ADC_SocNumber_4,ADC_SocSampleDelay_9_cycles);
 
-    // ADC-Vhb2
-    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_5, ADC_SocChanNumber_A5);
-    ADC_setSocTrigSrc(obj->adcHandle, ADC_SocNumber_5,
-                      ADC_SocTrigSrc_EPWM1_ADCSOCA);
-    ADC_setSocSampleDelay(obj->adcHandle, ADC_SocNumber_5,
-                          ADC_SocSampleDelay_9_cycles);
+     // ADC-Vhb2(ADCINA5)
+     ADC_setSocChanNumber(obj->adcHandle,ADC_SocNumber_5,ADC_SocChanNumber_A5);
+     ADC_setSocTrigSrc(obj->adcHandle,ADC_SocNumber_5,ADC_SocTrigSrc_EPWM1_ADCSOCA);
+     ADC_setSocSampleDelay(obj->adcHandle,ADC_SocNumber_5,ADC_SocSampleDelay_9_cycles);
 
-    // ADC-Vhb3
-    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_6, ADC_SocChanNumber_B4);
-    ADC_setSocTrigSrc(obj->adcHandle, ADC_SocNumber_6,
-                      ADC_SocTrigSrc_EPWM1_ADCSOCA);
-    ADC_setSocSampleDelay(obj->adcHandle, ADC_SocNumber_6,
-                          ADC_SocSampleDelay_9_cycles);
+     // ADC-Vhb3(ADCINB4)
+     ADC_setSocChanNumber(obj->adcHandle,ADC_SocNumber_6,ADC_SocChanNumber_B4);
+     ADC_setSocTrigSrc(obj->adcHandle,ADC_SocNumber_6,ADC_SocTrigSrc_EPWM1_ADCSOCA);
+     ADC_setSocSampleDelay(obj->adcHandle,ADC_SocNumber_6,ADC_SocSampleDelay_9_cycles);
 
-    // VDCBUS
-    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_7, ADC_SocChanNumber_B2);
-    ADC_setSocTrigSrc(obj->adcHandle, ADC_SocNumber_7,
-                      ADC_SocTrigSrc_EPWM1_ADCSOCA);
-    ADC_setSocSampleDelay(obj->adcHandle, ADC_SocNumber_7,
-                          ADC_SocSampleDelay_9_cycles);
+     // VDCBUS(ADCINB2)
+     ADC_setSocChanNumber(obj->adcHandle,ADC_SocNumber_7,ADC_SocChanNumber_B2);
+     ADC_setSocTrigSrc(obj->adcHandle,ADC_SocNumber_7,ADC_SocTrigSrc_EPWM1_ADCSOCA);
+     ADC_setSocSampleDelay(obj->adcHandle,ADC_SocNumber_7,ADC_SocSampleDelay_9_cycles);
 
-    // Brake_Potentiometer // Configure it so that ADCINT1 will trigger a potentiometer conversion
-    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_8, ADC_SocChanNumber_B6);
-    ADC_setupSocTrigSrc(obj->adcHandle, ADC_SocNumber_8, ADC_Int1TriggersSOC);
-    ADC_setSocSampleDelay(obj->adcHandle, ADC_SocNumber_8,
-                          ADC_SocSampleDelay_9_cycles);
+     // I_SENSE_Load(ADCINB3)
+     ADC_setSocChanNumber(obj->adcHandle,ADC_SocNumber_8,ADC_SocChanNumber_B3);
+     ADC_setSocTrigSrc(obj->adcHandle,ADC_SocNumber_8,ADC_SocTrigSrc_EPWM1_ADCSOCA);
+     ADC_setSocSampleDelay(obj->adcHandle,ADC_SocNumber_8,ADC_SocSampleDelay_9_cycles);
 
-    // Command_Potentiometer // Configure it so that ADCINT1 will trigger a potentiometer conversion
-    ADC_setSocChanNumber(obj->adcHandle, ADC_SocNumber_9, ADC_SocChanNumber_B7);
-    ADC_setupSocTrigSrc(obj->adcHandle, ADC_SocNumber_9, ADC_Int1TriggersSOC);
-    ADC_setSocSampleDelay(obj->adcHandle, ADC_SocNumber_9,
-                          ADC_SocSampleDelay_9_cycles);
-
+     // Temp(ADCINA6)
+     ADC_setSocChanNumber(obj->adcHandle,ADC_SocNumber_9,ADC_SocChanNumber_A6);
+     ADC_setSocTrigSrc(obj->adcHandle,ADC_SocNumber_9,ADC_SocTrigSrc_EPWM1_ADCSOCA);
+     ADC_setSocSampleDelay(obj->adcHandle,ADC_SocNumber_9,ADC_SocSampleDelay_9_cycles);
 #endif
 
 #ifdef drv8301kit_revD

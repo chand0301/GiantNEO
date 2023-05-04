@@ -99,7 +99,7 @@ extern "C" {
 // **************************************************************************
 
 #ifdef MW_DRIVER
-#define USER_IQ_FULL_SCALE_FREQ_Hz        (120.0) //maximum freq ~= 72Hz
+#define USER_IQ_FULL_SCALE_FREQ_Hz        (120.0)
 #define USER_IQ_FULL_SCALE_VOLTAGE_V      (48.0)
 #define USER_ADC_FULL_SCALE_VOLTAGE_V       (85.885)
 #define USER_IQ_FULL_SCALE_CURRENT_A          (18.33)
@@ -116,7 +116,7 @@ extern "C" {
 
 
 #ifdef DRV8300DIPW_EVM
-#define USER_IQ_FULL_SCALE_FREQ_Hz        (100) //maximum freq ~= 72Hz
+#define USER_IQ_FULL_SCALE_FREQ_Hz        (100)
 #define USER_IQ_FULL_SCALE_VOLTAGE_V      (48.0)
 #define USER_ADC_FULL_SCALE_VOLTAGE_V       (110.3025)
 #define USER_IQ_FULL_SCALE_CURRENT_A          (55.0)

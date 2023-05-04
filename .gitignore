@@ -1,4 +1,5 @@
 # Ignore all files except .c and .h files
+Release/
 *.obj
 *
 !*.c

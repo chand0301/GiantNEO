@@ -61,7 +61,7 @@
 // **************************************************************************
 // the globals
 
-int count = 0;
+int Protect_dcbus = 0;
 _iq xPotentiometer = _IQ(0.0);
 _iq yPotentiometer = _IQ(0.0);
 _iq fPotentiometer = _IQ(0.0);
@@ -525,8 +525,7 @@ void main(void)
     for (;;)
     {
         // Waiting for enable system flag to be set
-        while (!(gMotorVars.Flag_enableSys))
-            ;
+        while (!(gMotorVars.Flag_enableSys));
 
         // loop while the enable system flag is true
         while (gMotorVars.Flag_enableSys)
@@ -574,9 +573,9 @@ void main(void)
 
 #ifdef DCBUS_REGULATE
             // regulate the VdcBus voltage
-            VdcBus_regualte(halHandle, VDCSET, gMotorVars.VdcBus_kV);
+            Protect_dcbus = VdcBus_regualte(halHandle, VDCSET, gMotorVars.VdcBus_kV);
             //Protect the DCBUS from voltage spike 60V
-            if (gMotorVars.VdcBus_kV > VDCPORTECT)
+            if (gMotorVars.VdcBus_kV > VDCPORTECT || Protect_dcbus == -1)
             {
                 HAL_disablePwm(halHandle);
                 gMotorVars.Flag_enableSys = false;

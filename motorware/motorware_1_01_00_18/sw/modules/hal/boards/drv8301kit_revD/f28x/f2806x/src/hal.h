@@ -1310,21 +1310,38 @@ static inline void HAL_setTrigger(HAL_Handle handle,
 //! \param[in] handle    The hardware abstraction layer (HAL) handle
 //! \param[in] VDCset    Set the target DC BUS voltage in kV
 //! \param[in] VdcBus_kV   The current DC BUS voltage in kV
-static inline bool VdcBus_regualte(HAL_Handle halHandle, _iq VDCset,
+static inline int VdcBus_regualte(HAL_Handle halHandle, _iq VDCset,
                                    _iq VdcBus_kV)
 {
+#ifdef DRV8300DIPW_EVM
     if (VdcBus_kV > VDCset)
     {
         HAL_setGpioHigh(halHandle, GPIO_Number_12);
-        //HAL_setGpioHigh(halHandle,GPIO_Number_28); //drv8301
         return true;
     }
     else
     {
         HAL_setGpioLow(halHandle, GPIO_Number_12);
-        //HAL_setGpioLow(halHandle,GPIO_Number_28); //drv8301
         return false;
     }
+#endif
+
+#ifdef MW_DRIVER
+    HAL_setGpioHigh(halHandle, GPIO_Number_13);
+    if (VdcBus_kV > VDCset)
+    {
+        HAL_setGpioHigh(halHandle, GPIO_Number_7);
+        return true;
+    }
+    else
+    {
+        HAL_setGpioLow(halHandle, GPIO_Number_7);
+        return false;
+    }
+#endif
+
+    return -1;
+
 
 } // end of VdcBus_regualte() function
 

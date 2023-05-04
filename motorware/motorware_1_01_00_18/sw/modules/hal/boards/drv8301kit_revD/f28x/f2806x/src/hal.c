@@ -1180,10 +1180,6 @@ void HAL_setupGpios(HAL_Handle handle)
 
     // DRV8301-LED1
     GPIO_setMode(obj->gpioHandle, GPIO_Number_12, GPIO_12_Mode_GeneralPurpose);
-#ifdef DCBUS_REGULATE
-    GPIO_setLow(obj->gpioHandle, GPIO_Number_12);
-    GPIO_setDirection(obj->gpioHandle, GPIO_Number_12, GPIO_Direction_Output);
-#endif
 
     // OCTWn
     GPIO_setMode(obj->gpioHandle, GPIO_Number_13, GPIO_13_Mode_TZ2_NOT);
@@ -1334,6 +1330,17 @@ void HAL_setupGpios(HAL_Handle handle)
 
     // No Connection
     GPIO_setMode(obj->gpioHandle, GPIO_Number_58, GPIO_58_Mode_GeneralPurpose);
+
+#ifdef DCBUS_REGULATE
+    /*DRV8300DIPW_EVM*/
+    GPIO_setLow(obj->gpioHandle, GPIO_Number_12);
+    GPIO_setDirection(obj->gpioHandle, GPIO_Number_12, GPIO_Direction_Output);
+    /*MW_DRIVER*/
+    GPIO_setLow(obj->gpioHandle, GPIO_Number_7);
+    GPIO_setDirection(obj->gpioHandle, GPIO_Number_7, GPIO_Direction_Output);
+    GPIO_setLow(obj->gpioHandle, GPIO_Number_13);
+    GPIO_setDirection(obj->gpioHandle, GPIO_Number_13, GPIO_Direction_Output);
+#endif
 
 #ifdef UART
     // UARTB RX

@@ -15,7 +15,7 @@ Twitter: @weipo_tang
 License
 -------
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the BSD License. See the `LICENSE` file for details.
 
 Description
 -------
@@ -54,8 +54,8 @@ It is a modified [InstaSPIN-FOC](https://www.ti.com/tool/MOTORWARE) project for 
     ```
     mkdir GIANT #想存放的目錄
     cd GIANT
-    git clone git@github.com:TomT0329/TI_instaspin_indoor_smart_trainer.git
-    cd TI_instaspin_indoor_smart_trainer/
+    git clone git@github.com:TomT0329/GiantNEO.git
+    cd GiantNEO/
     ```
 
 
@@ -81,6 +81,7 @@ It is a modified [InstaSPIN-FOC](https://www.ti.com/tool/MOTORWARE) project for 
 
 
     ![](https://i.imgur.com/7SSoiIW.png)
+    
     :dart:MW_DRIVER為EMTRC開發的驅動版，目前開發中。
 
 
@@ -89,9 +90,8 @@ It is a modified [InstaSPIN-FOC](https://www.ti.com/tool/MOTORWARE) project for 
 
 7. Open Scripting console and load proj_lab21.js
 
-    `"D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motorware\motorware_1_01_00_18\sw\solutions\instaspin_foc\src\proj_lab21.js"`
+    `"D:\GIANT\GIANT_TI_instaspin\GiantNEO\motorware\motorware_1_01_00_18\sw\solutions\instaspin_foc\src\proj_lab11.js"`
 
-    ![](https://i.imgur.com/M9kzaAA.png)
 
 8. Set gMotorVars.Flag_enableSys = 1 gMotorVars.Flag_Run_Identify =1
 
@@ -285,9 +285,9 @@ Checks for errors in the user parameter values.
 
 對原本的user.h進行修正，可方便使用者任意更換驅動版與馬達。
 
-**3. UART**
+**3. USART**
 
-UART communicate with computer.
+USART communicate with computer.
 
 輸出絕對角度與扭矩，量化騎乘路感，以提供開發者不同的路感設計。
 

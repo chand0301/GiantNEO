@@ -5,6 +5,21 @@ tags: TI instaspin
 
 # GETTING START WITH GiantNEO
 
+Author: Tom Tang
+-------
+
+Email: aa159231@gmail.com
+
+Twitter: @weipo_tang
+
+License
+-------
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+Description
+-------
+
 It is a modified [InstaSPIN-FOC](https://www.ti.com/tool/MOTORWARE) project for indoor smart bike trainer. The whole system is based on the open source project "InstaSPIN-FOC" from TI under BSD licience. This project presents a impedance control struct which included a **PI-type torque observer** and a **impedance reference model**. By all this skills, we can simulate the inertia and friction of flywheel by PMSM which we call it "**electronic flywheel**".
 
 ![](https://i.imgur.com/XBmxdjT.png)
@@ -287,6 +302,13 @@ UART communicate with computer.
 **5. DCBUS Regulate**
 
 提供dcbus regulate fun提供直流電壓保護功能與直流電壓控制功能，使系統能夠操作在發電機模式。
+
+## Development environment
+
+1. Add .gitignore to only track .c and .h files
+2. Add USART function in LAB11 and LAB21 only for debugging.
+3. Remove unnecessary files in the project.
+
 
 ## TO DO ...
 

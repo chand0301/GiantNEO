@@ -98,6 +98,7 @@ extern "C" {
 
 // **************************************************************************
 
+/*Define all the drive board dependent parameters*/
 #ifdef MW_DRIVER
 #define USER_IQ_FULL_SCALE_FREQ_Hz        (120.0)
 #define USER_IQ_FULL_SCALE_VOLTAGE_V      (48.0)
@@ -129,8 +130,6 @@ extern "C" {
 #define   V_C_offset    (0.4874520898)
 #define USER_MAX_VS_MAG_PU        (0.5)
 #define USER_VOLTAGE_FILTER_POLE_Hz  (545.0608)
-#define ST_SPEED_SAMPLE_TIME (0.001)
-#define USER_SYSTEM_BANDWIDTH      (90.0)
 #endif
 
 #ifdef drv8301kit_revD

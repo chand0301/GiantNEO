@@ -319,21 +319,21 @@ USART communicate with computer.
 - [ ] 驅動硬體目前由EMTRC開發中 預期規格 1.6 kW
 - [ ] HFI模式能夠解決Sliding mode在低速高扭力情況下，振動問題，但HFI有時會出現噪音情況。
 
-    ![](https://i.imgur.com/ALzTI6T.png =60%x)
+    ![](https://i.imgur.com/ALzTI6T.png)
 
 - [ ] 速度控制器響應
 
     目前專案速度控制器是使用PI，可以換成專案中MOTION部分所提供的速度控制器SpinTAC
 
-    ![](https://i.imgur.com/Am9v5zH.png =60%x)
+    ![](https://i.imgur.com/Am9v5zH.png)
 
 - [ ] 路感舒適度-運動科學，可以繪製花生圖去分析路感情況。
     
-    ![](https://i.imgur.com/fnB0BFo.png =60%x)
+    ![](https://i.imgur.com/fnB0BFo.png)
 
 - [ ] MW_DRIVER board 建議增加48V 12V 3.3V 指示燈，還有PWM訊號測試腳
 - [ ] 目前Torque observer是PI type的控制器設計且固定頻寬，未來可以試試看**IP controller**或者使**頻寬可調**。
 
-![](https://i.imgur.com/Cz29jbQ.png =60%x)
+    ![](https://i.imgur.com/Cz29jbQ.png)
 
 - [ ] 增加馬達物理和電汽模型(J、B、Rs、Ld、Lq)的準確度

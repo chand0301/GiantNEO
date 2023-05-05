@@ -337,3 +337,6 @@ USART communicate with computer.
     ![](https://i.imgur.com/Cz29jbQ.png)
 
 - [ ] 增加馬達物理和電汽模型(J、B、Rs、Ld、Lq)的準確度
+
+
+- [ ] dcbus偵測，區分兩種模式->有dc OR 沒dc

@@ -327,11 +327,16 @@ USART communicate with computer.
 
     ![](https://i.imgur.com/Am9v5zH.png)
 
-- [ ] 路感舒適度-運動科學
-
-    可以繪製花生圖去分析路感情況。
-
-    ![](https://i.imgur.com/w9T5Gj2.png)
+- [ ] 路感舒適度-運動科學，可以繪製花生圖去分析路感情況。
     
     ![](https://i.imgur.com/fnB0BFo.png)
 
+- [ ] MW_DRIVER board 建議增加48V 12V 3.3V 指示燈，還有PWM訊號測試腳
+- [ ] 目前Torque observer是PI type的控制器設計且固定頻寬，未來可以試試看**IP controller**或者使**頻寬可調**。
+
+    ![](https://i.imgur.com/Cz29jbQ.png)
+
+- [ ] 增加馬達物理和電汽模型(J、B、Rs、Ld、Lq)的準確度
+
+
+- [ ] dcbus偵測，區分兩種模式->有dc OR 沒dc

@@ -1336,7 +1336,7 @@ void HAL_setupGpios(HAL_Handle handle)
     GPIO_setLow(obj->gpioHandle, GPIO_Number_12);
     GPIO_setDirection(obj->gpioHandle, GPIO_Number_12, GPIO_Direction_Output);
     /*MW_DRIVER*/
-    GPIO_setMode(obj->gpioHandle, GPIO_Number_13, GPIO_13_Mode_GeneralPurpose);
+    GPIO_setMode(obj->gpioHandle, GPIO_Number_7, GPIO_7_Mode_GeneralPurpose);
     GPIO_setDirection(obj->gpioHandle, GPIO_Number_7, GPIO_Direction_Output);
     GPIO_setLow(obj->gpioHandle, GPIO_Number_7);
     GPIO_setMode(obj->gpioHandle, GPIO_Number_13, GPIO_13_Mode_GeneralPurpose);

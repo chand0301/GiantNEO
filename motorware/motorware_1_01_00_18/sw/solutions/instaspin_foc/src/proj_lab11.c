@@ -433,7 +433,7 @@ void main(void)
         // The following instructions load the parameters for the torque
         // observer.
         PID_setGains(pidHandle[3],_IQ(66.3662),_IQ(113.3972),_IQ(0.0));
-        PID_setMinMax(pidHandle[3],_IQ(-25.0),_IQ(25.0));
+        PID_setMinMax(pidHandle[3],_IQ(-USER_MOTOR_MAX_CURRENT),_IQ(USER_MOTOR_MAX_CURRENT));
         PID_setUi(pidHandle[3],_IQ(0.0));
 
 
@@ -751,7 +751,8 @@ interrupt void mainISR(void)
         yPotentiometer = _IQmpy(xPotentiometer,_IQ(18.0)) + _IQ(2.0);
 
         //gPotentiometer use to control J from IQ(2.0) to IQ(50.0)
-        gPotentiometer = _IQmpy(fPotentiometer,_IQ(48.0)) + _IQ(2.0);
+        //gPotentiometer = _IQmpy(fPotentiometer,_IQ(48.0)) + _IQ(2.0);
+        gPotentiometer = _IQ(30.0);
 
         Refmodel(pidHandle[4], gPotentiometer, yPotentiometer, torque_head,
                  &(refspeed)); //NM -> KRPM

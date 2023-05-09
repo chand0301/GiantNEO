@@ -78,8 +78,8 @@ extern "C" {
 /*control mode only avaliable in LAB11 and LAB21 choose one of them.*/
 
 //#define SPEEDLOOP //Project original speed control mode
-#define CURRENTLOOP //Impedance control without referencemodel
-//#define REFERENCEMODEL //Impedance control
+//#define CURRENTLOOP //Impedance control without referencemodel
+#define REFERENCEMODEL //Impedance control
 
 /*Extra fun only avaliable in LAB11 and LAB21*/
 
@@ -497,9 +497,9 @@ extern "C" {
 #define USER_MOTOR_Ls_q                 (0.0000512)
 #define USER_MOTOR_RATED_FLUX           (0.237)
 #define USER_MOTOR_MAGNETIZING_CURRENT  (NULL)
-#define USER_MOTOR_RES_EST_CURRENT      (5.0)
-#define USER_MOTOR_IND_EST_CURRENT      (-5.0)
-#define USER_MOTOR_MAX_CURRENT          (5.0)
+#define USER_MOTOR_RES_EST_CURRENT      (1.0)
+#define USER_MOTOR_IND_EST_CURRENT      (-1.0)
+#define USER_MOTOR_MAX_CURRENT          (2.5)
 #define USER_MOTOR_FLUX_EST_FREQ_Hz     (40.0)
 #define USER_MOTOR_ENCODER_LINES        (1.0)
 #define USER_MOTOR_MAX_SPEED_KRPM       (0.27)

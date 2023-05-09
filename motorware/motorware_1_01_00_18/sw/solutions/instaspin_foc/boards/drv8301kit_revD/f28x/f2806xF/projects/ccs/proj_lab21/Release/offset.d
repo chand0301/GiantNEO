@@ -1,8 +1,8 @@
 # FIXED
 
-offset.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/offset/src/32b/offset.c
-offset.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/offset/src/32b/offset.h
-offset.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h
+offset.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/offset/src/32b/offset.c
+offset.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/offset/src/32b/offset.h
+offset.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h
 offset.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h
 offset.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_ti_config.h
 offset.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/linkage.h
@@ -16,15 +16,15 @@ offset.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys
 offset.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_types.h
 offset.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_stdint.h
 offset.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_stdint.h
-offset.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h
+offset.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h
 offset.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/limits.h
-offset.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/filter/src/32b/filter_fo.h
+offset.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/filter/src/32b/filter_fo.h
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/offset/src/32b/offset.c:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/offset/src/32b/offset.c:
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/offset/src/32b/offset.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/offset/src/32b/offset.h:
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h:
 
 C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h:
 
@@ -52,9 +52,9 @@ C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_stdint
 
 C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_stdint.h:
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h:
 
 C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/limits.h:
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/filter/src/32b/filter_fo.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/filter/src/32b/filter_fo.h:
 

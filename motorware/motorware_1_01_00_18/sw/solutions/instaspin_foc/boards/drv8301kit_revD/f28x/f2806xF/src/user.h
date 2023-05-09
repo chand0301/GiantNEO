@@ -77,8 +77,8 @@ extern "C" {
 
 /*control mode only avaliable in LAB11 and LAB21 choose one of them.*/
 
-#define SPEEDLOOP //Project original speed control mode
-//#define CURRENTLOOP //Impedance control without referencemodel
+//#define SPEEDLOOP //Project original speed control mode
+#define CURRENTLOOP //Impedance control without referencemodel
 //#define REFERENCEMODEL //Impedance control
 
 /*Extra fun only avaliable in LAB11 and LAB21*/

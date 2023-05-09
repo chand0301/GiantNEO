@@ -1,9 +1,9 @@
 # FIXED
 
-spi.obj: D:/GIANT/GIANT_TI_instaspin/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/spi/src/32b/f28x/f2806x/spi.c
-spi.obj: D:/GIANT/GIANT_TI_instaspin/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/spi/src/32b/f28x/f2806x/spi.h
-spi.obj: D:/GIANT/GIANT_TI_instaspin/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/cpu/src/32b/f28x/f2806x/cpu.h
-spi.obj: D:/GIANT/GIANT_TI_instaspin/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h
+spi.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/spi/src/32b/f28x/f2806x/spi.c
+spi.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/spi/src/32b/f28x/f2806x/spi.h
+spi.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/cpu/src/32b/f28x/f2806x/cpu.h
+spi.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h
 spi.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h
 spi.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_ti_config.h
 spi.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/linkage.h
@@ -18,13 +18,13 @@ spi.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machin
 spi.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_stdint.h
 spi.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_stdint.h
 
-D:/GIANT/GIANT_TI_instaspin/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/spi/src/32b/f28x/f2806x/spi.c:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/spi/src/32b/f28x/f2806x/spi.c:
 
-D:/GIANT/GIANT_TI_instaspin/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/spi/src/32b/f28x/f2806x/spi.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/spi/src/32b/f28x/f2806x/spi.h:
 
-D:/GIANT/GIANT_TI_instaspin/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/cpu/src/32b/f28x/f2806x/cpu.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/cpu/src/32b/f28x/f2806x/cpu.h:
 
-D:/GIANT/GIANT_TI_instaspin/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h:
 
 C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h:
 

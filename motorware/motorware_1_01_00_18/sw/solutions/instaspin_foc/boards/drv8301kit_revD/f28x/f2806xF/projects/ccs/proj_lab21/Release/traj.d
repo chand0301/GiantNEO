@@ -1,8 +1,8 @@
 # FIXED
 
-traj.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/traj/src/32b/traj.c
-traj.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/traj/src/32b/traj.h
-traj.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h
+traj.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/traj/src/32b/traj.c
+traj.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/traj/src/32b/traj.h
+traj.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h
 traj.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h
 traj.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_ti_config.h
 traj.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/linkage.h
@@ -16,14 +16,14 @@ traj.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_
 traj.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_types.h
 traj.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_stdint.h
 traj.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_stdint.h
-traj.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h
+traj.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h
 traj.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/limits.h
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/traj/src/32b/traj.c:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/traj/src/32b/traj.c:
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/traj/src/32b/traj.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/traj/src/32b/traj.h:
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h:
 
 C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h:
 
@@ -51,7 +51,7 @@ C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_stdint
 
 C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_stdint.h:
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h:
 
 C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/limits.h:
 

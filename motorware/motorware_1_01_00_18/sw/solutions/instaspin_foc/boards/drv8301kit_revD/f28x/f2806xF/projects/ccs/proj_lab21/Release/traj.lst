@@ -1,20 +1,20 @@
-TMS320C2000 Assembler PC v22.6.0 Sat Mar 18 10:05:43 2023
+TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:48 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    1
+C:\Users\User\AppData\Local\Temp\{09369894-FDFB-4415-AA06-9F36344383C0} PAGE    1
 
        1              ;***************************************************************
        2              ;* TMS320C2000 G3 C/C++ Codegen                               PC v22.6.0.LTS *
-       3              ;* Date/Time created: Sat Mar 18 10:05:43 2023                 *
+       3              ;* Date/Time created: Mon May  8 15:53:48 2023                 *
        4              ;***************************************************************
        5                      .compiler_opts --abi=coffabi --float_support=softlib --hll_source=on --mem_model:code=flat --mem_mode
        6                      .asg    XAR2, FP
        7              
        8              $C$DW$CU        .dwtag  DW_TAG_compile_unit
-       9                      .dwattr $C$DW$CU, DW_AT_name("D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware
+       9                      .dwattr $C$DW$CU, DW_AT_name("D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/traj/src/32
       10                      .dwattr $C$DW$CU, DW_AT_producer("TI TMS320C2000 G3 C/C++ Codegen PC v22.6.0.LTS Copyright (c) 1996-2
       11                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\GIANT\GIANT_TI_instaspin\TI_instaspin_indoor_smart_trainer\motor
+      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\GIANT\GiantNEO\motorware\motorware_1_01_00_18\sw\solutions\insta
       13              ;       C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\bin\opt2000.exe C:\\Users\\User\\AppData\\Lo
       14              ;       C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\bin\ac2000.exe -@C:\\Users\\User\\AppData\\L
       15 00000000               .sect   ".text"
@@ -28,11 +28,11 @@ C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    
       23                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_TRAJ_init")
       24                      .dwattr $C$DW$1, DW_AT_external
       25                      .dwattr $C$DW$1, DW_AT_type(*$C$DW$T$22)
-      26                      .dwattr $C$DW$1, DW_AT_TI_begin_file("D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/m
+      26                      .dwattr $C$DW$1, DW_AT_TI_begin_file("D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/tra
       27                      .dwattr $C$DW$1, DW_AT_TI_begin_line(0x33)
       28                      .dwattr $C$DW$1, DW_AT_TI_begin_column(0x0d)
       29                      .dwattr $C$DW$1, DW_AT_TI_max_frame_size(-2)
-      30                      .dwpsn  file "D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_
+      30                      .dwpsn  file "D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/traj/src/32b/traj.c",line 5
       31              
       32                      .dwfde $C$DW$CIE, _TRAJ_init
       33              $C$DW$2 .dwtag  DW_TAG_formal_parameter
@@ -58,10 +58,10 @@ C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    
       53              ;***************************************************************
       54              
       55              _TRAJ_init:
-TMS320C2000 Assembler PC v22.6.0 Sat Mar 18 10:05:43 2023
+TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:48 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    2
+C:\Users\User\AppData\Local\Temp\{09369894-FDFB-4415-AA06-9F36344383C0} PAGE    2
 
       56              ;* AR6   assigned to _numBytes
       57              $C$DW$4 .dwtag  DW_TAG_variable
@@ -73,7 +73,7 @@ C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    
       63                      .dwcfi  cfa_offset, -2
       64                      .dwcfi  save_reg_to_mem, 26, 0
       65 00000000 1EA6          MOVL      XAR6,ACC              ; [CPU_ALU] |52| 
-      66                      .dwpsn  file "D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_
+      66                      .dwpsn  file "D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/traj/src/32b/traj.c",line 5
       67 00000001 020A          MOVB      ACC,#10               ; [CPU_ALU] |56| 
       68 00000002 0FA6          CMPL      ACC,XAR6              ; [CPU_ALU] |56| 
       69 00000003 6902          B         $C$L1,LOS             ; [CPU_ALU] |56| 
@@ -86,7 +86,7 @@ C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    
       76              
       77 00000005 0006          LRETR     ; [CPU_ALU] 
       78                      ; return occurs ; [] 
-      79                      .dwattr $C$DW$1, DW_AT_TI_end_file("D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/mot
+      79                      .dwattr $C$DW$1, DW_AT_TI_end_file("D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/traj/
       80                      .dwattr $C$DW$1, DW_AT_TI_end_line(0x3e)
       81                      .dwattr $C$DW$1, DW_AT_TI_end_column(0x01)
       82                      .dwendentry
@@ -118,10 +118,10 @@ C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    
      108                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$19)
      109                      .dwattr $C$DW$8, DW_AT_name("minValue")
      110                      .dwattr $C$DW$8, DW_AT_TI_symbol_name("_minValue")
-TMS320C2000 Assembler PC v22.6.0 Sat Mar 18 10:05:43 2023
+TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:48 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    3
+C:\Users\User\AppData\Local\Temp\{09369894-FDFB-4415-AA06-9F36344383C0} PAGE    3
 
      111                      .dwattr $C$DW$8, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
      112                      .dwattr $C$DW$8, DW_AT_accessibility(DW_ACCESS_public)
@@ -178,10 +178,10 @@ C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    
      163                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
      164                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
      165              
-TMS320C2000 Assembler PC v22.6.0 Sat Mar 18 10:05:43 2023
+TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:48 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    4
+C:\Users\User\AppData\Local\Temp\{09369894-FDFB-4415-AA06-9F36344383C0} PAGE    4
 
      166              $C$DW$T$8       .dwtag  DW_TAG_base_type
      167                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
@@ -238,10 +238,10 @@ C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    
      218                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
      219                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
      220                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
-TMS320C2000 Assembler PC v22.6.0 Sat Mar 18 10:05:43 2023
+TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:48 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    5
+C:\Users\User\AppData\Local\Temp\{09369894-FDFB-4415-AA06-9F36344383C0} PAGE    5
 
      221              
      222              $C$DW$T$16      .dwtag  DW_TAG_base_type
@@ -298,10 +298,10 @@ C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    
      273                      .dwattr $C$DW$15, DW_AT_location[DW_OP_reg3]
      274              
      275              $C$DW$16        .dwtag  DW_TAG_TI_assign_register
-TMS320C2000 Assembler PC v22.6.0 Sat Mar 18 10:05:43 2023
+TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:48 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    6
+C:\Users\User\AppData\Local\Temp\{09369894-FDFB-4415-AA06-9F36344383C0} PAGE    6
 
      276                      .dwattr $C$DW$16, DW_AT_name("SP")
      277                      .dwattr $C$DW$16, DW_AT_location[DW_OP_reg20]
@@ -358,10 +358,10 @@ C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    
      328                      .dwattr $C$DW$29, DW_AT_name("AMODE")
      329                      .dwattr $C$DW$29, DW_AT_location[DW_OP_regx 0x22]
      330              
-TMS320C2000 Assembler PC v22.6.0 Sat Mar 18 10:05:43 2023
+TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:48 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    7
+C:\Users\User\AppData\Local\Temp\{09369894-FDFB-4415-AA06-9F36344383C0} PAGE    7
 
      331              $C$DW$30        .dwtag  DW_TAG_TI_assign_register
      332                      .dwattr $C$DW$30, DW_AT_name("EALLOW")
@@ -418,10 +418,10 @@ C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    
      383              $C$DW$43        .dwtag  DW_TAG_TI_assign_register
      384                      .dwattr $C$DW$43, DW_AT_name("AR3")
      385                      .dwattr $C$DW$43, DW_AT_location[DW_OP_reg10]
-TMS320C2000 Assembler PC v22.6.0 Sat Mar 18 10:05:43 2023
+TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:48 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F567F52C-5AAD-4B9A-8731-E7F7E38E7836} PAGE    8
+C:\Users\User\AppData\Local\Temp\{09369894-FDFB-4415-AA06-9F36344383C0} PAGE    8
 
      386              
      387              $C$DW$44        .dwtag  DW_TAG_TI_assign_register

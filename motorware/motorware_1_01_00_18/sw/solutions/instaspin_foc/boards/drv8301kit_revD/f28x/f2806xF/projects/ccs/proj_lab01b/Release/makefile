@@ -11,8 +11,8 @@ GEN_CMDS__FLAG :=
 
 ORDERED_OBJS += \
 -lrts2800_ml.lib \
-"D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/fast/lib/32b/f28x/f2806x/2806xRevB_FastSpinROMSymbols.lib" \
-"D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/iqmath/lib/f28x/32b/IQmath.lib" \
+"D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/fast/lib/32b/f28x/f2806x/2806xRevB_FastSpinROMSymbols.lib" \
+"D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/iqmath/lib/f28x/32b/IQmath.lib" \
 "./CodeStartBranch.obj" \
 "./adc.obj" \
 "./angle_gen.obj" \
@@ -41,7 +41,7 @@ ORDERED_OBJS += \
 "./user.obj" \
 "./vs_freq.obj" \
 "./wdog.obj" \
-"D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/ide/ccs/cmd/f2806x/f28069F_ram_lnk.cmd" \
+"D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/ide/ccs/cmd/f2806x/f28069F_ram_lnk.cmd" \
 $(GEN_CMDS__FLAG) \
 
 -include ../makefile.init

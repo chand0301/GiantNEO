@@ -11,7 +11,7 @@ GEN_CMDS__FLAG :=
 
 ORDERED_OBJS += \
 -lrts2800_ml.lib \
-"D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/iqmath/lib/f28x/32b/IQmath.lib" \
+"D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/iqmath/lib/f28x/32b/IQmath.lib" \
 "./CodeStartBranch.obj" \
 "./adc.obj" \
 "./clarke.obj" \
@@ -41,11 +41,11 @@ ORDERED_OBJS += \
 "./usDelay.obj" \
 "./user.obj" \
 "./wdog.obj" \
-"D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/fast/lib/32b/f28x/f2806x/2806xRevB_FastSpinROMSymbols.lib" \
-"D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/afsel/lib/32b/f28x/afsel.lib" \
-"D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/ide/ccs/cmd/f2806x/f28069F_ram_lnk.cmd" \
-"D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/fstart/lib/32b/f28x/fstart.lib" \
-"D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/ipd/lib/32b/f28x/ipd_hfi.lib" \
+"D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/fast/lib/32b/f28x/f2806x/2806xRevB_FastSpinROMSymbols.lib" \
+"D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/afsel/lib/32b/f28x/afsel.lib" \
+"D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/ide/ccs/cmd/f2806x/f28069F_ram_lnk.cmd" \
+"D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/fstart/lib/32b/f28x/fstart.lib" \
+"D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/ipd/lib/32b/f28x/ipd_hfi.lib" \
 $(GEN_CMDS__FLAG) \
 
 -include ../makefile.init

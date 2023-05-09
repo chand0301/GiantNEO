@@ -1163,8 +1163,8 @@ void HAL_setupGpios(HAL_Handle handle)
     GPIO_setMode(obj->gpioHandle, GPIO_Number_6, GPIO_6_Mode_EPWM4A);
 
     // Push Button SW2
-    GPIO_setMode(obj->gpioHandle, GPIO_Number_7, GPIO_7_Mode_GeneralPurpose);
-    GPIO_setDirection(obj->gpioHandle, GPIO_Number_7, GPIO_Direction_Input);
+//    GPIO_setMode(obj->gpioHandle, GPIO_Number_7, GPIO_7_Mode_GeneralPurpose);
+//    GPIO_setDirection(obj->gpioHandle, GPIO_Number_7, GPIO_Direction_Input);
 
     // ADCSOCAO_NOT or PWM-DAC3
     GPIO_setMode(obj->gpioHandle, GPIO_Number_8, GPIO_8_Mode_EPWM5A);
@@ -1182,7 +1182,7 @@ void HAL_setupGpios(HAL_Handle handle)
     GPIO_setMode(obj->gpioHandle, GPIO_Number_12, GPIO_12_Mode_GeneralPurpose);
 
     // OCTWn
-    GPIO_setMode(obj->gpioHandle, GPIO_Number_13, GPIO_13_Mode_TZ2_NOT);
+//    GPIO_setMode(obj->gpioHandle, GPIO_Number_13, GPIO_13_Mode_TZ2_NOT);
 
     // FAULTn
     GPIO_setMode(obj->gpioHandle, GPIO_Number_14, GPIO_14_Mode_TZ3_NOT);
@@ -1336,10 +1336,12 @@ void HAL_setupGpios(HAL_Handle handle)
     GPIO_setLow(obj->gpioHandle, GPIO_Number_12);
     GPIO_setDirection(obj->gpioHandle, GPIO_Number_12, GPIO_Direction_Output);
     /*MW_DRIVER*/
-    GPIO_setLow(obj->gpioHandle, GPIO_Number_7);
+    GPIO_setMode(obj->gpioHandle, GPIO_Number_13, GPIO_13_Mode_GeneralPurpose);
     GPIO_setDirection(obj->gpioHandle, GPIO_Number_7, GPIO_Direction_Output);
-    GPIO_setLow(obj->gpioHandle, GPIO_Number_13);
+    GPIO_setLow(obj->gpioHandle, GPIO_Number_7);
+    GPIO_setMode(obj->gpioHandle, GPIO_Number_13, GPIO_13_Mode_GeneralPurpose);
     GPIO_setDirection(obj->gpioHandle, GPIO_Number_13, GPIO_Direction_Output);
+    GPIO_setLow(obj->gpioHandle, GPIO_Number_13);
 #endif
 
 #ifdef UART

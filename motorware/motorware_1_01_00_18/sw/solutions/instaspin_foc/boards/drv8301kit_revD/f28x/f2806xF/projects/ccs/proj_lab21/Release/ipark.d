@@ -1,13 +1,13 @@
 # FIXED
 
-ipark.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/ipark/src/32b/ipark.c
-ipark.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/ipark/src/32b/ipark.h
-ipark.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h
+ipark.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/ipark/src/32b/ipark.c
+ipark.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/ipark/src/32b/ipark.h
+ipark.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h
 ipark.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/limits.h
 ipark.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_ti_config.h
 ipark.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/linkage.h
-ipark.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/math/src/32b/math.h
-ipark.obj: D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h
+ipark.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/math/src/32b/math.h
+ipark.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h
 ipark.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h
 ipark.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/string.h
 ipark.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/cdefs.h
@@ -20,11 +20,11 @@ ipark.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/mach
 ipark.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_stdint.h
 ipark.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_stdint.h
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/ipark/src/32b/ipark.c:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/ipark/src/32b/ipark.c:
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/ipark/src/32b/ipark.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/ipark/src/32b/ipark.h:
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h:
 
 C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/limits.h:
 
@@ -32,9 +32,9 @@ C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_ti_config.h:
 
 C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/linkage.h:
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/math/src/32b/math.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/math/src/32b/math.h:
 
-D:/GIANT/GIANT_TI_instaspin/TI_instaspin_indoor_smart_trainer/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h:
+D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h:
 
 C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h:
 

@@ -732,8 +732,8 @@ interrupt void mainISR(void)
 
         //from IQ(-0.95) to IQ(-1.0)
         yPotentiometer = _IQmpy(xPotentiometer,_IQ(-0.05)) - _IQ(0.95);
+        yPotentiometer = _IQ(-0.1);
 
-        torque_head_comm = _IQmpy( torque_head, yPotentiometer) + _IQ(0.0);
 
         gIdq_ref_pu.value[0] = _IQdiv(gMotorVars.IdRef_A,_IQ(USER_IQ_FULL_SCALE_CURRENT_A));
         gIdq_ref_pu.value[1] = _IQdiv(torque_head_comm ,_IQ(USER_IQ_FULL_SCALE_CURRENT_A));

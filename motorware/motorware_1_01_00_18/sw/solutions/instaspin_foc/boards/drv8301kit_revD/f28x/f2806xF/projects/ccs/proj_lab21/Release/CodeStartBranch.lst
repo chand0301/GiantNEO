@@ -1,4 +1,4 @@
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:31 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:53:50 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
 D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/cpu/src/32b/f28x/f2806x/CodeStartBranch.asm PAGE    1
@@ -58,7 +58,7 @@ D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/cpu/src/32b/f28x/f28
       53              ;// PC, it is not the same as a full reset of the device. 
       54              ;// 
       55              ;// The compiler may warn that the entry point for the project is other then
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:31 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:53:50 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
 D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/cpu/src/32b/f28x/f2806x/CodeStartBranch.asm PAGE    2

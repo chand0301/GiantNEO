@@ -1,11 +1,11 @@
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    1
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE    1
 
        1              ;***************************************************************
        2              ;* TMS320C2000 G3 C/C++ Codegen                               PC v22.6.0.LTS *
-       3              ;* Date/Time created: Mon May  8 15:53:38 2023                 *
+       3              ;* Date/Time created: Thu May 11 14:54:04 2023                 *
        4              ;***************************************************************
        5                      .compiler_opts --abi=coffabi --float_support=softlib --hll_source=on --mem_model:code=flat --mem_mode
        6                      .asg    XAR2, FP
@@ -15,8 +15,8 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    
       10                      .dwattr $C$DW$CU, DW_AT_producer("TI TMS320C2000 G3 C/C++ Codegen PC v22.6.0.LTS Copyright (c) 1996-2
       11                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
       12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\GIANT\GiantNEO\motorware\motorware_1_01_00_18\sw\solutions\insta
-      13              ;       C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\bin\opt2000.exe C:\\Users\\User\\AppData\\Lo
-      14              ;       C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\bin\ac2000.exe -@C:\\Users\\User\\AppData\\L
+      13              ;       C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\bin\opt2000.exe C:\\Users\\GA5354\\AppData\\
+      14              ;       C:\ti\ccs1200\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\bin\ac2000.exe -@C:\\Users\\GA5354\\AppData\
       15 00000000               .sect   ".text"
       16                      .clink
       17                      .global _GPIO_toggle
@@ -58,10 +58,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    
       53              
       54              _GPIO_toggle:
       55              ;* AR4   assigned to _gpioHandle
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    2
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE    2
 
       56              $C$DW$4 .dwtag  DW_TAG_variable
       57                      .dwattr $C$DW$4, DW_AT_name("gpioHandle")
@@ -118,10 +118,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    
      108              
      109              $C$DW$7 .dwtag  DW_TAG_subprogram
      110                      .dwattr $C$DW$7, DW_AT_name("GPIO_setQualificationPeriod")
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    3
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE    3
 
      111                      .dwattr $C$DW$7, DW_AT_low_pc(_GPIO_setQualificationPeriod)
      112                      .dwattr $C$DW$7, DW_AT_high_pc(0x00)
@@ -178,10 +178,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    
      163                      .dwattr $C$DW$12, DW_AT_location[DW_OP_reg0]
      164              
      165              ;* AH    assigned to _period
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    4
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE    4
 
      166              $C$DW$13        .dwtag  DW_TAG_variable
      167                      .dwattr $C$DW$13, DW_AT_name("period")
@@ -238,10 +238,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    
      217                      .dwpsn  file "D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/gpio/src/32b/f28x/f2806x/gp
      218 00000028 0EA8          MOVU      ACC,AH                ; [CPU_ALU] |424| 
      219 00000029 28AC          MOV       T,#24                 ; [CPU_ALU] |424| 
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    5
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE    5
 
          0000002a 0018 
      220 0000002b 563B          LSLL      ACC,T                 ; [CPU_ALU] |424| 
@@ -298,10 +298,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    
          0000004a 00FF 
      267 0000004b A9C4          MOVL      *+XAR4[0],P           ; [CPU_ALU] |399| 
      268 0000004c 6FDC          B         $C$L3,UNC             ; [CPU_ALU] 
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    6
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE    6
 
      269                      ; branch occurs ; [] 
      270 0000004d       $C$L9:    
@@ -358,10 +358,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    
      317              
      318 00000065               .sect   ".text"
      319                      .clink
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    7
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE    7
 
      320                      .global _GPIO_setQualification
      321              
@@ -418,10 +418,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    
      372                      .dwattr $C$DW$19, DW_AT_location[DW_OP_reg12]
      373              
      374              ;* AL    assigned to _gpioNumber
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    8
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE    8
 
      375              $C$DW$20        .dwtag  DW_TAG_variable
      376                      .dwattr $C$DW$20, DW_AT_name("gpioNumber")
@@ -478,10 +478,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    
      427 00000078 5603          MOV       ACC,AL << #1          ; [CPU_ALU] |352| 
          00000079 01A9 
      428 0000007a 2DA9          MOV       T,AL                  ; [CPU_ALU] |352| 
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    9
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE    9
 
      429 0000007b 0203          MOVB      ACC,#3                ; [CPU_ALU] |352| 
      430 0000007c 563B          LSLL      ACC,T                 ; [CPU_ALU] |352| 
@@ -538,10 +538,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE    
      479 000000a1 0006          LRETR     ; [CPU_ALU] 
      480                      ; return occurs ; [] 
      481                      .dwattr $C$DW$15, DW_AT_TI_end_file("D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/gpio
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   10
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   10
 
      482                      .dwattr $C$DW$15, DW_AT_TI_end_line(0x170)
      483                      .dwattr $C$DW$15, DW_AT_TI_end_column(0x01)
@@ -598,10 +598,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   1
      534              ;* AR4   assigned to _gpioHandle
      535              $C$DW$27        .dwtag  DW_TAG_variable
      536                      .dwattr $C$DW$27, DW_AT_name("gpioHandle")
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   11
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   11
 
      537                      .dwattr $C$DW$27, DW_AT_TI_symbol_name("_gpioHandle")
      538                      .dwattr $C$DW$27, DW_AT_type(*$C$DW$T$56)
@@ -658,10 +658,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   1
      589 000000b5 0EA6          MOVU      ACC,AR6               ; [CPU_ALU] |112| 
      590 000000b6 563B          LSLL      ACC,T                 ; [CPU_ALU] |112| 
      591 000000b7 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |112| 
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   12
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   12
 
      592 000000b8 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |112| 
      593 000000b9 761A   EDIS
@@ -718,10 +718,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   1
      644              ;* FNAME: _GPIO_setPortData             FR SIZE:   0           *
      645              ;*                                                             *
      646              ;* FUNCTION ENVIRONMENT                                        *
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   13
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   13
 
      647              ;*                                                             *
      648              ;* FUNCTION PROPERTIES                                         *
@@ -778,10 +778,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   1
      699              $C$DW$38        .dwtag  DW_TAG_TI_branch
      700                      .dwattr $C$DW$38, DW_AT_low_pc(0x00)
      701                      .dwattr $C$DW$38, DW_AT_TI_return
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   14
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   14
 
      702              
      703 000000c9 0006          LRETR     ; [CPU_ALU] 
@@ -838,10 +838,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   1
      754              ;***************************************************************
      755              
      756              _GPIO_setMode:
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   15
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   15
 
      757              ;* T     assigned to $O$C1
      758              ;* T     assigned to $O$C4
@@ -898,10 +898,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   1
          000000d9 01A9 
      809 000000da 2DA9          MOV       T,AL                  ; [CPU_ALU] |293| 
      810 000000db 0203          MOVB      ACC,#3                ; [CPU_ALU] |293| 
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   16
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   16
 
      811 000000dc 563B          LSLL      ACC,T                 ; [CPU_ALU] |293| 
      812 000000dd FF55          NOT       ACC                   ; [CPU_ALU] |293| 
@@ -958,10 +958,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   1
      862              
      863 000000fd 0006          LRETR     ; [CPU_ALU] 
      864                      ; return occurs ; [] 
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   17
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   17
 
      865                      .dwattr $C$DW$39, DW_AT_TI_end_file("D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/gpio
      866                      .dwattr $C$DW$39, DW_AT_TI_end_line(0x12e)
@@ -1018,10 +1018,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   1
      917              
      918              ;* T     assigned to _gpioNumber
      919              $C$DW$51        .dwtag  DW_TAG_variable
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   18
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   18
 
      920                      .dwattr $C$DW$51, DW_AT_name("gpioNumber")
      921                      .dwattr $C$DW$51, DW_AT_TI_symbol_name("_gpioNumber")
@@ -1078,10 +1078,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   1
      972                      .dwattr $C$DW$53, DW_AT_TI_begin_line(0xc8)
      973                      .dwattr $C$DW$53, DW_AT_TI_begin_column(0x06)
      974                      .dwattr $C$DW$53, DW_AT_TI_max_frame_size(-2)
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   19
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   19
 
      975                      .dwpsn  file "D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/gpio/src/32b/f28x/f2806x/gp
      976              
@@ -1138,10 +1138,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   1
     1027 00000115 2DA5          MOV       T,AR5                 ; [CPU_ALU] |212| 
     1028 00000116 6F02          B         $C$L34,UNC            ; [CPU_ALU] |212| 
     1029                      ; branch occurs ; [] |212| 
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   20
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   20
 
     1030 00000117       $C$L33:    
     1031                      .dwpsn  file "D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/gpio/src/32b/f28x/f2806x/gp
@@ -1198,10 +1198,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   2
     1082                      .dwattr $C$DW$62, DW_AT_TI_symbol_name("_intNumber")
     1083                      .dwattr $C$DW$62, DW_AT_type(*$C$DW$T$45)
     1084                      .dwattr $C$DW$62, DW_AT_location[DW_OP_reg1]
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   21
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   21
 
     1085              
     1086              
@@ -1258,10 +1258,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   2
     1137                      .clink
     1138                      .global _GPIO_setDirection
     1139              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   22
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   22
 
     1140              $C$DW$66        .dwtag  DW_TAG_subprogram
     1141                      .dwattr $C$DW$66, DW_AT_name("GPIO_setDirection")
@@ -1318,10 +1318,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   2
     1192                      .dwattr $C$DW$71, DW_AT_name("gpioNumber")
     1193                      .dwattr $C$DW$71, DW_AT_TI_symbol_name("_gpioNumber")
     1194                      .dwattr $C$DW$71, DW_AT_type(*$C$DW$T$34)
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   23
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   23
 
     1195                      .dwattr $C$DW$71, DW_AT_location[DW_OP_reg22]
     1196              
@@ -1378,10 +1378,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   2
     1247              
     1248 00000142 0006          LRETR     ; [CPU_ALU] 
     1249                      ; return occurs ; [] 
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   24
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   24
 
     1250                      .dwattr $C$DW$66, DW_AT_TI_end_file("D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/drivers/gpio
     1251                      .dwattr $C$DW$66, DW_AT_TI_end_line(0x9b)
@@ -1438,10 +1438,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   2
     1302                      .dwattr $C$DW$77, DW_AT_location[DW_OP_reg22]
     1303              
     1304              ;* AL    assigned to _gpio_status
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   25
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   25
 
     1305              $C$DW$78        .dwtag  DW_TAG_variable
     1306                      .dwattr $C$DW$78, DW_AT_name("gpio_status")
@@ -1498,10 +1498,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   2
     1356                      .dwendentry
     1357                      .dwendtag $C$DW$74
     1358              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   26
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   26
 
     1359 00000156               .sect   ".text"
     1360                      .clink
@@ -1558,10 +1558,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   2
     1411 00000158 DC68          ADDB      XAR4,#104             ; [CPU_ALU] |458| 
     1412 00000159 0201          MOVB      ACC,#1                ; [CPU_ALU] |458| 
     1413 0000015a 563B          LSLL      ACC,T                 ; [CPU_ALU] |458| 
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   27
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   27
 
     1414 0000015b 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |458| 
     1415 0000015c 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |458| 
@@ -1618,10 +1618,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   2
     1466              ;* FUNCTION PROPERTIES                                         *
     1467              ;*                            0 Parameter,  0 Auto,  0 SOE     *
     1468              ;***************************************************************
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   28
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   28
 
     1469              
     1470              _GPIO_init:
@@ -1678,10 +1678,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   2
     1521                      .dwattr $C$DW$92, DW_AT_type(*$C$DW$T$55)
     1522                      .dwattr $C$DW$92, DW_AT_location[DW_OP_reg12]
     1523              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   29
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   29
 
     1524              $C$DW$93        .dwtag  DW_TAG_formal_parameter
     1525                      .dwattr $C$DW$93, DW_AT_name("gpioPort")
@@ -1738,10 +1738,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   2
     1576                      .dwcfi  restore_state
     1577 0000016e       $C$L41:    
     1578 0000016e D040          MOVB      XAR0,#64              ; [CPU_ALU] |77| 
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   30
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   30
 
     1579 0000016f       $C$L42:    
     1580 0000016f 0694          MOVL      ACC,*+XAR4[AR0]       ; [CPU_ALU] |77| 
@@ -1798,10 +1798,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   3
     1631              ;***************************************************************
     1632              
     1633              _GPIO_getData:
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   31
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   31
 
     1634              ;* AR4   assigned to _gpioHandle
     1635              $C$DW$101       .dwtag  DW_TAG_variable
@@ -1858,10 +1858,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   3
     1686              
     1687              $C$DW$T$32      .dwtag  DW_TAG_enumeration_type
     1688                      .dwattr $C$DW$T$32, DW_AT_byte_size(0x01)
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   32
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   32
 
     1689              $C$DW$104       .dwtag  DW_TAG_enumerator
     1690                      .dwattr $C$DW$104, DW_AT_name("GPIO_Number_0")
@@ -1918,10 +1918,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   3
     1741              $C$DW$117       .dwtag  DW_TAG_enumerator
     1742                      .dwattr $C$DW$117, DW_AT_name("GPIO_Number_13")
     1743                      .dwattr $C$DW$117, DW_AT_const_value(0x0d)
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   33
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   33
 
     1744              
     1745              $C$DW$118       .dwtag  DW_TAG_enumerator
@@ -1978,10 +1978,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   3
     1796              
     1797              $C$DW$131       .dwtag  DW_TAG_enumerator
     1798                      .dwattr $C$DW$131, DW_AT_name("GPIO_Number_27")
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   34
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   34
 
     1799                      .dwattr $C$DW$131, DW_AT_const_value(0x1b)
     1800              
@@ -2038,10 +2038,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   3
     1851                      .dwattr $C$DW$144, DW_AT_const_value(0x28)
     1852              
     1853              $C$DW$145       .dwtag  DW_TAG_enumerator
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   35
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   35
 
     1854                      .dwattr $C$DW$145, DW_AT_name("GPIO_Number_41")
     1855                      .dwattr $C$DW$145, DW_AT_const_value(0x29)
@@ -2098,10 +2098,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   3
     1906                      .dwattr $C$DW$158, DW_AT_name("GPIO_numGpios")
     1907                      .dwattr $C$DW$158, DW_AT_const_value(0x3b)
     1908              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   36
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   36
 
     1909                      .dwendtag $C$DW$T$32
     1910              
@@ -2158,10 +2158,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   3
     1961                      .dwattr $C$DW$T$39, DW_AT_type(*$C$DW$T$38)
     1962                      .dwattr $C$DW$T$39, DW_AT_language(DW_LANG_C)
     1963              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   37
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   37
 
     1964              $C$DW$165       .dwtag  DW_TAG_TI_far_type
     1965                      .dwattr $C$DW$165, DW_AT_type(*$C$DW$T$39)
@@ -2218,10 +2218,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   3
     2016              $C$DW$172       .dwtag  DW_TAG_TI_far_type
     2017                      .dwattr $C$DW$172, DW_AT_type(*$C$DW$T$45)
     2018              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   38
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   38
 
     2019              $C$DW$T$46      .dwtag  DW_TAG_const_type
     2020                      .dwattr $C$DW$T$46, DW_AT_type(*$C$DW$172)
@@ -2278,10 +2278,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   3
     2071                      .dwattr $C$DW$184, DW_AT_const_value(0x03)
     2072              
     2073              $C$DW$185       .dwtag  DW_TAG_enumerator
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   39
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   39
 
     2074                      .dwattr $C$DW$185, DW_AT_name("GPIO_3_Mode_GeneralPurpose")
     2075                      .dwattr $C$DW$185, DW_AT_const_value(0x00)
@@ -2338,10 +2338,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   3
     2126                      .dwattr $C$DW$198, DW_AT_name("GPIO_6_Mode_EPWM4A")
     2127                      .dwattr $C$DW$198, DW_AT_const_value(0x01)
     2128              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   40
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   40
 
     2129              $C$DW$199       .dwtag  DW_TAG_enumerator
     2130                      .dwattr $C$DW$199, DW_AT_name("GPIO_6_Mode_EPWMSYNCI")
@@ -2398,10 +2398,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   4
     2181              $C$DW$212       .dwtag  DW_TAG_enumerator
     2182                      .dwattr $C$DW$212, DW_AT_name("GPIO_9_Mode_ECAP3")
     2183                      .dwattr $C$DW$212, DW_AT_const_value(0x03)
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   41
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   41
 
     2184              
     2185              $C$DW$213       .dwtag  DW_TAG_enumerator
@@ -2458,10 +2458,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   4
     2236              
     2237              $C$DW$226       .dwtag  DW_TAG_enumerator
     2238                      .dwattr $C$DW$226, DW_AT_name("GPIO_13_Mode_TZ2_NOT")
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   42
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   42
 
     2239                      .dwattr $C$DW$226, DW_AT_const_value(0x01)
     2240              
@@ -2518,10 +2518,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   4
     2291                      .dwattr $C$DW$239, DW_AT_const_value(0x02)
     2292              
     2293              $C$DW$240       .dwtag  DW_TAG_enumerator
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   43
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   43
 
     2294                      .dwattr $C$DW$240, DW_AT_name("GPIO_16_Mode_TZ2_NOT")
     2295                      .dwattr $C$DW$240, DW_AT_const_value(0x03)
@@ -2578,10 +2578,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   4
     2346                      .dwattr $C$DW$253, DW_AT_name("GPIO_20_Mode_GeneralPurpose")
     2347                      .dwattr $C$DW$253, DW_AT_const_value(0x00)
     2348              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   44
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   44
 
     2349              $C$DW$254       .dwtag  DW_TAG_enumerator
     2350                      .dwattr $C$DW$254, DW_AT_name("GPIO_20_Mode_EQEP1A")
@@ -2638,10 +2638,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   4
     2401              $C$DW$267       .dwtag  DW_TAG_enumerator
     2402                      .dwattr $C$DW$267, DW_AT_name("GPIO_23_Mode_MFSXA")
     2403                      .dwattr $C$DW$267, DW_AT_const_value(0x02)
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   45
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   45
 
     2404              
     2405              $C$DW$268       .dwtag  DW_TAG_enumerator
@@ -2698,10 +2698,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   4
     2456              
     2457              $C$DW$281       .dwtag  DW_TAG_enumerator
     2458                      .dwattr $C$DW$281, DW_AT_name("GPIO_27_Mode_GeneralPurpose")
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   46
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   46
 
     2459                      .dwattr $C$DW$281, DW_AT_const_value(0x00)
     2460              
@@ -2758,10 +2758,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   4
     2511                      .dwattr $C$DW$294, DW_AT_const_value(0x01)
     2512              
     2513              $C$DW$295       .dwtag  DW_TAG_enumerator
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   47
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   47
 
     2514                      .dwattr $C$DW$295, DW_AT_name("GPIO_30_Mode_EQEP2I")
     2515                      .dwattr $C$DW$295, DW_AT_const_value(0x02)
@@ -2818,10 +2818,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   4
     2566                      .dwattr $C$DW$308, DW_AT_name("GPIO_33_Mode_ADCSOCBO_NOT")
     2567                      .dwattr $C$DW$308, DW_AT_const_value(0x03)
     2568              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   48
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   48
 
     2569              $C$DW$309       .dwtag  DW_TAG_enumerator
     2570                      .dwattr $C$DW$309, DW_AT_name("GPIO_34_Mode_GeneralPurpose")
@@ -2878,10 +2878,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   4
     2621              $C$DW$322       .dwtag  DW_TAG_enumerator
     2622                      .dwattr $C$DW$322, DW_AT_name("GPIO_37_Mode_Rsvd_1")
     2623                      .dwattr $C$DW$322, DW_AT_const_value(0x01)
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   49
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   49
 
     2624              
     2625              $C$DW$323       .dwtag  DW_TAG_enumerator
@@ -2938,10 +2938,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   4
     2676              
     2677              $C$DW$336       .dwtag  DW_TAG_enumerator
     2678                      .dwattr $C$DW$336, DW_AT_name("GPIO_40_Mode_Rsvd_3")
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   50
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   50
 
     2679                      .dwattr $C$DW$336, DW_AT_const_value(0x03)
     2680              
@@ -2998,10 +2998,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   5
     2731                      .dwattr $C$DW$349, DW_AT_const_value(0x00)
     2732              
     2733              $C$DW$350       .dwtag  DW_TAG_enumerator
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   51
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   51
 
     2734                      .dwattr $C$DW$350, DW_AT_name("GPIO_44_Mode_MFSRA")
     2735                      .dwattr $C$DW$350, DW_AT_const_value(0x01)
@@ -3058,10 +3058,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   5
     2786                      .dwattr $C$DW$363, DW_AT_name("GPIO_52_Mode_MCLKXA")
     2787                      .dwattr $C$DW$363, DW_AT_const_value(0x02)
     2788              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   52
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   52
 
     2789              $C$DW$364       .dwtag  DW_TAG_enumerator
     2790                      .dwattr $C$DW$364, DW_AT_name("GPIO_52_Mode_TZ3_NOT")
@@ -3118,10 +3118,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   5
     2841              $C$DW$377       .dwtag  DW_TAG_enumerator
     2842                      .dwattr $C$DW$377, DW_AT_name("GPIO_56_Mode_GeneralPurpose")
     2843                      .dwattr $C$DW$377, DW_AT_const_value(0x00)
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   53
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   53
 
     2844              
     2845              $C$DW$378       .dwtag  DW_TAG_enumerator
@@ -3178,10 +3178,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   5
     2896              $C$DW$389       .dwtag  DW_TAG_TI_far_type
     2897                      .dwattr $C$DW$389, DW_AT_type(*$C$DW$T$48)
     2898              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   54
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   54
 
     2899              $C$DW$T$49      .dwtag  DW_TAG_const_type
     2900                      .dwattr $C$DW$T$49, DW_AT_type(*$C$DW$389)
@@ -3238,10 +3238,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   5
     2951              
     2952              $C$DW$397       .dwtag  DW_TAG_member
     2953                      .dwattr $C$DW$397, DW_AT_type(*$C$DW$T$21)
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   55
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   55
 
     2954                      .dwattr $C$DW$397, DW_AT_name("GPAQSEL2")
     2955                      .dwattr $C$DW$397, DW_AT_TI_symbol_name("_GPAQSEL2")
@@ -3298,10 +3298,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   5
     3006                      .dwattr $C$DW$404, DW_AT_accessibility(DW_ACCESS_public)
     3007              
     3008              $C$DW$405       .dwtag  DW_TAG_member
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   56
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   56
 
     3009                      .dwattr $C$DW$405, DW_AT_type(*$C$DW$T$21)
     3010                      .dwattr $C$DW$405, DW_AT_name("GPBQSEL2")
@@ -3358,10 +3358,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   5
     3061                      .dwattr $C$DW$412, DW_AT_data_member_location[DW_OP_plus_uconst 0x38]
     3062                      .dwattr $C$DW$412, DW_AT_accessibility(DW_ACCESS_public)
     3063              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   57
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   57
 
     3064              $C$DW$413       .dwtag  DW_TAG_member
     3065                      .dwattr $C$DW$413, DW_AT_type(*$C$DW$T$21)
@@ -3418,10 +3418,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   5
     3116                      .dwattr $C$DW$420, DW_AT_TI_symbol_name("_GPBSET")
     3117                      .dwattr $C$DW$420, DW_AT_data_member_location[DW_OP_plus_uconst 0x4a]
     3118                      .dwattr $C$DW$420, DW_AT_accessibility(DW_ACCESS_public)
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   58
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   58
 
     3119              
     3120              $C$DW$421       .dwtag  DW_TAG_member
@@ -3478,10 +3478,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   5
     3171                      .dwattr $C$DW$428, DW_AT_name("GPIOXINTnSEL")
     3172                      .dwattr $C$DW$428, DW_AT_TI_symbol_name("_GPIOXINTnSEL")
     3173                      .dwattr $C$DW$428, DW_AT_data_member_location[DW_OP_plus_uconst 0x60]
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   59
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   59
 
     3174                      .dwattr $C$DW$428, DW_AT_accessibility(DW_ACCESS_public)
     3175              
@@ -3538,10 +3538,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   5
     3226                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
     3227                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
     3228              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   60
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   60
 
     3229              $C$DW$T$6       .dwtag  DW_TAG_base_type
     3230                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
@@ -3598,10 +3598,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   6
     3281                      .dwattr $C$DW$T$23, DW_AT_name("uint16_t")
     3282                      .dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$22)
     3283                      .dwattr $C$DW$T$23, DW_AT_language(DW_LANG_C)
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   61
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   61
 
     3284              
     3285              $C$DW$433       .dwtag  DW_TAG_TI_far_type
@@ -3658,10 +3658,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   6
     3336              $C$DW$438       .dwtag  DW_TAG_subrange_type
     3337                      .dwattr $C$DW$438, DW_AT_upper_bound(0x02)
     3338              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   62
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   62
 
     3339                      .dwendtag $C$DW$T$29
     3340              
@@ -3718,10 +3718,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   6
     3391              $C$DW$T$58      .dwtag  DW_TAG_const_type
     3392                      .dwattr $C$DW$T$58, DW_AT_type(*$C$DW$442)
     3393              
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   63
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   63
 
     3394              $C$DW$T$14      .dwtag  DW_TAG_base_type
     3395                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
@@ -3778,10 +3778,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   6
     3446              $C$DW$443       .dwtag  DW_TAG_TI_assign_register
     3447                      .dwattr $C$DW$443, DW_AT_name("AL")
     3448                      .dwattr $C$DW$443, DW_AT_location[DW_OP_reg0]
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   64
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   64
 
     3449              
     3450              $C$DW$444       .dwtag  DW_TAG_TI_assign_register
@@ -3838,10 +3838,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   6
     3501              
     3502              $C$DW$457       .dwtag  DW_TAG_TI_assign_register
     3503                      .dwattr $C$DW$457, DW_AT_name("PM")
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   65
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   65
 
     3504                      .dwattr $C$DW$457, DW_AT_location[DW_OP_reg31]
     3505              
@@ -3898,10 +3898,10 @@ C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   6
     3556                      .dwattr $C$DW$470, DW_AT_location[DW_OP_reg6]
     3557              
     3558              $C$DW$471       .dwtag  DW_TAG_TI_assign_register
-TMS320C2000 Assembler PC v22.6.0 Mon May  8 15:53:38 2023
+TMS320C2000 Assembler PC v22.6.0 Thu May 11 14:54:04 2023
 
 Copyright (c) 1996-2018 Texas Instruments Incorporated
-C:\Users\User\AppData\Local\Temp\{F2C11444-E7D3-4D7D-835A-01295CCA104F} PAGE   66
+C:\Users\GA5354\AppData\Local\Temp\{447484D5-A44B-4B80-BEB8-D4CBEC9989F7} PAGE   66
 
     3559                      .dwattr $C$DW$471, DW_AT_name("XAR1")
     3560                      .dwattr $C$DW$471, DW_AT_location[DW_OP_reg7]

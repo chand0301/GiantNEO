@@ -1,27 +1,27 @@
 # FIXED
 
 proj_lab21.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/solutions/instaspin_foc/src/proj_lab21.c
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/math.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_ti_config.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/linkage.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_defs.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_types.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/cdefs.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_types.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_limits.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/math.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_ti_config.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/linkage.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_defs.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_types.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/cdefs.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_types.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_limits.h
 proj_lab21.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/solutions/instaspin_foc/src/main.h
 proj_lab21.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/math/src/32b/math.h
 proj_lab21.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/limits.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/limits.h
 proj_lab21.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/string.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/xlocale/_string.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdint.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_stdint40.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/stdint.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_stdint.h
-proj_lab21.obj: C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_stdint.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/string.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/xlocale/_string.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdint.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_stdint40.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/stdint.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_stdint.h
+proj_lab21.obj: C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_stdint.h
 proj_lab21.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/memCopy/src/memCopy.h
 proj_lab21.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/est/src/32b/est.h
 proj_lab21.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/est/src/est_states.h
@@ -77,21 +77,21 @@ proj_lab21.obj: D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/fsta
 
 D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/solutions/instaspin_foc/src/proj_lab21.c:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/math.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/math.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_ti_config.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_ti_config.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/linkage.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/linkage.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_defs.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_defs.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_types.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_types.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/cdefs.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/cdefs.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_types.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_types.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_limits.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_limits.h:
 
 D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/solutions/instaspin_foc/src/main.h:
 
@@ -99,25 +99,25 @@ D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/math/src/32b/math.h:
 
 D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/iqmath/src/32b/IQmathLib.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/limits.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/limits.h:
 
 D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/types/src/types.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/string.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/string.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/xlocale/_string.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/xlocale/_string.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdint.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdint.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_stdint40.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_stdint40.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/stdint.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/stdint.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_stdint.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/machine/_stdint.h:
 
-C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_stdint.h:
+C:/ti/ccs1200/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/sys/_stdint.h:
 
 D:/GIANT/GiantNEO/motorware/motorware_1_01_00_18/sw/modules/memCopy/src/memCopy.h:
 

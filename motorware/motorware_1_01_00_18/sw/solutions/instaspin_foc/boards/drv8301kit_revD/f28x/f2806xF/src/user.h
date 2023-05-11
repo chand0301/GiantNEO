@@ -71,15 +71,15 @@ extern "C" {
 /*Drive boards are avaliable for all the labs*/
 
 //#define drv8301kit_revD //NO dcbus regulate
-#define MW_DRIVER
-//#define DRV8300DIPW_EVM
+//#define MW_DRIVER
+#define DRV8300DIPW_EVM
 
 
 /*control mode only avaliable in LAB11 and LAB21 choose one of them.*/
 
 //#define SPEEDLOOP //Project original speed control mode
-//#define CURRENTLOOP //Impedance control without referencemodel
-#define REFERENCEMODEL //Impedance control
+#define CURRENTLOOP //Impedance control without referencemodel
+//#define REFERENCEMODEL //Impedance control
 
 /*Extra fun only avaliable in LAB11 and LAB21*/
 
@@ -499,7 +499,7 @@ extern "C" {
 #define USER_MOTOR_MAGNETIZING_CURRENT  (NULL)
 #define USER_MOTOR_RES_EST_CURRENT      (1.0)
 #define USER_MOTOR_IND_EST_CURRENT      (-1.0)
-#define USER_MOTOR_MAX_CURRENT          (2.5)
+#define USER_MOTOR_MAX_CURRENT          (18.0)
 #define USER_MOTOR_FLUX_EST_FREQ_Hz     (40.0)
 #define USER_MOTOR_ENCODER_LINES        (1.0)
 #define USER_MOTOR_MAX_SPEED_KRPM       (0.27)

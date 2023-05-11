@@ -237,7 +237,7 @@ void main(void)
         // The following instructions load the parameters for the torque
         // observer.
         PID_setGains(pidHandle_Tob, _IQ(66.3692), _IQ(113.3972), _IQ(0.0));
-        PID_setMinMax(pidHandle_Tob, _IQ(-25.0), _IQ(25.0));
+        PID_setMinMax(pidHandle_Tob, _IQ(-USER_MOTOR_MAX_CURRENT), _IQ(USER_MOTOR_MAX_CURRENT));
         PID_setUi(pidHandle_Tob, _IQ(0.0));
 
         // The following instructions load the parameters for the reference
@@ -912,10 +912,10 @@ interrupt void mainISR(void)
             PID_run_torque_ob_B(pidHandle_Tob, Speed_kRPM, Iq_Amp,
                               &(torque_head));
 
-            //yPotentiometer use to control B from IQ(2.0) to IQ(20.0)
+            //yPotentiometer use to control B from IQ(2.0) to IQ(20.0) default IQ10
             yPotentiometer = _IQmpy(xPotentiometer,_IQ(18.0)) + _IQ(2.0);
 
-            //gPotentiometer use to control J from IQ(2.0) to IQ(50.0)
+            //gPotentiometer use to control J from IQ(2.0) to IQ(50.0) default IQ40
             gPotentiometer = _IQmpy(fPotentiometer,_IQ(48.0)) + _IQ(2.0);
 
             Refmodel(pidHandle_Refmodel, gPotentiometer, yPotentiometer,

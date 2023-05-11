@@ -732,8 +732,8 @@ interrupt void mainISR(void)
 
         //from IQ(-0.95) to IQ(-1.0)
         yPotentiometer = _IQmpy(xPotentiometer,_IQ(-0.05)) - _IQ(0.95);
-        yPotentiometer = _IQ(-0.1);
-
+        //yPotentiometer = _IQ(-0.1);
+        torque_head_comm = _IQmpy(torque_head,yPotentiometer) + _IQ(0.0);
 
         gIdq_ref_pu.value[0] = _IQdiv(gMotorVars.IdRef_A,_IQ(USER_IQ_FULL_SCALE_CURRENT_A));
         gIdq_ref_pu.value[1] = _IQdiv(torque_head_comm ,_IQ(USER_IQ_FULL_SCALE_CURRENT_A));
@@ -749,10 +749,11 @@ interrupt void mainISR(void)
 
         //yPotentiometer use to control B from IQ(2.0) to IQ(20.0)
         yPotentiometer = _IQmpy(xPotentiometer,_IQ(18.0)) + _IQ(2.0);
+        //yPotentiometer = _IQ(2.0);
 
         //gPotentiometer use to control J from IQ(2.0) to IQ(50.0)
-        //gPotentiometer = _IQmpy(fPotentiometer,_IQ(48.0)) + _IQ(2.0);
-        gPotentiometer = _IQ(30.0);
+        gPotentiometer = _IQmpy(fPotentiometer,_IQ(48.0)) + _IQ(2.0);
+        //gPotentiometer = _IQ(30.0);
 
         Refmodel(pidHandle[4], gPotentiometer, yPotentiometer, torque_head,
                  &(refspeed)); //NM -> KRPM

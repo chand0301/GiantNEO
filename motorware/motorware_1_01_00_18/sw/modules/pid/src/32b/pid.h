@@ -285,7 +285,7 @@ static inline void PID_run_torque_ob_B(PID_Handle handle,
     _iq speed_fback;
     _iq Torque_sum;
     //Therhold 35 RPM ~= 3km/hr
-    if (_IQabs(refValue_speed) < _IQ(0.035))
+    if (_IQabs(refValue_speed) < _IQ(0.005))
     {
         Ui = _IQ(0.0);
         Acc = _IQ(0.0);
@@ -350,7 +350,7 @@ static inline void PID_run_torque_ob(PID_Handle handle,
     _iq speed_fback;
     _iq Torque_sum;
     //Therhold 35 RPM ~= 3km/hr
-    if (_IQabs(refValue_speed) < _IQ(0.035))
+    if (_IQabs(refValue_speed) < _IQ(0.005))
     {
         Ui = _IQ(0.0);
         Acc = _IQ(0.0);

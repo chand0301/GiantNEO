@@ -334,7 +334,7 @@ USART communicate with computer.
 
 | Rs               | Ld          | Lq          | $$\lambda$$ | Kt(Nm/A)  | Ke(RPM/Vdc)  |
 | ---------------- | ----------- | ----------- | ----------- |:---:| --- |
-| 0.0534$$\Omega$$ | 0.0000512 H | 0.0000512 H | 0.237       |  1  |  250RPM/48V   |
+| 0.0534 $$\Omega$$ | 0.0000512 H | 0.0000512 H | 0.237       |  1  |  250RPM/48V   |
 
 
 ## TO DO ...
@@ -360,6 +360,6 @@ USART communicate with computer.
 
 - [ ] 增加馬達物理和電汽模型(J、B、Rs、Ld、Lq)的準確度
 
-- [ ] dcbus偵測，區分兩種模式->有dc OR 沒dc
+- [ ] dcbus偵測，區分兩種模式並設計狀態機->有dc OR 沒dc
 
 - [ ] 利用J、B調變模擬石頭路、沙子路。

@@ -90,7 +90,7 @@ It is a modified [InstaSPIN-FOC](https://www.ti.com/tool/MOTORWARE) project for 
 
 7. Open Scripting console and load proj_lab21.js
 
-    `"D:\GIANT\GIANT_TI_instaspin\GiantNEO\motorware\motorware_1_01_00_18\sw\solutions\instaspin_foc\src\proj_lab11.js"`
+    `"D:\GIANT\GiantNEO\motorware\motorware_1_01_00_18\sw\solutions\instaspin_foc\src\proj_lab11.js"`
 
 
 8. Set gMotorVars.Flag_enableSys = 1 gMotorVars.Flag_Run_Identify =1
@@ -153,6 +153,8 @@ TO be continue...
 | ------ | ------ | ------------------- | --- |
 | 110V   | 20A    |        85A         |   2.2kW  |
 
+$$輸出功率 = 85Nm \times (\frac{250RPM}{60})\times 2 \pi \cong 2.2kW$$
+
 電動機模式
 
 | DC電壓 | DC電流 | 
@@ -166,6 +168,10 @@ TO be continue...
 | DC電壓 | DC電流 | Phase current(Peak) | 功率    |
 | ------ | ------ | ------------------- | --- |
 | 80V    | 20A    |      61A           |   1.6kW  |
+
+ 
+
+$$輸出功率 = 60Nm \times (\frac{250RPM}{60})\times 2 \pi \cong 1.6kW$$
 
 電動機模式
 
@@ -184,6 +190,8 @@ TO be continue...
 | DC電壓 | DC電流 | Phase current(Peak) | 功率    |
 | ------ | ------ | ------------------- | --- |
 | 48V    | 10A    |      25A           |   600W  |
+
+$$輸出功率 = 25Nm \times (\frac{250RPM}{60})\times 2 \pi \cong 600W$$
 
 電動機模式
 
@@ -253,7 +261,7 @@ Checks for errors in the user parameter values.
 * LAB 11b Vibration Compensation
 * LAB 9 field weakening(弱磁控制)
 * LAB 10-a over-modulation
-* LAB 10-b Flying start
+* LAB 10-e Flying start
 * LAB 10-d dual motor control
 * LAB 05d e f  SpinTAC Speed Controller
     
@@ -271,7 +279,7 @@ Checks for errors in the user parameter values.
 |   SPEED主動模式   |   SPEED主動模式    |
 |  CURRENT阻力模式  |  CURRENT阻力模式   |
 | REFERENCE阻力模式 | REFERENCE阻力模式  |
-|  DCBUS保護(48V)   |   DCBUS保護(48V)   |
+|  DCBUS保護(60V)   |   DCBUS保護(60V)   |
 
 
 
@@ -309,6 +317,25 @@ USART communicate with computer.
 2. Add USART function in LAB11 and LAB21 only for debugging.
 3. Remove unnecessary files in the project.
 
+## TACXNEO馬達規格
+
+:pushpin:本實驗所使用馬達基本參數如下表
+
+|            馬達型號            | Tacxneo 2t |
+|:------------------------------:|:----------:|
+|     額定電壓 Rated Voltage     |   100VDC    |
+|      額定功率 Rated Power      |   2.2 kW   |
+|     額定轉矩 Rated Torque      |    45Nm    |
+| 額定相電流 Rated Phase Current |   45.8A    |
+|      額定轉速 Rated Speed      |  250 RPM   |
+
+
+:pushpin:電氣參數
+
+| Rs               | Ld          | Lq          | $$\lambda$$ | Kt(Nm/A)  | Ke(RPM/Vdc)  |
+| ---------------- | ----------- | ----------- | ----------- |:---:| --- |
+| 0.0534$$\Omega$$ | 0.0000512 H | 0.0000512 H | 0.237       |  1  |  250RPM/48V   |
+
 
 ## TO DO ...
 
@@ -319,24 +346,20 @@ USART communicate with computer.
 - [ ] 驅動硬體目前由EMTRC開發中 預期規格 1.6 kW
 - [ ] HFI模式能夠解決Sliding mode在低速高扭力情況下，振動問題，但HFI有時會出現噪音情況。
 
-    ![](https://i.imgur.com/ALzTI6T.png)
 
 - [ ] 速度控制器響應
 
     目前專案速度控制器是使用PI，可以換成專案中MOTION部分所提供的速度控制器SpinTAC
 
-    ![](https://i.imgur.com/Am9v5zH.png)
 
 - [ ] 路感舒適度-運動科學，可以繪製花生圖去分析路感情況。
     
-    ![](https://i.imgur.com/fnB0BFo.png)
 
 - [ ] MW_DRIVER board 建議增加48V 12V 3.3V 指示燈，還有PWM訊號測試腳
 - [ ] 目前Torque observer是PI type的控制器設計且固定頻寬，未來可以試試看**IP controller**或者使**頻寬可調**。
 
-    ![](https://i.imgur.com/Cz29jbQ.png)
-
 - [ ] 增加馬達物理和電汽模型(J、B、Rs、Ld、Lq)的準確度
 
-
 - [ ] dcbus偵測，區分兩種模式->有dc OR 沒dc
+
+- [ ] 利用J、B調變模擬石頭路、沙子路。
